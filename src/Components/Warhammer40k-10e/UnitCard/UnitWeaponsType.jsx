@@ -1,6 +1,6 @@
 import { UnitWeapon } from "./UnitWeapon";
 
-export const UnitWeaponsType = ({ weapons, weaponType }) => {
+export const UnitWeaponsType = ({ weapons, weaponType, fontSize }) => {
   return (
     <div className={weaponType.class}>
       <div className="heading">
@@ -13,7 +13,7 @@ export const UnitWeaponsType = ({ weapons, weaponType }) => {
         <div className="title center">D</div>
       </div>
       {weapons?.map((weapon, index) => (
-        <UnitWeapon weapon={weapon} key={`weapon-${index}`} />
+        <UnitWeapon weapon={weapon} key={`weapon-${index}`} style={{ fontSize: `${fontSize}px` }} />
       ))}
     </div>
   );

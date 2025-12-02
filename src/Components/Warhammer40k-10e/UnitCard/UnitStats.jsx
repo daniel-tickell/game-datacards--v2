@@ -1,7 +1,8 @@
 import { ReactFitty } from "react-fitty";
 import { UnitStat } from "./UnitStat";
 
-export const UnitStats = ({ stats }) => {
+export const UnitStats = ({ stats, fontSize }) => {
+  const statsFontSize = fontSize || 14;
   const statHeaders = [
     { text: "M", value: "m" },
     { text: "T", value: "t" },
@@ -35,12 +36,16 @@ export const UnitStats = ({ stats }) => {
         ?.map((stat, index) => {
           return (
             <div className="stats_container" key={`stat-line-${index}`}>
-              <UnitStat value={stat.m} />
-              <UnitStat value={stat.t} />
-              <UnitStat value={stat.sv} />
-              <UnitStat value={stat.w} showDamagedMarker={stat.showDamagedMarker} />
-              <UnitStat value={stat.ld} />
-              <UnitStat value={stat.oc} />
+              <UnitStat value={stat.m} style={{ fontSize: `${statsFontSize}px` }} />
+              <UnitStat value={stat.t} style={{ fontSize: `${statsFontSize}px` }} />
+              <UnitStat value={stat.sv} style={{ fontSize: `${statsFontSize}px` }} />
+              <UnitStat
+                value={stat.w}
+                showDamagedMarker={stat.showDamagedMarker}
+                style={{ fontSize: `${statsFontSize}px` }}
+              />
+              <UnitStat value={stat.ld} style={{ fontSize: `${statsFontSize}px` }} />
+              <UnitStat value={stat.oc} style={{ fontSize: `${statsFontSize}px` }} />
               {stat.showName && (
                 <div className="name">
                   <ReactFitty maxSize={16} minSize={10}>

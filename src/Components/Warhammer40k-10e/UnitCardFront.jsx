@@ -75,6 +75,10 @@ export const UnitCardFront = ({ unit, cardStyle, paddingTop = "32px", className 
         justifyContent: "center",
         justifyItems: "center",
         display: "flex",
+        "--header-colour": unit.headerColor || "#456664",
+        "--banner-colour": unit.bannerColor || "#103344",
+        "--stat-text-colour": unit.headerColor || "#456664",
+        "--weapon-keyword-colour": unit.headerColor || "#456664",
       }}>
       <div className={`unit front`} data-name={unit.name} data-fullname={`${unit.name} ${unit.subname}`}>
         <div className={"header"}>
@@ -90,7 +94,7 @@ export const UnitCardFront = ({ unit, cardStyle, paddingTop = "32px", className 
             imagePositionX={unit.imagePositionX}
             imagePositionY={unit.imagePositionY}
           />
-          <UnitStats stats={unit.stats} />
+          <UnitStats stats={unit.stats} fontSize={unit.statsFontSize} />
           <div className="stats_container" key={`stat-line-invul`}>
             {unit.abilities?.invul?.showInvulnerableSave && unit.abilities?.invul?.showAtTop && (
               <UnitInvulTop invul={unit.abilities?.invul} />
@@ -99,13 +103,13 @@ export const UnitCardFront = ({ unit, cardStyle, paddingTop = "32px", className 
         </div>
         <div className="data_container">
           <div className="data">
-            <UnitWeapons unit={unit} />
-            <UnitExtra unit={unit} />
+            <UnitWeapons unit={unit} fontSize={unit.weaponsFontSize} />
+            <UnitExtra unit={unit} fontSize={unit.abilitiesFontSize} />
           </div>
         </div>
         <div className="footer">
-          <UnitKeywords keywords={unit.keywords} />
-          <UnitFactions factions={unit.factions} />
+          <UnitKeywords keywords={unit.keywords} fontSize={unit.keywordsFontSize} />
+          <UnitFactions factions={unit.factions} fontSize={unit.factionsFontSize} />
         </div>
         <div className="faction">
           <div className={unit.faction_id}></div>

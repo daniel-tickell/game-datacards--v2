@@ -121,9 +121,9 @@ export function replaceKeywords(inputString) {
   });
 }
 
-export const UnitAbilityDescription = ({ name, description, showDescription }) => {
+export const UnitAbilityDescription = ({ name, description, showDescription, style }) => {
   return (
-    <div className="ability">
+    <div className="ability" style={style}>
       <span className="name">{name}</span>
       {showDescription && <span className="description">{replaceKeywords(description)}</span>}
     </div>

@@ -4,15 +4,19 @@
   .ant-drawer-title {
     color: white;
   }
+
   .ant-drawer-close {
     color: white;
   }
+
   .ant-drawer-body {
     padding: 0px;
   }
+
   .ant-list {
     border: 0px;
   }
+
   .ant-drawer-content-wrapper {
     width: 100% !important;
   }
@@ -30,19 +34,23 @@
     background-color: #00000011;
   }
 }
+
 .keyword-popover {
   .ant-popover-inner-content {
     background-color: rgba(0, 0, 0, 0.75) !important;
     color: white;
   }
+
   width: 450px;
 }
+
 .points_table-container {
   .ant-popover-inner-content {
     padding: 0px 0px;
     background-color: var(--title-background-colour);
     border: 1px solid white;
   }
+
   .point-tabel {
     padding: 8px;
     font-family: "Heebo", sans-serif;
@@ -62,6 +70,7 @@
       letter-spacing: var(--title-letter-spacing);
       z-index: 2;
     }
+
     tbody {
       background-color: var(--text-background-colour);
       color: var(--text-text-colour);
@@ -81,23 +90,29 @@
 @media only screen and (max-width: 600px) {
   .multi-line {
     position: relative;
+
     .value:first-child {
       padding-left: 18px;
     }
   }
+
   .ant-tabs-nav-wrap {
     background-color: white;
+
     .ant-tabs-nav-list {
       width: 90%;
+
       .ant-tabs-ink-bar {
         border-color: var(--header-colour) !important;
         background-color: var(--header-colour) !important;
       }
+
       .ant-tabs-tab-active {
         .ant-tabs-tab-btn {
           color: var(--banner-colour);
         }
       }
+
       .ant-tabs-tab {
         display: flex;
         justify-content: center;
@@ -105,6 +120,7 @@
       }
     }
   }
+
   .shared-stratagem {
     height: var(--height);
     width: var(--width);
@@ -115,167 +131,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    each(@factions, {
-        &.@{value}::before {
-          content: " ";
-          display: block;
-          position: absolute;
-          left: 0;
-          top: 50%;
-          width: 100%;
-          transform: translateY(-75px);
-          height: 150px;
-          opacity: 0.1;
-          background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/dc/@{value}.svg");
-          background-repeat: no-repeat;
-          background-size: contain;
-          background-position: center;
-        }
-      });
-    &.AM::before {
-      content: " ";
-      display: block;
-      position: absolute;
-      left: 0;
-      top: 55%;
-      width: 100%;
-      transform: translateY(-75px);
-      height: 85px;
-      opacity: 0.1;
-      background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/dc/AM.svg");
-      background-repeat: no-repeat;
-      background-size: contain;
-      background-position: center;
-    }
-    &.basic::before {
-      content: " ";
-      display: block;
-      position: absolute;
-      left: 0;
-      top: 50%;
-      width: 100%;
-      transform: translateY(-75px);
-      height: 150px;
-      opacity: 0.1;
-      background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/dc/logo_large.png");
-      background-repeat: no-repeat;
-      background-size: contain;
-      background-position: center;
-    }
-    background-color: var(--stratagem-colour);
-    .border {
-      background-color: white;
-      border-radius: 8px;
-      height: calc(var(--height) - 2px);
-      width: calc(var(--width) - 2px);
-      max-width: calc(var(100vw) - 2px);
-      .background-side-bar {
-        position: absolute;
-        top: 22.67px;
-        left: 22.67px;
-        height: calc(var(--height) - 81px);
-        width: 15.11px;
-        background-color: var(--stratagem-colour);
-      }
-      .background-header-bar {
-        position: absolute;
-        top: 32.12px;
-        left: 41.57px;
-        height: 3.77px;
-        width: calc(var(--width) - 60px);
-        background-color: var(--stratagem-colour);
-      }
-      .header {
-        padding-left: 4px;
-        position: absolute;
-        top: 9.44px;
-        left: 52.91px;
-        color: var(--stratagem-colour);
-        width: calc(var(--width) - 60px);
-        font-size: 1.1rem;
-        text-transform: uppercase;
-        font-weight: 600;
-      }
-      .type {
-        padding-left: 4px;
-        position: absolute;
-        top: 35.9px;
-        left: 52.91px;
-        width: calc(var(--width) - 60px);
-        font-size: 0.8rem;
-        text-transform: uppercase;
-        font-weight: 600;
-        border-bottom: 1px dotted #aaadb0;
-      }
-      .content {
-        position: absolute;
-        top: 56.69px;
-        left: 52.91px;
-        width: calc(var(--width) - 60px);
-        height: calc(var(--height) - 148px);
-        padding-left: 4px;
-        .section {
-          padding-top: 4px;
-          line-height: 1rem;
-          width: calc(var(--width) - 60px);
 
-          .title {
-            text-transform: uppercase;
-            color: var(--stratagem-colour);
-            font-size: 0.7rem;
-            font-weight: 600;
-            padding-right: 4px;
-          }
-          .text {
-            color: black;
-            font-size: 0.7rem;
-            font-weight: 400;
-          }
-        }
-      }
-      .containers {
-        position: absolute;
-        display: flex;
-        flex-direction: column;
-
-        gap: 20px;
-
-        width: 35.9px;
-        height: auto;
-
-        top: 16.06px;
-        left: 12.28px;
-
-        .cp-container {
-          height: 35.9px;
-          width: 35.9px;
-          border: 3.4px solid var(--stratagem-colour);
-          background-color: var(--rows-colour);
-
-          rotate: 45deg;
-          overflow: hidden;
-          line-height: 28.34px;
-
-          .value {
-            rotate: -45deg;
-            text-align: center;
-            font-weight: 600;
-            color: var(--stratagem-colour);
-            font-size: 1.1rem;
-          }
-        }
-      }
-    }
-  }
-  .shared-enhancement {
-    height: var(--height);
-    width: var(--width);
-    transform: scale3d(var(--card-scaling-factor), var(--card-scaling-factor), var(--card-scaling-factor));
-    border-radius: 8px;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     each(@factions, {
       &.@{value}::before {
         content: " ";
@@ -293,22 +149,166 @@
         background-position: center;
       }
     });
-    &.AM::before {
-      content: " ";
-      display: block;
+
+  &.AM::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 55%;
+    width: 100%;
+    transform: translateY(-75px);
+    height: 85px;
+    opacity: 0.1;
+    background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/dc/AM.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+
+  &.basic::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-75px);
+    height: 150px;
+    opacity: 0.1;
+    background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/dc/logo_large.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+
+  background-color: var(--stratagem-colour);
+
+  .border {
+    background-color: white;
+    border-radius: 8px;
+    height: calc(var(--height) - 2px);
+    width: calc(var(--width) - 2px);
+    max-width: calc(var(100vw) - 2px);
+
+    .background-side-bar {
       position: absolute;
-      left: 0;
-      top: 55%;
-      width: 100%;
-      transform: translateY(-75px);
-      height: 85px;
-      opacity: 0.1;
-      background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/dc/AM.svg");
-      background-repeat: no-repeat;
-      background-size: contain;
-      background-position: center;
+      top: 22.67px;
+      left: 22.67px;
+      height: calc(var(--height) - 81px);
+      width: 15.11px;
+      background-color: var(--stratagem-colour);
     }
-    &.basic::before {
+
+    .background-header-bar {
+      position: absolute;
+      top: 32.12px;
+      left: 41.57px;
+      height: 3.77px;
+      width: calc(var(--width) - 60px);
+      background-color: var(--stratagem-colour);
+    }
+
+    .header {
+      padding-left: 4px;
+      position: absolute;
+      top: 9.44px;
+      left: 52.91px;
+      color: var(--stratagem-colour);
+      width: calc(var(--width) - 60px);
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .type {
+      padding-left: 4px;
+      position: absolute;
+      top: 35.9px;
+      left: 52.91px;
+      width: calc(var(--width) - 60px);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      font-weight: 600;
+      border-bottom: 1px dotted #aaadb0;
+    }
+
+    .content {
+      position: absolute;
+      top: 56.69px;
+      left: 52.91px;
+      width: calc(var(--width) - 60px);
+      height: calc(var(--height) - 148px);
+      padding-left: 4px;
+
+      .section {
+        padding-top: 4px;
+        line-height: 1rem;
+        width: calc(var(--width) - 60px);
+
+        .title {
+          text-transform: uppercase;
+          color: var(--stratagem-colour);
+          font-size: 0.7rem;
+          font-weight: 600;
+          padding-right: 4px;
+        }
+
+        .text {
+          color: black;
+          font-size: 0.7rem;
+          font-weight: 400;
+        }
+      }
+    }
+
+    .containers {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+
+      gap: 20px;
+
+      width: 35.9px;
+      height: auto;
+
+      top: 16.06px;
+      left: 12.28px;
+
+      .cp-container {
+        height: 35.9px;
+        width: 35.9px;
+        border: 3.4px solid var(--stratagem-colour);
+        background-color: var(--rows-colour);
+
+        rotate: 45deg;
+        overflow: hidden;
+        line-height: 28.34px;
+
+        .value {
+          rotate: -45deg;
+          text-align: center;
+          font-weight: 600;
+          color: var(--stratagem-colour);
+          font-size: 1.1rem;
+        }
+      }
+    }
+  }
+}
+
+.shared-enhancement {
+  height: var(--height);
+  width: var(--width);
+  transform: scale3d(var(--card-scaling-factor), var(--card-scaling-factor), var(--card-scaling-factor));
+  border-radius: 8px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  each(@factions, {
+    &.@{value}::before {
       content: " ";
       display: block;
       position: absolute;
@@ -318,211 +318,132 @@
       transform: translateY(-75px);
       height: 150px;
       opacity: 0.1;
-      background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/dc/logo_large.png");
+      background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/dc/@{value}.svg");
       background-repeat: no-repeat;
       background-size: contain;
       background-position: center;
     }
+  });
+
+&.AM::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 55%;
+  width: 100%;
+  transform: translateY(-75px);
+  height: 85px;
+  opacity: 0.1;
+  background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/dc/AM.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+&.basic::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  transform: translateY(-75px);
+  height: 150px;
+  opacity: 0.1;
+  background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/dc/logo_large.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+background-color: var(--header-colour);
+
+.border {
+  background-color: white;
+  border-radius: 8px;
+  height: calc(var(--height) - 2px);
+  width: calc(var(--width) - 2px);
+
+  .background-side-bar {
+    position: absolute;
+    top: 22.67px;
+    left: 22.67px;
+    height: calc(var(--height) - 81px);
+    width: 15.11px;
     background-color: var(--header-colour);
-    .border {
-      background-color: white;
-      border-radius: 8px;
-      height: calc(var(--height) - 2px);
-      width: calc(var(--width) - 2px);
-      .background-side-bar {
-        position: absolute;
-        top: 22.67px;
-        left: 22.67px;
-        height: calc(var(--height) - 81px);
-        width: 15.11px;
-        background-color: var(--header-colour);
-      }
-      .background-header-bar {
-        position: absolute;
-        top: 32.12px;
-        left: 41.57px;
-        height: 3.77px;
-        width: calc(var(--width) - 60px);
-        background-color: var(--header-colour);
-      }
-      .header {
-        padding-left: 4px;
-        position: absolute;
-        top: 9.44px;
-        left: 52.91px;
-        color: var(--header-colour);
-        width: calc(var(--width) - 60px);
-        font-size: 1.1rem;
-        text-transform: uppercase;
-        font-weight: 600;
-      }
-      .type {
-        padding-left: 4px;
-        position: absolute;
-        top: 35.9px;
-        left: 52.91px;
-        width: calc(var(--width) - 60px);
-        font-size: 0.8rem;
-        text-transform: uppercase;
-        font-weight: 600;
-        border-bottom: 1px dotted #aaadb0;
-      }
-      .content {
-        position: absolute;
-        top: 56.69px;
-        left: 52.91px;
-        width: calc(var(--width) - 60px);
-        height: calc(var(--height) - 148px);
-        padding-left: 4px;
-        .section {
-          padding-top: 4px;
-          line-height: 1rem;
-          width: calc(var(--width) - 60px);
-          color: black;
-          font-size: 0.7em;
-          font-weight: 400;
-        }
-      }
-      .containers {
-        position: absolute;
-        display: flex;
-        flex-direction: column;
-
-        gap: 20px;
-
-        width: 35.9px;
-        height: auto;
-
-        top: 16.06px;
-        left: 12.28px;
-
-        .cost-container {
-          height: 35.9px;
-          width: 35.9px;
-          border: 3.4px solid var(--header-colour);
-          background-color: var(--rows-colour);
-
-          rotate: 45deg;
-          overflow: hidden;
-          line-height: 28.34px;
-
-          .value {
-            rotate: -45deg;
-            text-align: center;
-            font-weight: 600;
-            color: var(--header-colour);
-            font-size: 1.1rem;
-            padding-right: 2px;
-          }
-        }
-      }
-    }
   }
 
-  .stratagem {
-    position: relative;
+  .background-header-bar {
+    position: absolute;
+    top: 32.12px;
+    left: 41.57px;
+    height: 3.77px;
+    width: calc(var(--width) - 60px);
+    background-color: var(--header-colour);
+  }
 
-    .type {
+  .header {
+    padding-left: 4px;
+    position: absolute;
+    top: 9.44px;
+    left: 52.91px;
+    color: var(--header-colour);
+    width: calc(var(--width) - 60px);
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .type {
+    padding-left: 4px;
+    position: absolute;
+    top: 35.9px;
+    left: 52.91px;
+    width: calc(var(--width) - 60px);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    border-bottom: 1px dotted #aaadb0;
+  }
+
+  .content {
+    position: absolute;
+    top: 56.69px;
+    left: 52.91px;
+    width: calc(var(--width) - 60px);
+    height: calc(var(--height) - 148px);
+    padding-left: 4px;
+
+    .section {
+      padding-top: 4px;
+      line-height: 1rem;
+      width: calc(var(--width) - 60px);
       color: black;
-      font-size: 0.9rem !important;
-      line-height: 0.9rem !important;
-    }
-
-    .content {
-      height: auto;
-
-      .section {
-        &:nth-of-type(1) {
-          padding-top: 0px;
-        }
-        padding-top: 4px;
-        .title {
-          text-transform: uppercase;
-          color: var(--banner-colour);
-          font-weight: 600;
-          padding-right: 4px;
-        }
-        .text {
-          color: black;
-          font-size: 0.9rem !important;
-          line-height: 0.9rem !important;
-        }
-      }
-    }
-    .type-container {
-      height: 35.9px;
-      width: 35.9px;
-      border: 3.4px solid var(--header-colour);
-      background-color: var(--rows-colour);
-      position: absolute;
-      top: 16.06px;
-      left: 12.28px;
-      rotate: 45deg;
-      overflow: hidden;
-    }
-    .cp-container {
-      height: 35.9px;
-      width: 35.9px;
-      border: 3.4px solid var(--header-colour);
-      background-color: var(--rows-colour);
-      position: absolute;
-      top: 83.14px;
-      left: 12.28px;
-      rotate: 45deg;
-      overflow: hidden;
-      line-height: 28.34px;
-
-      .value {
-        rotate: -45deg;
-        text-align: center;
-        font-weight: 600;
-        color: var(--header-colour);
-        font-size: 1.1rem;
-      }
+      font-size: 0.7em;
+      font-weight: 400;
     }
   }
-  .enhancement {
-    position: relative;
 
-    .content {
-      height: auto;
-      .section {
-        &:nth-of-type(1) {
-          padding-top: 0px;
-        }
-        padding-top: 4px;
-        .title {
-          text-transform: uppercase;
-          color: var(--banner-colour);
-          font-weight: 600;
-          padding-right: 4px;
-        }
-        .text {
-          color: black;
-          font-size: 0.9rem;
-          line-height: 0.9rem;
-        }
-      }
-    }
-    .type-container {
-      height: 35.9px;
-      width: 35.9px;
-      border: 3.4px solid var(--header-colour);
-      background-color: var(--rows-colour);
-      position: absolute;
-      top: 16.06px;
-      left: 12.28px;
-      rotate: 45deg;
-      overflow: hidden;
-    }
+  .containers {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+
+    gap: 20px;
+
+    width: 35.9px;
+    height: auto;
+
+    top: 16.06px;
+    left: 12.28px;
+
     .cost-container {
       height: 35.9px;
       width: 35.9px;
       border: 3.4px solid var(--header-colour);
       background-color: var(--rows-colour);
-      position: absolute;
-      top: 83.14px;
-      left: 12.28px;
+
       rotate: 45deg;
       overflow: hidden;
       line-height: 28.34px;
@@ -533,63 +454,201 @@
         font-weight: 600;
         color: var(--header-colour);
         font-size: 1.1rem;
-      }
-    }
-  }
-
-  html {
-    font-size: 15px;
-  }
-
-  .welcome-background {
-    border-radius: 4px;
-    width: 100%;
-    height: 100vh;
-    position: absolute;
-    background: white;
-    top: 0;
-    left: 0;
-    transform: initial;
-
-    z-index: 10000;
-
-    .welcome-cover {
-      // height: 100vh;
-    }
-
-    .whatsnew-container {
-      width: 100%;
-      height: 100vh;
-      top: 0;
-      left: 0;
-      transform: initial;
-
-      .whatsnew-content {
-        overflow-y: auto;
-        height: calc(100vh - 175px);
-      }
-    }
-  }
-  .list-item {
-    each(@factions, {
-      .@{value}::before {
-      right: 80px;
-    }}) &.legends {
-      &::before {
-        position: absolute;
-        right: 86px;
-        content: "L";
-        font-size: 1.3rem;
-        font-weight: 600;
-        font-family: "EB Garamond", serif;
+        padding-right: 2px;
       }
     }
   }
 }
+}
+
+.stratagem {
+  position: relative;
+
+  .type {
+    color: black;
+    font-size: 0.9rem !important;
+    line-height: 0.9rem !important;
+  }
+
+  .content {
+    height: auto;
+
+    .section {
+      &:nth-of-type(1) {
+        padding-top: 0px;
+      }
+
+      padding-top: 4px;
+
+      .title {
+        text-transform: uppercase;
+        color: var(--banner-colour);
+        font-weight: 600;
+        padding-right: 4px;
+      }
+
+      .text {
+        color: black;
+        font-size: 0.9rem !important;
+        line-height: 0.9rem !important;
+      }
+    }
+  }
+
+  .type-container {
+    height: 35.9px;
+    width: 35.9px;
+    border: 3.4px solid var(--header-colour);
+    background-color: var(--rows-colour);
+    position: absolute;
+    top: 16.06px;
+    left: 12.28px;
+    rotate: 45deg;
+    overflow: hidden;
+  }
+
+  .cp-container {
+    height: 35.9px;
+    width: 35.9px;
+    border: 3.4px solid var(--header-colour);
+    background-color: var(--rows-colour);
+    position: absolute;
+    top: 83.14px;
+    left: 12.28px;
+    rotate: 45deg;
+    overflow: hidden;
+    line-height: 28.34px;
+
+    .value {
+      rotate: -45deg;
+      text-align: center;
+      font-weight: 600;
+      color: var(--header-colour);
+      font-size: 1.1rem;
+    }
+  }
+}
+
+.enhancement {
+  position: relative;
+
+  .content {
+    height: auto;
+
+    .section {
+      &:nth-of-type(1) {
+        padding-top: 0px;
+      }
+
+      padding-top: 4px;
+
+      .title {
+        text-transform: uppercase;
+        color: var(--banner-colour);
+        font-weight: 600;
+        padding-right: 4px;
+      }
+
+      .text {
+        color: black;
+        font-size: 0.9rem;
+        line-height: 0.9rem;
+      }
+    }
+  }
+
+  .type-container {
+    height: 35.9px;
+    width: 35.9px;
+    border: 3.4px solid var(--header-colour);
+    background-color: var(--rows-colour);
+    position: absolute;
+    top: 16.06px;
+    left: 12.28px;
+    rotate: 45deg;
+    overflow: hidden;
+  }
+
+  .cost-container {
+    height: 35.9px;
+    width: 35.9px;
+    border: 3.4px solid var(--header-colour);
+    background-color: var(--rows-colour);
+    position: absolute;
+    top: 83.14px;
+    left: 12.28px;
+    rotate: 45deg;
+    overflow: hidden;
+    line-height: 28.34px;
+
+    .value {
+      rotate: -45deg;
+      text-align: center;
+      font-weight: 600;
+      color: var(--header-colour);
+      font-size: 1.1rem;
+    }
+  }
+}
+
+html {
+  font-size: 15px;
+}
+
+.welcome-background {
+  border-radius: 4px;
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  background: white;
+  top: 0;
+  left: 0;
+  transform: initial;
+
+  z-index: 10000;
+
+  .welcome-cover {
+    // height: 100vh;
+  }
+
+  .whatsnew-container {
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    transform: initial;
+
+    .whatsnew-content {
+      overflow-y: auto;
+      height: calc(100vh - 175px);
+    }
+  }
+}
+
+.list-item {
+  each(@factions, {
+    .@{value}::before {
+      right: 80px;
+    }
+
+  }) &.legends {
+  &::before {
+    position: absolute;
+    right: 86px;
+    content: "L";
+    font-size: 1.3rem;
+    font-weight: 600;
+    font-family: "EB Garamond", serif;
+  }
+}
+}
+}
+
 @media only screen and (min-width: 600px) {
   html {
     font-size: 16px;
   }
+
   .list-item {
     &.legends {
       &::before {
@@ -647,6 +706,7 @@
 
           rotate: -45deg;
         }
+
         .charge {
           mask: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/dc/10th/charge.svg");
           mask-repeat: no-repeat;
@@ -664,6 +724,7 @@
 
           rotate: -45deg;
         }
+
         .fight {
           mask: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/dc/10th/combat.svg");
           mask-repeat: no-repeat;
@@ -678,6 +739,7 @@
 
           rotate: -45deg;
         }
+
         .command {
           mask: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/dc/10th/command.svg");
           mask-repeat: no-repeat;
@@ -692,6 +754,7 @@
 
           rotate: -45deg;
         }
+
         .movement {
           mask: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/dc/10th/movement.svg");
           mask-repeat: no-repeat;
@@ -706,6 +769,7 @@
 
           rotate: -45deg;
         }
+
         .shooting {
           mask: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/dc/10th/shooting.svg");
           mask-repeat: no-repeat;
@@ -757,10 +821,12 @@
         padding-left: 15px;
         margin-left: 4px;
       }
+
       .header,
       .cp-container {
         display: none;
       }
+
       .containers {
         .type-container {
           height: 25px;
@@ -770,20 +836,24 @@
           left: -6.4px;
         }
       }
+
       .type {
         margin-left: 5px;
       }
     }
+
     .enhancement {
       .border {
         border-left: 5px solid var(--stratagem-colour);
         padding-left: 15px;
         margin-left: 4px;
       }
+
       .header,
       .cp-container {
         display: none;
       }
+
       .containers {
         .type-container {
           height: 25px;
@@ -793,13 +863,15 @@
           left: -6.4px;
         }
       }
+
       .type {
         margin-left: 5px;
       }
     }
   }
 
-  @media print, (min-width: 600px) {
+  @media print,
+  (min-width: 600px) {
     .stratagem {
       height: var(--height);
       width: var(--width);
@@ -809,6 +881,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+
       each(@factions, {
         &.@{value}::before {
           content: " ";
@@ -826,425 +899,356 @@
           background-position: center;
         }
       });
-      &.AM::before {
-        content: " ";
-        display: block;
-        position: absolute;
-        left: 0;
-        top: 55%;
-        width: 100%;
-        transform: translateY(-75px);
-        height: 85px;
-        opacity: 0.1;
-        background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/dc/AM.svg");
-        background-repeat: no-repeat;
-        background-size: contain;
-        background-position: center;
-      }
-      &.basic::before {
-        content: " ";
-        display: block;
-        position: absolute;
-        left: 0;
-        top: 50%;
-        width: 100%;
-        transform: translateY(-75px);
-        height: 150px;
-        opacity: 0.1;
-        background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/dc/logo_large.png");
-        background-repeat: no-repeat;
-        background-size: contain;
-        background-position: center;
-      }
-      background-color: var(--stratagem-colour);
-      .border {
-        background-color: white;
-        border-radius: 8px;
-        height: calc(var(--height) - 2px);
-        width: calc(var(--width) - 2px);
-        .background-side-bar {
-          position: absolute;
-          top: 22.67px;
-          left: 22.67px;
-          height: calc(var(--height) - 81px);
-          width: 15.11px;
-          background-color: var(--stratagem-colour);
-        }
-        .background-header-bar {
-          position: absolute;
-          top: 32.12px;
-          left: 41.57px;
-          height: 3.77px;
-          width: calc(var(--width) - 60px);
-          background-color: var(--stratagem-colour);
-        }
-        .header {
-          padding-left: 4px;
-          position: absolute;
-          top: 9.44px;
-          left: 52.91px;
-          color: var(--stratagem-colour);
-          width: calc(var(--width) - 60px);
-          font-size: 1.1rem;
-          text-transform: uppercase;
-          font-weight: 600;
-        }
-        .type {
-          padding-left: 4px;
-          position: absolute;
-          top: 35.9px;
-          left: 52.91px;
-          width: calc(var(--width) - 60px);
-          font-size: 0.8rem;
-          text-transform: uppercase;
-          font-weight: 600;
-          border-bottom: 1px dotted #aaadb0;
-        }
-        .content {
-          position: absolute;
-          top: 56.69px;
-          left: 52.91px;
-          width: calc(var(--width) - 60px);
-          height: calc(var(--height) - 148px);
-          padding-left: 4px;
-          .section {
-            padding-top: 4px;
-            line-height: 1rem;
-            width: calc(var(--width) - 60px);
-            .title {
-              text-transform: uppercase;
-              color: var(--stratagem-colour);
-              font-size: 0.7em;
-              font-weight: 600;
-              padding-right: 4px;
-            }
-            .text {
-              color: black;
-              font-size: 0.7em;
-              font-weight: 400;
-            }
-          }
-        }
-        .containers {
-          position: absolute;
-          display: flex;
-          flex-direction: column;
 
-          gap: 20px;
-
-          width: 35.9px;
-          height: auto;
-
-          top: 16.06px;
-          left: 12.28px;
-
-          .cp-container {
-            height: 35.9px;
-            width: 35.9px;
-            border: 3.4px solid var(--stratagem-colour);
-            background-color: var(--rows-colour);
-
-            rotate: 45deg;
-            overflow: hidden;
-            line-height: 28.34px;
-
-            .value {
-              rotate: -45deg;
-              text-align: center;
-              font-weight: 600;
-              color: var(--stratagem-colour);
-              font-size: 1.1rem;
-            }
-          }
-        }
-      }
+    &.AM::before {
+      content: " ";
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 55%;
+      width: 100%;
+      transform: translateY(-75px);
+      height: 85px;
+      opacity: 0.1;
+      background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/dc/AM.svg");
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
     }
-    .enhancement {
-      height: var(--height);
-      width: var(--width);
-      transform: scale3d(var(--card-scaling-factor), var(--card-scaling-factor), var(--card-scaling-factor));
+
+    &.basic::before {
+      content: " ";
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 100%;
+      transform: translateY(-75px);
+      height: 150px;
+      opacity: 0.1;
+      background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/dc/logo_large.png");
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+    }
+
+    background-color: var(--stratagem-colour);
+
+    .border {
+      background-color: white;
       border-radius: 8px;
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      each(@factions, {
-        &.@{value}::before {
-          content: " ";
-          display: block;
-          position: absolute;
-          left: 0;
-          top: 50%;
-          width: 100%;
-          transform: translateY(-75px);
-          height: 150px;
-          opacity: 0.1;
-          background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/dc/@{value}.svg");
-          background-repeat: no-repeat;
-          background-size: contain;
-          background-position: center;
-        }
-      });
-      &.AM::before {
-        content: " ";
-        display: block;
+      height: calc(var(--height) - 2px);
+      width: calc(var(--width) - 2px);
+
+      .background-side-bar {
         position: absolute;
-        left: 0;
-        top: 55%;
-        width: 100%;
-        transform: translateY(-75px);
-        height: 85px;
-        opacity: 0.1;
-        background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/dc/AM.svg");
-        background-repeat: no-repeat;
-        background-size: contain;
-        background-position: center;
+        top: 22.67px;
+        left: 22.67px;
+        height: calc(var(--height) - 81px);
+        width: 15.11px;
+        background-color: var(--stratagem-colour);
       }
-      &.basic::before {
-        content: " ";
-        display: block;
+
+      .background-header-bar {
         position: absolute;
-        left: 0;
-        top: 50%;
-        width: 100%;
-        transform: translateY(-75px);
-        height: 150px;
-        opacity: 0.1;
-        background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/dc/logo_large.png");
-        background-repeat: no-repeat;
-        background-size: contain;
-        background-position: center;
+        top: 32.12px;
+        left: 41.57px;
+        height: 3.77px;
+        width: calc(var(--width) - 60px);
+        background-color: var(--stratagem-colour);
       }
-      background-color: var(--header-colour);
-      .border {
-        background-color: white;
-        border-radius: 8px;
-        height: calc(var(--height) - 2px);
-        width: calc(var(--width) - 2px);
-        .background-side-bar {
-          position: absolute;
-          top: 22.67px;
-          left: 22.67px;
-          height: calc(var(--height) - 81px);
-          width: 15.11px;
-          background-color: var(--header-colour);
-        }
-        .background-header-bar {
-          position: absolute;
-          top: 32.12px;
-          left: 41.57px;
-          height: 3.77px;
+
+      .header {
+        padding-left: 4px;
+        position: absolute;
+        top: 9.44px;
+        left: 52.91px;
+        color: var(--stratagem-colour);
+        width: calc(var(--width) - 60px);
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        font-weight: 600;
+      }
+
+      .type {
+        padding-left: 4px;
+        position: absolute;
+        top: 35.9px;
+        left: 52.91px;
+        width: calc(var(--width) - 60px);
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        font-weight: 600;
+        border-bottom: 1px dotted #aaadb0;
+      }
+
+      .content {
+        position: absolute;
+        top: 56.69px;
+        left: 52.91px;
+        width: calc(var(--width) - 60px);
+        height: calc(var(--height) - 148px);
+        padding-left: 4px;
+
+        .section {
+          padding-top: 4px;
+          line-height: 1rem;
           width: calc(var(--width) - 60px);
-          background-color: var(--header-colour);
-        }
-        .header {
-          padding-left: 4px;
-          position: absolute;
-          top: 9.44px;
-          left: 52.91px;
-          color: var(--header-colour);
-          width: calc(var(--width) - 60px);
-          font-size: 1.1rem;
-          text-transform: uppercase;
-          font-weight: 600;
-        }
-        .type {
-          padding-left: 4px;
-          position: absolute;
-          top: 35.9px;
-          left: 52.91px;
-          width: calc(var(--width) - 60px);
-          font-size: 0.8rem;
-          text-transform: uppercase;
-          font-weight: 600;
-          border-bottom: 1px dotted #aaadb0;
-        }
-        .content {
-          position: absolute;
-          top: 56.69px;
-          left: 52.91px;
-          width: calc(var(--width) - 60px);
-          height: calc(var(--height) - 148px);
-          padding-left: 4px;
-          .section {
-            padding-top: 4px;
-            line-height: 1rem;
-            width: calc(var(--width) - 60px);
+
+          .title {
+            text-transform: uppercase;
+            color: var(--stratagem-colour);
+            font-size: 0.7em;
+            font-weight: 600;
+            padding-right: 4px;
+          }
+
+          .text {
             color: black;
             font-size: 0.7em;
             font-weight: 400;
           }
         }
-        .containers {
-          position: absolute;
-          display: flex;
-          flex-direction: column;
+      }
 
-          gap: 20px;
+      .containers {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
 
+        gap: 20px;
+
+        width: 35.9px;
+        height: auto;
+
+        top: 16.06px;
+        left: 12.28px;
+
+        .cp-container {
+          height: 35.9px;
           width: 35.9px;
-          height: auto;
+          border: 3.4px solid var(--stratagem-colour);
+          background-color: var(--rows-colour);
 
-          top: 16.06px;
-          left: 12.28px;
+          rotate: 45deg;
+          overflow: hidden;
+          line-height: 28.34px;
 
-          .cost-container {
-            height: 35.9px;
-            width: 35.9px;
-            border: 3.4px solid var(--header-colour);
-            background-color: var(--rows-colour);
-
-            rotate: 45deg;
-            overflow: hidden;
-            line-height: 28.34px;
-
-            .value {
-              rotate: -45deg;
-              text-align: center;
-              font-weight: 600;
-              color: var(--header-colour);
-              font-size: 1.1rem;
-              padding-right: 2px;
-            }
+          .value {
+            rotate: -45deg;
+            text-align: center;
+            font-weight: 600;
+            color: var(--stratagem-colour);
+            font-size: 1.1rem;
           }
         }
       }
     }
   }
 
-  .card-editor {
-    .stats_container {
-      padding-left: 8px;
-      display: flex;
-      align-items: flex-end;
-      gap: 16px;
+  .enhancement {
+    height: var(--height);
+    width: var(--width);
+    transform: scale3d(var(--card-scaling-factor), var(--card-scaling-factor), var(--card-scaling-factor));
+    border-radius: 8px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-      .stat {
-        z-index: 2;
-        position: relative;
+    each(@factions, {
+      &.@{value}::before {
+        content: " ";
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 100%;
+        transform: translateY(-75px);
+        height: 150px;
+        opacity: 0.1;
+        background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/dc/@{value}.svg");
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+      }
+    });
 
-        flex-direction: row;
-        justify-content: center;
-        .caption {
-          text-align: center;
-          font-size: 0.9rem;
-          color: black;
-          font-weight: 600;
-          width: 40px;
-          height: 20px;
-        }
+  &.AM::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 55%;
+    width: 100%;
+    transform: translateY(-75px);
+    height: 85px;
+    opacity: 0.1;
+    background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/dc/AM.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
 
-        .value_container {
-          display: flex;
-          flex-direction: row;
-          justify-content: center;
-          align-items: center;
-          background: var(--header-colour);
-          height: 40px;
-          width: 40px;
-          z-index: 1;
-          clip-path: polygon(100% 0, 100% 90%, 90% 100%, 0 100%, 0 10%, 10% 0);
+  &.basic::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-75px);
+    height: 150px;
+    opacity: 0.1;
+    background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/dc/logo_large.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
 
-          .value {
-            text-align: center;
+  background-color: var(--header-colour);
 
-            height: 36px;
-            width: 36px;
+  .border {
+    background-color: white;
+    border-radius: 8px;
+    height: calc(var(--height) - 2px);
+    width: calc(var(--width) - 2px);
 
-            text-transform: uppercase;
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: var(--header-colour);
-            z-index: 2;
-            background-color: white;
+    .background-side-bar {
+      position: absolute;
+      top: 22.67px;
+      left: 22.67px;
+      height: calc(var(--height) - 81px);
+      width: 15.11px;
+      background-color: var(--header-colour);
+    }
 
-            justify-content: center;
-            align-items: center;
-            display: flex;
+    .background-header-bar {
+      position: absolute;
+      top: 32.12px;
+      left: 41.57px;
+      height: 3.77px;
+      width: calc(var(--width) - 60px);
+      background-color: var(--header-colour);
+    }
 
-            clip-path: polygon(100% 0, 100% 90%, 90% 100%, 0 100%, 0 10%, 10% 0);
+    .header {
+      padding-left: 4px;
+      position: absolute;
+      top: 9.44px;
+      left: 52.91px;
+      color: var(--header-colour);
+      width: calc(var(--width) - 60px);
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
 
-            input {
-              border: 0;
-              font-size: 1.1rem;
-              font-weight: 600;
-              color: var(--header-colour);
-              text-align: center;
-              width: 100%;
-              padding: 0;
-            }
-          }
-        }
+    .type {
+      padding-left: 4px;
+      position: absolute;
+      top: 35.9px;
+      left: 52.91px;
+      width: calc(var(--width) - 60px);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      font-weight: 600;
+      border-bottom: 1px dotted #aaadb0;
+    }
+
+    .content {
+      position: absolute;
+      top: 56.69px;
+      left: 52.91px;
+      width: calc(var(--width) - 60px);
+      height: calc(var(--height) - 148px);
+      padding-left: 4px;
+
+      .section {
+        padding-top: 4px;
+        line-height: 1rem;
+        width: calc(var(--width) - 60px);
+        color: black;
+        font-size: 0.7em;
+        font-weight: 400;
       }
     }
 
-    .weapons_header {
-      background-color: #fafafa;
-      color: black;
-      font-size: 0.9rem;
-      font-weight: 600;
-    }
-    .keywords_header {
-      background-color: #fafafa;
-      color: black;
-      font-size: 0.9rem;
-      font-weight: 600;
-      padding-left: 8px;
-
-      font-family: var(--title-font-family);
-      letter-spacing: var(--title-letter-spacing);
-    }
-    .keywords_container {
+    .containers {
+      position: absolute;
       display: flex;
       flex-direction: column;
-      padding-left: 16px;
-      padding-right: 16px;
 
-      font-family: var(--title-font-family);
-      letter-spacing: var(--title-letter-spacing);
+      gap: 20px;
 
-      .keyword_container {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        padding: 2px;
-        margin: 2px;
-        border-bottom: 1px dotted #aaadb0;
+      width: 35.9px;
+      height: auto;
+
+      top: 16.06px;
+      left: 12.28px;
+
+      .cost-container {
+        height: 35.9px;
+        width: 35.9px;
+        border: 3.4px solid var(--header-colour);
+        background-color: var(--rows-colour);
+
+        rotate: 45deg;
+        overflow: hidden;
+        line-height: 28.34px;
+
+        .value {
+          rotate: -45deg;
+          text-align: center;
+          font-weight: 600;
+          color: var(--header-colour);
+          font-size: 1.1rem;
+          padding-right: 2px;
+        }
       }
     }
-    .weapons_container,
-    .weapons_header {
-      padding-left: 8px;
-      display: flex;
-      align-items: flex-end;
-      gap: 16px;
+  }
+}
+}
 
-      .tag {
-        border: 1px solid var(--header-colour);
-        border-radius: 2px;
-        padding-left: 4px;
-        padding-right: 4px;
-        padding-top: 2px;
-        padding-bottom: 2px;
+.card-editor {
+  .stats_container {
+    padding-left: 8px;
+    display: flex;
+    align-items: flex-end;
+    gap: 16px;
+
+    .stat {
+      z-index: 2;
+      position: relative;
+
+      flex-direction: row;
+      justify-content: center;
+
+      .caption {
+        text-align: center;
+        font-size: 0.9rem;
+        color: black;
+        font-weight: 600;
+        width: 40px;
+        height: 20px;
       }
 
-      .weapon {
-        z-index: 2;
-        position: relative;
-
+      .value_container {
+        display: flex;
         flex-direction: row;
         justify-content: center;
-        .caption {
-          text-align: center;
-          font-size: 0.9rem;
-          color: black;
-          font-weight: 600;
-          width: 36px;
-          height: 20px;
-        }
+        align-items: center;
+        background: var(--header-colour);
+        height: 40px;
+        width: 40px;
+        z-index: 1;
+        clip-path: polygon(100% 0, 100% 90%, 90% 100%, 0 100%, 0 10%, 10% 0);
+
         .value {
           text-align: center;
 
+          height: 36px;
           width: 36px;
 
           text-transform: uppercase;
@@ -1258,8 +1262,11 @@
           align-items: center;
           display: flex;
 
+          clip-path: polygon(100% 0, 100% 90%, 90% 100%, 0 100%, 0 10%, 10% 0);
+
           input {
-            font-size: 1rem;
+            border: 0;
+            font-size: 1.1rem;
             font-weight: 600;
             color: var(--header-colour);
             text-align: center;
@@ -1267,171 +1274,1598 @@
             padding: 0;
           }
         }
-        .double {
-          width: 72px;
-        }
       }
     }
   }
-  --card-scaling: 100;
-  --card-scaling-factor: 1;
 
-  --header-colour: #456664;
-  --header-text-colour: white;
-  --stat-text-colour: #456664;
-  --stat-title-colour: white;
-  --banner-colour: #103344;
-  --text-background-colour: #dfe0e2;
-  --rows-colour: #d8d8da;
-  --alt-rows-colour: #dee3e0;
-  --keywords-background-colour: #d8d8da;
-  --weapon-keyword-colour: #456664;
-  --background-colour: black;
-  --faction-text-colour: white;
-  --title-text-colour: white;
+  .weapons_header {
+    background-color: #fafafa;
+    color: black;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
 
-  --green-stratagem-colour: #2c594c;
-  --blue-stratagem-colour: #234461;
-  --red-stratagem-colour: #a2151a;
+  .keywords_header {
+    background-color: #fafafa;
+    color: black;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding-left: 8px;
 
-  // --title-font-family: ConduitITC, times new roman, serif;
-  // --title-letter-spacing: 0.05rem;
-  --title-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
-    "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-  --title-letter-spacing: default;
-  --title-font-weight: 600;
+    font-family: var(--title-font-family);
+    letter-spacing: var(--title-letter-spacing);
+  }
 
-  .unit {
-    height: calc(714px);
-    width: calc(1077px);
-    transform: scale(var(--card-scaling-factor));
+  .keywords_container {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    position: relative;
-    .header {
-      height: 196px;
-      width: 1077px;
-      background-color: var(--background-colour);
+    padding-left: 16px;
+    padding-right: 16px;
+
+    font-family: var(--title-font-family);
+    letter-spacing: var(--title-letter-spacing);
+
+    .keyword_container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 2px;
+      margin: 2px;
+      border-bottom: 1px dotted #aaadb0;
+    }
+  }
+
+  .weapons_container,
+  .weapons_header {
+    padding-left: 8px;
+    display: flex;
+    align-items: flex-end;
+    gap: 16px;
+
+    .tag {
+      border: 1px solid var(--header-colour);
+      border-radius: 2px;
+      padding-left: 4px;
+      padding-right: 4px;
+      padding-top: 2px;
+      padding-bottom: 2px;
+    }
+
+    .weapon {
+      z-index: 2;
       position: relative;
 
-      display: grid;
-      row-gap: 2px;
-      grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
-      grid-template-columns: 1fr 1fr;
+      flex-direction: row;
+      justify-content: center;
 
-      grid-template-areas:
-        " c1  c1 "
-        " c2  c2 "
-        " c3  c5 "
-        " c4  c6";
-
-      .stats_container:nth-child(2) {
-        grid-area: c2;
-      }
-      .stats_container:nth-child(3) {
-        grid-area: c3;
-      }
-      .stats_container:nth-child(4) {
-        grid-area: c4;
-      }
-      .stats_container:nth-child(5) {
-        grid-area: c5;
-      }
-      .stats_container:nth-child(6) {
-        grid-area: c6;
+      .caption {
+        text-align: center;
+        font-size: 0.9rem;
+        color: black;
+        font-weight: 600;
+        width: 36px;
+        height: 20px;
       }
 
-      .invul_container {
+      .value {
+        text-align: center;
+
+        width: 36px;
+
+        text-transform: uppercase;
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: var(--header-colour);
+        z-index: 2;
+        background-color: white;
+
+        justify-content: center;
+        align-items: center;
+        display: flex;
+
+        input {
+          font-size: 1rem;
+          font-weight: 600;
+          color: var(--header-colour);
+          text-align: center;
+          width: 100%;
+          padding: 0;
+        }
+      }
+
+      .double {
+        width: 72px;
+      }
+    }
+  }
+}
+
+--card-scaling: 100;
+--card-scaling-factor: 1;
+
+--header-colour: #456664;
+--header-text-colour: white;
+--stat-text-colour: #456664;
+--stat-title-colour: white;
+--banner-colour: #103344;
+--text-background-colour: #dfe0e2;
+--rows-colour: #d8d8da;
+--alt-rows-colour: #dee3e0;
+--keywords-background-colour: #d8d8da;
+--weapon-keyword-colour: #456664;
+--background-colour: black;
+--faction-text-colour: white;
+--title-text-colour: white;
+
+--green-stratagem-colour: #2c594c;
+--blue-stratagem-colour: #234461;
+--red-stratagem-colour: #a2151a;
+
+// --title-font-family: ConduitITC, times new roman, serif;
+// --title-letter-spacing: 0.05rem;
+--title-font-family: -apple-system,
+BlinkMacSystemFont,
+"Segoe UI",
+"Roboto",
+"Oxygen",
+"Ubuntu",
+"Cantarell",
+"Fira Sans",
+"Droid Sans",
+"Helvetica Neue",
+sans-serif;
+--title-letter-spacing: default;
+--title-font-weight: 600;
+
+.unit {
+  height: calc(714px);
+  width: calc(1077px);
+  transform: scale(var(--card-scaling-factor));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+
+  .header {
+    height: 196px;
+    width: 1077px;
+    background-color: var(--background-colour);
+    position: relative;
+
+    display: grid;
+    row-gap: 2px;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+
+    grid-template-areas:
+      " c1  c1 "
+      " c2  c2 "
+      " c3  c5 "
+      " c4  c6";
+
+    .stats_container:nth-child(2) {
+      grid-area: c2;
+    }
+
+    .stats_container:nth-child(3) {
+      grid-area: c3;
+    }
+
+    .stats_container:nth-child(4) {
+      grid-area: c4;
+    }
+
+    .stats_container:nth-child(5) {
+      grid-area: c5;
+    }
+
+    .stats_container:nth-child(6) {
+      grid-area: c6;
+    }
+
+    .invul_container {
+      z-index: 2;
+      position: relative;
+      padding-left: 120px;
+      display: flex;
+      flex-direction: column;
+
+      .info {
+        color: white;
+        font-size: 0.7rem;
+        font-weight: 400;
+        letter-spacing: normal;
+        font-style: italic;
+        margin-top: -12px;
+        padding-left: 54px;
+      }
+
+      .invul {
         z-index: 2;
         position: relative;
-        padding-left: 120px;
+
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
 
-        .info {
-          color: white;
-          font-size: 0.7rem;
-          font-weight: 400;
-          letter-spacing: normal;
-          font-style: italic;
-          margin-top: -12px;
-          padding-left: 54px;
+        &::before {
+          content: " ";
+          position: absolute;
+          width: 100%;
+          height: 22px;
+          background-color: var(--banner-colour);
+          top: calc(50% - 11px);
         }
-        .invul {
-          z-index: 2;
-          position: relative;
 
+        .title {
+          text-transform: uppercase;
+          color: var(--header-text-colour);
+          font-size: 0.8rem;
+          font-weight: 600;
+          font-family: var(--title-font-family);
+          letter-spacing: var(--title-letter-spacing);
+          z-index: 2;
+
+          white-space: nowrap;
+
+          padding-left: 8px;
+          padding-right: 8px;
+        }
+
+        .value_container {
           display: flex;
           flex-direction: row;
-          justify-content: flex-start;
+          justify-content: center;
           align-items: center;
 
-          &::before {
-            content: " ";
-            position: absolute;
-            width: 100%;
-            height: 22px;
-            background-color: var(--banner-colour);
-            top: calc(50% - 11px);
-          }
+          height: 44px;
+          width: 44px;
+          z-index: 1;
 
-          .title {
+          mask: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/svg/invul_shield.svg");
+          mask-repeat: no-repeat;
+          mask-position: center;
+          mask-size: contain;
+
+          background-color: var(--banner-colour);
+
+          .value {
+            text-align: center;
+
+            height: 38px;
+            width: 39px;
+
             text-transform: uppercase;
-            color: var(--header-text-colour);
-            font-size: 0.8rem;
+            font-size: 1.1rem;
             font-weight: 600;
-            font-family: var(--title-font-family);
-            letter-spacing: var(--title-letter-spacing);
+            color: var(--stat-text-colour);
             z-index: 2;
 
-            white-space: nowrap;
-
-            padding-left: 8px;
-            padding-right: 8px;
-          }
-
-          .value_container {
-            display: flex;
-            flex-direction: row;
             justify-content: center;
             align-items: center;
+            display: flex;
 
-            height: 44px;
-            width: 44px;
-            z-index: 1;
+            background-color: white;
 
             mask: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/svg/invul_shield.svg");
             mask-repeat: no-repeat;
             mask-position: center;
             mask-size: contain;
+          }
+        }
+      }
+    }
 
-            background-color: var(--banner-colour);
+    .header_container {
+      grid-area: c1;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding-top: 32px;
+      padding-left: 32px;
+
+      @media only screen and (max-width: 600px) {
+        .legends {
+          position: absolute;
+          right: 16px;
+          top: 8px;
+          font-size: 1rem;
+
+          &::before {
+            content: "Legends";
+          }
+        }
+      }
+
+      @media only screen and (min-width: 600px) {
+        .legends {
+          &::before {
+            content: "Warhammer Legends";
+          }
+
+          position: absolute;
+          top: 38px;
+          right: 110px;
+          z-index: 10;
+          font-size: 1.3rem;
+          font-weight: 600;
+          font-family: "EB Garamond",
+          "serif";
+          color: var(--faction-text-colour);
+        }
+
+        .combatpatrol {
+          &::before {
+            content: "Combat Patrol Datasheet";
+          }
+
+          position: absolute;
+          top: 38px;
+          right: 110px;
+          z-index: 10;
+          font-size: 1.3rem;
+          font-weight: 600;
+          font-family: "EB Garamond",
+          "serif";
+          color: var(--faction-text-colour);
+        }
+      }
+
+      .name_container {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        font-family: var(--title-font-family);
+
+        .name {
+          text-transform: uppercase;
+          font-size: 2rem;
+          font-weight: 800;
+          color: var(--title-text-colour);
+          z-index: 3;
+          line-height: 2.5rem;
+          font-family: var(--title-font-family);
+          letter-spacing: var(--title-letter-spacing);
+        }
+
+        .subname {
+          padding-left: 8px;
+          text-transform: uppercase;
+          font-style: italic;
+          color: var(--title-text-colour);
+          font-size: 1.1rem;
+          z-index: 2;
+          font-weight: 600;
+          font-family: var(--title-font-family);
+          letter-spacing: var(--title-letter-spacing);
+        }
+      }
+
+      .points_container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-right: 16px;
+        z-index: 2;
+        padding-top: 4px;
+        height: auto;
+
+        .points {
+          white-space: nowrap;
+          text-transform: uppercase;
+          font-size: 1rem;
+          font-weight: 600;
+          color: var(--title-text-colour);
+          z-index: 2;
+          line-height: 2.2rem;
+          font-family: var(--title-font-family);
+          letter-spacing: var(--title-letter-spacing);
+          padding-left: 8px;
+          padding-right: 8px;
+          border: 1px solid var(--title-text-colour);
+          border-radius: 4px;
+
+          &:hover {
+            border: 1px solid var(--title-text-colour);
+            background-color: #ffffff44;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
+    .stats_container {
+      padding-left: 32px;
+      display: flex;
+      align-items: flex-end;
+      gap: 16px;
+      font-family: var(--title-font-family);
+
+      &:last-child {
+        padding-top: 4px;
+      }
+
+      .name {
+        text-transform: uppercase;
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--stat-title-colour);
+        z-index: 2;
+        font-family: var(--title-font-family);
+        letter-spacing: var(--title-letter-spacing);
+        white-space: nowrap;
+        width: 135px;
+      }
+
+      .stat {
+        z-index: 2;
+        position: relative;
+
+        flex-direction: row;
+        justify-content: center;
+
+        .caption {
+          text-align: center;
+          font-size: 0.9rem;
+          color: var(--title-text-colour);
+          font-weight: 600;
+          width: 44px;
+          height: 20px;
+        }
+
+        .damageTable {
+          position: absolute;
+          bottom: -14px;
+          height: 24px;
+          width: 24px;
+          left: 10px;
+          border-radius: 32px;
+          background-color: var(--header-colour);
+
+          &::after {
+            content: " ";
+            position: absolute;
+            filter: invert(87%) sepia(100%) saturate(0%) hue-rotate(303deg) brightness(104%) contrast(101%);
+            background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/svg/Toughness.svg");
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+            height: 100%;
+            width: 100%;
+            scale: 0.75;
+          }
+        }
+
+        .value_container {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          background: var(--header-colour);
+          height: 44px;
+          width: 44px;
+          z-index: 1;
+          clip-path: polygon(100% 0, 100% 90%, 90% 100%, 0 100%, 0 10%, 10% 0);
+
+          .value {
+            text-align: center;
+
+            height: 40px;
+            width: 40px;
+
+            text-transform: uppercase;
+            font-size: 1em;
+            font-weight: 600;
+            color: var(--stat-text-colour);
+            z-index: 2;
+            background-color: white;
+
+            justify-content: center;
+            align-items: center;
+            display: flex;
+
+            clip-path: polygon(100% 0, 100% 90%, 90% 100%, 0 100%, 0 10%, 10% 0);
+          }
+
+          &.wide {
+            width: 60px;
 
             .value {
-              text-align: center;
+              width: 54px;
+            }
+          }
+        }
+      }
+    }
 
-              height: 38px;
-              width: 39px;
+    &::after {
+      position: absolute;
+      content: "";
+      top: 32px;
+      left: 24px;
+      width: calc(1077px - 24px);
+      height: 90px;
+      background-color: var(--banner-colour);
+      clip-path: polygon(0% 0%, 0% 100%, 42% 100%, 52% 50%, 100% 50%, 100% 0%);
+    }
 
+    &.back {
+      &::after {
+        position: absolute;
+        content: "";
+        top: 32px;
+        left: 24px;
+        width: calc(1077px - 24px);
+        height: 90px;
+        background-color: var(--banner-colour);
+        clip-path: polygon(0% 0%, 0% 50%, 0% 50%, 52% 50%, 100% 50%, 100% 0%) !important;
+      }
+    }
+  }
+
+  &.full {
+    height: auto;
+    min-height: calc(714px);
+    margin-bottom: 64px;
+
+    .footer {
+      position: initial;
+      margin-top: -32px;
+      z-index: 200;
+    }
+
+    .faction {
+      z-index: 201;
+      position: initial;
+      margin-top: -64px;
+      margin-left: 339px;
+    }
+
+    .extra {
+      height: initial !important;
+      border-bottom: 2px solid var(--header-colour);
+
+      &>div:last-child {
+        padding-bottom: 32px;
+      }
+    }
+
+    .data_container {
+      height: auto;
+      min-height: 468px;
+
+      .data {
+        height: auto;
+        min-height: 468px;
+
+        display: grid;
+        grid-template-areas:
+          " weapons extra "
+          " multi-data extra";
+
+        .weapons {
+          grid-area: weapons;
+          height: auto;
+        }
+
+        .multi-data {
+          grid-area: multi-data;
+        }
+
+        .extra {
+          grid-area: extra;
+        }
+
+        .multi-data {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+          border-right: 2px solid var(--header-colour);
+          padding-bottom: 48px;
+
+          .wargear_container {
+            padding: 0px;
+            height: auto;
+            border-right: none;
+
+            .content {
+              grid-template-rows: auto !important;
+              grid-template-columns: 1fr !important;
+              grid-auto-flow: row !important;
+
+              ul {
+                list-style: none;
+                padding: 0;
+
+                li::before {
+                  content: "◦";
+                  /* Insert content that looks like bullets */
+                  padding-right: 8px;
+                  list-style-position: inside;
+                }
+              }
+            }
+          }
+
+          .extra {
+            padding: 0px;
+            height: auto;
+            border-right: none;
+            border-bottom: none;
+
+            .heading:nth-of-type(1) {
+              margin-top: 0px;
+            }
+
+            .heading {
+              margin-top: 16px;
+            }
+
+            .ledBy {
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              grid-template-rows: 1fr;
+              grid-column-gap: 0px;
+              grid-row-gap: 0px;
+
+              .description {
+                grid-column: span 2;
+              }
+            }
+
+            .composition_container>div {
+              padding-left: 16px;
+
+              .description {
+                padding-left: 0px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .data_container {
+    position: relative;
+    height: 468px;
+    width: 1032px;
+    background-color: var(--header-colour);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 2% 100%, 0 96%);
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    .data {
+      top: 0;
+      margin-top: -4px;
+      height: 468px;
+      width: 1028px;
+      background-color: var(--text-background-colour);
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 2% 100%, 0 96%);
+
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      grid-template-rows: auto auto;
+      grid-column-gap: 0px;
+      grid-row-gap: 0px;
+
+      .weapons {
+        height: 500px;
+        border-right: 2px solid var(--header-colour);
+        padding-top: 16px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        padding-bottom: 16px;
+
+        .ranged {
+          position: relative;
+
+          &::before {
+            content: "";
+            position: absolute;
+            left: 4px;
+            top: 0;
+            background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/svg/BallisticSkill.svg");
+            background-repeat: none;
+            filter: invert(87%) sepia(100%) saturate(0%) hue-rotate(303deg) brightness(104%) contrast(101%);
+            width: 24px;
+            height: 24px;
+          }
+
+          .heading {
+            background-color: var(--header-colour);
+            padding-left: 32px;
+            display: grid;
+            grid-template-columns: 7fr 2fr repeat(5, 1fr);
+            grid-template-rows: 1fr;
+            grid-column-gap: 0px;
+            grid-row-gap: 0px;
+
+            .title {
+              font-family: var(--title-font-family);
               text-transform: uppercase;
-              font-size: 1.1rem;
+              color: var(--header-text-colour);
+              font-size: 1rem;
               font-weight: 600;
-              color: var(--stat-text-colour);
+              letter-spacing: var(--title-letter-spacing);
+              z-index: 2;
+            }
+          }
+
+          .multi-line {
+            position: relative;
+          }
+
+          .multi-line::after {
+            content: "";
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            width: 16px;
+            height: 8px;
+            background-color: var(--header-colour);
+            clip-path: polygon(0% 0%, 55% 0%, 100% 50%, 55% 100%, 0% 100%);
+            z-index: 1;
+          }
+
+          .weapon {
+            padding-left: 32px;
+            border-bottom: 1px dotted #636567;
+
+            &:nth-of-type(even) {
+              background: var(--rows-colour);
+            }
+
+            &:nth-of-type(odd) {
+              background: var(--alt-rows-colour);
+            }
+
+            .line {
+              display: grid;
+              grid-template-columns: 7fr 2fr repeat(5, 1fr);
+              grid-template-rows: 1fr;
+              grid-column-gap: 0px;
+              grid-row-gap: 0px;
+
+              .value {
+                color: black;
+                font-size: 1em;
+                font-weight: 400;
+                letter-spacing: normal;
+                z-index: 2;
+
+                .name {
+                  white-space: pre-line;
+                }
+
+                .keyword {
+                  white-space: nowrap;
+                }
+              }
+            }
+          }
+        }
+
+        .melee {
+          position: relative;
+
+          &::before {
+            content: "";
+            position: absolute;
+            left: 4px;
+            top: 0;
+            background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/svg/Melee.svg");
+            background-repeat: none;
+            filter: invert(87%) sepia(100%) saturate(0%) hue-rotate(303deg) brightness(104%) contrast(101%);
+            width: 20px;
+            height: 20px;
+            margin-top: 2px;
+          }
+
+          .multi-line {
+            position: relative;
+          }
+
+          .multi-line::after {
+            content: "";
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            width: 16px;
+            height: 8px;
+            background-color: var(--header-colour);
+            clip-path: polygon(0% 0%, 55% 0%, 100% 50%, 55% 100%, 0% 100%);
+            z-index: 1;
+          }
+
+          .heading {
+            background-color: var(--header-colour);
+            padding-left: 32px;
+            display: grid;
+            grid-template-columns: 7fr 2fr repeat(5, 1fr);
+            grid-template-rows: 1fr;
+            grid-column-gap: 0px;
+            grid-row-gap: 0px;
+
+            .title {
+              font-family: var(--title-font-family);
+              text-transform: uppercase;
+              color: var(--header-text-colour);
+              font-size: 1rem;
+              font-weight: 600;
+              letter-spacing: var(--title-letter-spacing);
+              z-index: 2;
+            }
+          }
+
+          .weapon {
+            padding-left: 32px;
+            border-bottom: 1px dotted #636567;
+
+            &:nth-of-type(even) {
+              background: var(--rows-colour);
+            }
+
+            &:nth-of-type(odd) {
+              background: var(--alt-rows-colour);
+            }
+
+            .line {
+              display: grid;
+              grid-template-columns: 7fr 2fr repeat(5, 1fr);
+              grid-template-rows: 1fr;
+              grid-column-gap: 0px;
+              grid-row-gap: 0px;
+
+              .value {
+                color: black;
+                font-size: 1em;
+                font-weight: 400;
+                letter-spacing: normal;
+                z-index: 2;
+
+                .keyword {
+                  // white-space: nowrap;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      &.back {
+        .wargear_container {
+          height: auto !important;
+          padding-left: 0px;
+          padding-right: 0px;
+
+          .content {
+            grid-template-rows: auto !important;
+            grid-template-columns: 1fr !important;
+            grid-auto-flow: row !important;
+          }
+        }
+
+        .composition,
+        .loadout,
+        .transport,
+        .leader {
+          padding-left: 14px !important;
+        }
+      }
+
+      .wargear_container {
+        height: 500px;
+        border-right: 2px solid var(--header-colour);
+        padding: 16px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+
+        gap: 16px;
+
+        .wargear {
+          position: relative;
+
+          .heading {
+            background-color: var(--header-colour);
+            padding-left: 8px;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr;
+            grid-column-gap: 0px;
+            grid-row-gap: 0px;
+            margin-bottom: 4px;
+
+            .title {
+              font-family: var(--title-font-family);
+              text-transform: uppercase;
+              color: var(--header-text-colour);
+              font-size: 1rem;
+              font-weight: 600;
+              letter-spacing: var(--title-letter-spacing);
+              z-index: 2;
+            }
+          }
+
+          .explanation {
+            margin-left: 16px;
+            padding-right: 16px;
+
+            &:before {
+              content: "*";
+            }
+
+            font-size: 0.7rem;
+            color: black;
+            font-weight: 400;
+            padding-left: 4px;
+          }
+
+          .content {
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            grid-auto-flow: column;
+
+            .item {
+              align-self: flex-start;
+              padding-left: 16px;
+              padding-right: 16px;
+              line-height: 1.1rem;
+
+              &:before {
+                content: "■";
+              }
+
+              white-space: pre-wrap;
+
+              .description {
+                font-size: 0.8rem;
+                color: black;
+                font-weight: 400;
+                padding-left: 4px;
+              }
+            }
+          }
+        }
+      }
+
+      .extra {
+        padding: 16px;
+        height: 100%;
+
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+
+        .invul_container {
+          z-index: 2;
+          position: relative;
+
+          display: flex;
+          flex-direction: column;
+
+          .info {
+            color: black;
+            font-size: 0.7rem;
+            font-weight: 400;
+            letter-spacing: normal;
+            font-style: italic;
+            margin-top: -12px;
+            padding-left: 8px;
+            padding-right: 32px;
+          }
+
+          .invul {
+            z-index: 2;
+            position: relative;
+
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+
+            &::before {
+              content: " ";
+              position: absolute;
+              width: 100%;
+              height: 22px;
+              background-color: var(--header-colour);
+              top: calc(50% - 11px);
+            }
+
+            .title {
+              text-transform: uppercase;
+              color: var(--header-text-colour);
+              font-size: 1rem;
+              font-weight: 600;
+              font-family: var(--title-font-family);
+              letter-spacing: var(--title-letter-spacing);
               z-index: 2;
 
+              padding-left: 8px;
+            }
+
+            .value_container {
+              display: flex;
+              flex-direction: row;
               justify-content: center;
               align-items: center;
-              display: flex;
 
-              background-color: white;
+              height: 50px;
+              width: 50px;
+              z-index: 1;
 
               mask: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/svg/invul_shield.svg");
               mask-repeat: no-repeat;
               mask-position: center;
               mask-size: contain;
+
+              background-color: var(--header-colour);
+
+              .value {
+                text-align: center;
+
+                height: 44px;
+                width: 45px;
+
+                text-transform: uppercase;
+                font-size: 1.3rem;
+                font-weight: 600;
+                color: var(--stat-text-colour);
+                z-index: 2;
+
+                justify-content: center;
+                align-items: center;
+                display: flex;
+
+                background-color: white;
+
+                mask: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/svg/invul_shield.svg");
+                mask-repeat: no-repeat;
+                mask-position: center;
+                mask-size: contain;
+              }
             }
           }
+        }
+
+        .abilities {
+          .heading {
+            background-color: var(--header-colour);
+            padding-left: 8px;
+
+            .title {
+              text-transform: uppercase;
+              color: var(--header-text-colour);
+              font-size: 1rem;
+              font-weight: 600;
+              font-family: var(--title-font-family);
+              letter-spacing: var(--title-letter-spacing);
+              z-index: 2;
+            }
+          }
+
+          .ability {
+            padding: 4px;
+            border-bottom: 1px dotted #636567;
+            line-height: 1rem;
+
+            .title {
+              text-transform: uppercase;
+              font-size: 1em;
+              color: black;
+              font-weight: 300;
+              font-family: var(--title-font-family);
+              letter-spacing: var(--title-letter-spacing);
+
+              &::after {
+                content: ":";
+              }
+            }
+
+            .value {
+              text-transform: capitalize;
+              font-size: 1em;
+              color: black;
+              font-weight: 600;
+            }
+
+            .description {
+              font-size: 1em;
+              color: black;
+              font-weight: 400;
+              padding-left: 4px;
+            }
+
+            .name {
+              text-transform: capitalize;
+              font-size: 1em;
+              color: black;
+              font-weight: 600;
+              font-family: var(--title-font-family);
+              letter-spacing: var(--title-letter-spacing);
+
+              &::after {
+                content: ":";
+              }
+            }
+          }
+        }
+
+        .composition_container {
+          .heading {
+            background-color: var(--header-colour);
+            padding-left: 8px;
+            margin-bottom: 4px;
+
+            .title {
+              text-transform: uppercase;
+              color: var(--header-text-colour);
+              font-size: 1rem;
+              font-weight: 600;
+              font-family: var(--title-font-family);
+              letter-spacing: var(--title-letter-spacing);
+              z-index: 2;
+            }
+          }
+
+          .composition {
+            padding: 2px;
+            line-height: 1rem;
+
+            .description {
+              font-size: 0.8rem;
+              color: black;
+              font-weight: 600;
+              padding-left: 4px;
+
+              &:before {
+                content: "■ ";
+              }
+            }
+          }
+
+          .leader {
+            padding: 2px;
+            line-height: 1rem;
+
+            .description {
+              font-size: 0.7rem;
+              color: black;
+              font-weight: 400;
+              white-space: pre-wrap;
+            }
+
+            .value {
+              font-size: 0.7rem;
+              color: black;
+              font-weight: 600;
+              white-space: pre-wrap;
+              margin-left: 4px;
+
+              @media screen {
+                &::before {
+                  content: "[ ";
+                }
+
+                &::after {
+                  content: " ]";
+                }
+              }
+
+              &:hover {
+                text-decoration: underline;
+              }
+            }
+          }
+
+          .ledBy {
+            padding: 2px;
+            padding-left: 14px !important;
+            line-height: 1rem;
+
+            .description {
+              font-size: 0.7rem;
+              color: black;
+              font-weight: 400;
+              white-space: pre-wrap;
+            }
+
+            .value {
+              font-size: 0.7rem;
+              color: black;
+              font-weight: 600;
+              white-space: pre-wrap;
+              margin-left: 4px;
+
+              @media screen {
+                &::before {
+                  content: "[ ";
+                }
+
+                &::after {
+                  content: " ]";
+                }
+              }
+
+              &:hover {
+                text-decoration: underline;
+              }
+            }
+          }
+
+          .transport {
+            padding: 2px;
+            line-height: 1rem;
+
+            .description {
+              font-size: 0.7rem;
+              color: black;
+              font-weight: 400;
+              white-space: pre-wrap;
+            }
+          }
+
+          .loadout {
+            padding-left: 4px;
+            padding-right: 4px;
+            line-height: 1.2rem;
+
+            .description {
+              font-size: 0.7rem;
+              color: black;
+              font-weight: 400;
+              text-transform: capitalize;
+            }
+
+            .name {
+              font-size: 0.7rem;
+              color: black;
+              font-weight: 600;
+              padding-right: 4px;
+              font-family: var(--title-font-family);
+              letter-spacing: var(--title-letter-spacing);
+
+              &::after {
+                content: ":";
+              }
+            }
+          }
+        }
+
+        .damaged {
+          .description {
+            font-size: 0.7rem;
+            color: black;
+            font-weight: 400;
+            line-height: 1.1rem;
+            padding-left: 4px;
+            padding-top: 4px;
+          }
+
+          .heading {
+            background-color: var(--header-colour);
+            padding-left: 8px;
+            position: relative;
+
+            .title {
+              text-transform: uppercase;
+              color: var(--header-text-colour);
+              font-size: 1rem;
+              font-weight: 600;
+              z-index: 2;
+              padding-left: 16px;
+
+              &::before {
+                content: "";
+                position: absolute;
+                left: 6px;
+                top: 0;
+                background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/svg/Toughness.svg");
+                background-repeat: no-repeat;
+                filter: invert(87%) sepia(100%) saturate(0%) hue-rotate(303deg) brightness(104%) contrast(101%);
+                width: 20px;
+                height: 20px;
+                margin-top: 2px;
+                scale: 0.8;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .special {
+    .description-container {
+      line-height: 1.1rem;
+      padding-left: 4px;
+      padding-top: 4px;
+
+      .description {
+        font-size: 1em;
+        color: black;
+        font-weight: 400;
+      }
+    }
+
+    .heading {
+      background-color: var(--header-colour);
+      padding-left: 8px;
+      position: relative;
+      line-height: 1.5rem;
+
+      .title {
+        text-transform: uppercase;
+        color: var(--header-text-colour);
+        font-size: 1.4em;
+        font-weight: 600;
+        z-index: 2;
+      }
+    }
+
+    .ability {
+      padding: 4px;
+      border-bottom: 1px dotted #636567;
+      line-height: 1rem;
+
+      .title {
+        text-transform: uppercase;
+        font-size: 0.7rem;
+        color: black;
+        font-weight: 300;
+
+        &::after {
+          content: ":";
+        }
+      }
+
+      .value {
+        text-transform: capitalize;
+        font-size: 0.7rem;
+        color: black;
+        font-weight: 600;
+      }
+
+      .description {
+        font-size: 0.7rem;
+        color: black;
+        font-weight: 400;
+        padding-left: 4px;
+      }
+
+      .name {
+        text-transform: capitalize;
+        font-size: 0.7rem;
+        color: black;
+        font-weight: 600;
+        font-family: var(--title-font-family);
+        letter-spacing: var(--title-letter-spacing);
+
+        &::after {
+          content: ":";
+        }
+      }
+    }
+  }
+
+  .footer {
+    height: 64px;
+    width: 1000px;
+    border: 2px solid var(--header-colour);
+    background-color: var(--text-background-colour);
+    position: absolute;
+    bottom: 32px;
+
+    display: grid;
+    grid-template-columns: 670px auto;
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+
+    .keywords {
+      border-right: 2px solid var(--header-colour);
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding-left: 16px;
+      position: relative;
+      padding-right: 48px;
+      background-color: var(--keywords-background-colour);
+
+      font-family: var(--title-font-family);
+      letter-spacing: var(--title-letter-spacing);
+
+      .title {
+        text-transform: uppercase;
+        font-size: 1em;
+        color: black;
+        font-weight: 400;
+        padding-right: 4px;
+
+        &::after {
+          content: ":";
+        }
+      }
+
+      .value {
+        text-transform: capitalize;
+        font-size: 1em;
+        color: black;
+        font-weight: 600;
+      }
+    }
+
+    .factions {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      padding-left: 48px;
+      background-color: var(--background-colour);
+      font-family: var(--title-font-family);
+      letter-spacing: var(--title-letter-spacing);
+
+      .title {
+        text-transform: uppercase;
+        font-size: 1em;
+        color: var(--faction-text-colour);
+        font-weight: 400;
+        padding-right: 4px;
+        line-height: 1.1rem;
+
+        &::after {
+          content: ":";
+        }
+      }
+
+      .value {
+        text-transform: capitalize;
+        font-size: 1em;
+        color: var(--faction-text-colour);
+        font-weight: 600;
+        line-height: 1.1rem;
+      }
+    }
+  }
+
+  .faction {
+    height: 64px;
+    width: 64px;
+    border: 2px solid var(--header-colour);
+    background-color: var(--rows-colour);
+    position: absolute;
+    bottom: 32px;
+    left: 677px;
+    rotate: 45deg;
+    overflow: hidden;
+
+    each(@factions, {
+      .@{value} {
+        content: " ";
+        display: block;
+        width: 100%;
+        height: 100%;
+        scale: 0.8;
+        background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/dc/@{value}.svg");
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        filter: invert(0%) sepia(2%) saturate(0%) hue-rotate(253deg) brightness(100%) contrast(100%);
+        rotate: -45deg;
+      }
+    });
+
+  .AoI {
+    scale: 1.3;
+  }
+
+  .CHDW {
+    scale: 0.7;
+  }
+
+  .DRU {
+    scale: 1;
+  }
+
+  .GK {
+    scale: 1;
+  }
+
+  .ORK {
+    scale: 1;
+  }
+
+  .SM {
+    scale: 1.4;
+  }
+
+  .CHSW {
+    scale: 1;
+  }
+
+  .TYR {
+    scale: 1;
+  }
+
+  .LoV {
+    scale: 1;
+  }
+
+  .WE {
+    scale: 1;
+  }
+
+  .AE {
+    scale: 1;
+  }
+
+  .AM {
+    content: " ";
+    display: block;
+    width: 100%;
+    height: 100%;
+    scale: 1.3;
+    background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/dc/AM.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    filter: invert(0%) sepia(2%) saturate(0%) hue-rotate(253deg) brightness(100%) contrast(100%);
+    rotate: -45deg;
+  }
+
+  .basic {
+    content: " ";
+    display: block;
+    width: 100%;
+    height: 100%;
+    scale: 1;
+    background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/dc/logo_large.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    filter: invert(0%) sepia(2%) saturate(0%) hue-rotate(253deg) brightness(100%) contrast(100%);
+    rotate: -45deg;
+  }
+}
+}
+
+.viewer {
+  .unit {
+    height: auto;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    font-size: 1rem;
+
+    .header {
+      width: 100%;
+      height: auto;
+      min-height: 110px;
+      background-color: var(--background-colour);
+      position: relative;
+      display: block;
+
+      &.back {
+        min-height: 65px;
+
+        &::after {
+          position: absolute;
+          content: "";
+          top: 8px;
+          left: 0px;
+          width: 100%;
+          height: 85px;
+          background-color: var(--banner-colour);
         }
       }
 
@@ -1440,70 +2874,66 @@
         display: flex;
         align-items: flex-start;
         justify-content: space-between;
-        padding-top: 32px;
-        padding-left: 32px;
+        padding-top: 12px;
+        padding-left: 8px;
 
         @media only screen and (max-width: 600px) {
           .legends {
             position: absolute;
             right: 16px;
-            top: 8px;
+            top: 12px;
             font-size: 1rem;
+            z-index: 10;
+            color: var(--faction-text-colour);
+            font-weight: 600;
+            font-family: "EB Garamond", "serif";
+
             &::before {
               content: "Legends";
             }
           }
         }
+
         @media only screen and (min-width: 600px) {
           .legends {
             &::before {
               content: "Warhammer Legends";
             }
+
             position: absolute;
             top: 38px;
             right: 110px;
             z-index: 10;
             font-size: 1.3rem;
             font-weight: 600;
-            font-family: "EB Garamond", "serif";
-            color: var(--faction-text-colour);
-          }
-          .combatpatrol {
-            &::before {
-              content: "Combat Patrol Datasheet";
-            }
-            position: absolute;
-            top: 38px;
-            right: 110px;
-            z-index: 10;
-            font-size: 1.3rem;
-            font-weight: 600;
-            font-family: "EB Garamond", "serif";
+            font-family: "EB Garamond",
+            "serif";
             color: var(--faction-text-colour);
           }
         }
+
         .name_container {
+          flex-basis: 100%;
           display: flex;
-          align-items: center;
-          justify-content: flex-start;
-          font-family: var(--title-font-family);
+          align-items: flex-end;
 
           .name {
             text-transform: uppercase;
-            font-size: 2rem;
+            font-size: 1.2rem;
             font-weight: 800;
-            color: var(--title-text-colour);
-            z-index: 3;
-            line-height: 2.5rem;
+            color: white;
+            z-index: 2;
+            line-height: 1.5rem;
             font-family: var(--title-font-family);
             letter-spacing: var(--title-letter-spacing);
           }
+
           .subname {
             padding-left: 8px;
             text-transform: uppercase;
             font-style: italic;
-            color: var(--title-text-colour);
-            font-size: 1.1rem;
+            color: white;
+            font-size: 1rem;
             z-index: 2;
             font-weight: 600;
             font-family: var(--title-font-family);
@@ -1512,56 +2942,78 @@
         }
 
         .points_container {
+          padding-top: 0px;
+          padding-left: 8px;
           display: flex;
-          align-items: center;
-          justify-content: center;
-          padding-right: 16px;
+          align-items: flex-end;
+          justify-content: flex-start;
           z-index: 2;
-          padding-top: 4px;
-          height: auto;
+
           .points {
-            white-space: nowrap;
             text-transform: uppercase;
-            font-size: 1rem;
+            font-size: 0.8rem;
             font-weight: 600;
-            color: var(--title-text-colour);
+            color: white;
             z-index: 2;
-            line-height: 2.2rem;
+            line-height: 1rem;
             font-family: var(--title-font-family);
             letter-spacing: var(--title-letter-spacing);
-            padding-left: 8px;
-            padding-right: 8px;
-            border: 1px solid var(--title-text-colour);
-            border-radius: 4px;
-
-            &:hover {
-              border: 1px solid var(--title-text-colour);
-              background-color: #ffffff44;
-              cursor: pointer;
-            }
           }
         }
       }
+
       .stats_container {
-        padding-left: 32px;
-        display: flex;
-        align-items: flex-end;
-        gap: 16px;
-        font-family: var(--title-font-family);
-        &:last-child {
-          padding-top: 4px;
+        padding-left: 16px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-gap: 2px;
+
+        .invul_container {
+          padding-left: 0px;
+          grid-column-start: column-3;
+          grid-column-end: column-5;
+          margin-left: -4px;
+        }
+
+        grid-template-areas: "column-7 column-7 column-7 column-7 column-7 column-7"
+        "column-1 column-2 column-3 column-4 column-5 column-6";
+
+        .stat:nth-child(1) {
+          grid-area: column-1;
+        }
+
+        .stat:nth-child(2) {
+          grid-area: column-2;
+        }
+
+        .stat:nth-child(3) {
+          grid-area: column-3;
+        }
+
+        .stat:nth-child(4) {
+          grid-area: column-4;
+        }
+
+        .stat:nth-child(5) {
+          grid-area: column-5;
+        }
+
+        .stat:nth-child(6) {
+          grid-area: column-6;
         }
 
         .name {
           text-transform: uppercase;
           font-size: 1rem;
           font-weight: 600;
-          color: var(--stat-title-colour);
+          color: white;
           z-index: 2;
+          line-height: 1.5rem;
           font-family: var(--title-font-family);
           letter-spacing: var(--title-letter-spacing);
-          white-space: nowrap;
-          width: 135px;
+          height: 1.2rem;
+          width: 100%;
+          grid-area: column-7;
         }
 
         .stat {
@@ -1570,13 +3022,14 @@
 
           flex-direction: row;
           justify-content: center;
+
           .caption {
             text-align: center;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             color: var(--title-text-colour);
             font-weight: 600;
-            width: 44px;
-            height: 20px;
+            width: 34px;
+            height: 12px;
           }
 
           .damageTable {
@@ -1601,27 +3054,57 @@
               scale: 0.75;
             }
           }
+
+          .damageTable {
+            position: absolute;
+            bottom: -14px;
+            height: 24px;
+            width: 24px;
+            left: 10px;
+            border-radius: 32px;
+            background-color: var(--header-colour);
+
+            &::after {
+              content: " ";
+              position: absolute;
+              filter: invert(87%) sepia(100%) saturate(0%) hue-rotate(303deg) brightness(104%) contrast(101%);
+              background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/svg/Toughness.svg");
+              background-repeat: no-repeat;
+              background-size: contain;
+              background-position: center;
+              height: 100%;
+              width: 100%;
+              scale: 0.75;
+            }
+          }
+
+          @media only screen and (max-width: 600px) {
+            .damageTable {
+              left: 5px;
+            }
+          }
+
           .value_container {
             display: flex;
             flex-direction: row;
             justify-content: center;
             align-items: center;
             background: var(--header-colour);
-            height: 44px;
-            width: 44px;
+            height: 34px;
+            width: 34px;
             z-index: 1;
             clip-path: polygon(100% 0, 100% 90%, 90% 100%, 0 100%, 0 10%, 10% 0);
 
             .value {
               text-align: center;
 
-              height: 40px;
-              width: 40px;
+              height: 30px;
+              width: 30px;
 
               text-transform: uppercase;
-              font-size: 1.3rem;
+              font-size: 1.1rem;
               font-weight: 600;
-              color: var(--stat-text-colour);
+              color: var(--header-colour);
               z-index: 2;
               background-color: white;
 
@@ -1646,234 +3129,182 @@
       &::after {
         position: absolute;
         content: "";
-        top: 32px;
-        left: 24px;
-        width: calc(1077px - 24px);
+        top: 8px;
+        left: 0px;
+        width: 100%;
         height: 90px;
         background-color: var(--banner-colour);
         clip-path: polygon(0% 0%, 0% 100%, 42% 100%, 52% 50%, 100% 50%, 100% 0%);
       }
-      &.back {
-        &::after {
-          position: absolute;
-          content: "";
-          top: 32px;
-          left: 24px;
-          width: calc(1077px - 24px);
-          height: 90px;
-          background-color: var(--banner-colour);
-          clip-path: polygon(0% 0%, 0% 50%, 0% 50%, 52% 50%, 100% 50%, 100% 0%) !important;
-        }
-      }
     }
-    &.full {
-      height: auto;
-      min-height: calc(714px);
-      margin-bottom: 64px;
-      .footer {
-        position: initial;
-        margin-top: -32px;
-        z-index: 200;
-      }
-      .faction {
-        z-index: 201;
-        position: initial;
-        margin-top: -64px;
-        margin-left: 339px;
-      }
-      .extra {
-        height: initial !important;
-        border-bottom: 2px solid var(--header-colour);
-        & > div:last-child {
-          padding-bottom: 32px;
-        }
-      }
-      .data_container {
-        height: auto;
-        min-height: 468px;
 
-        .data {
-          height: auto;
-          min-height: 468px;
-
-          display: grid;
-          grid-template-areas:
-            " weapons extra "
-            " multi-data extra";
-
-          .weapons {
-            grid-area: weapons;
-            height: auto;
-          }
-
-          .multi-data {
-            grid-area: multi-data;
-          }
-          .extra {
-            grid-area: extra;
-          }
-
-          .multi-data {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            border-right: 2px solid var(--header-colour);
-            padding-bottom: 48px;
-
-            .wargear_container {
-              padding: 0px;
-              height: auto;
-              border-right: none;
-
-              .content {
-                grid-template-rows: auto !important;
-                grid-template-columns: 1fr !important;
-                grid-auto-flow: row !important;
-
-                ul {
-                  list-style: none;
-                  padding: 0;
-                  li::before {
-                    content: "◦"; /* Insert content that looks like bullets */
-                    padding-right: 8px;
-                    list-style-position: inside;
-                  }
-                }
-              }
-            }
-            .extra {
-              padding: 0px;
-              height: auto;
-              border-right: none;
-              border-bottom: none;
-              .heading:nth-of-type(1) {
-                margin-top: 0px;
-              }
-              .heading {
-                margin-top: 16px;
-              }
-              .ledBy {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                grid-template-rows: 1fr;
-                grid-column-gap: 0px;
-                grid-row-gap: 0px;
-
-                .description {
-                  grid-column: span 2;
-                }
-              }
-              .composition_container > div {
-                padding-left: 16px;
-                .description {
-                  padding-left: 0px;
-                }
-              }
-            }
-          }
-        }
-      }
-    }
     .data_container {
-      position: relative;
-      height: 468px;
-      width: 1032px;
+      height: auto;
+      width: 100%;
       background-color: var(--header-colour);
-      clip-path: polygon(0 0, 100% 0, 100% 100%, 2% 100%, 0 96%);
-
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
+      clip-path: initial;
 
       .data {
         top: 0;
         margin-top: -4px;
-        height: 468px;
-        width: 1028px;
+        height: auto;
+        width: 100%;
         background-color: var(--text-background-colour);
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 2% 100%, 0 96%);
+        clip-path: initial;
 
         display: grid;
-        grid-template-columns: 2fr 1fr;
-        grid-template-rows: auto auto;
+        grid-template-rows: 1fr;
+        grid-template-columns: 1fr;
         grid-column-gap: 0px;
         grid-row-gap: 0px;
 
+        display: grid;
+        grid-template-areas:
+          " weapons "
+          " extra "
+          " multi-data ";
+
         .weapons {
-          height: 500px;
-          border-right: 2px solid var(--header-colour);
+          grid-area: weapons;
+        }
+
+        .multi-data {
+          grid-area: multi-data;
+          border-right: none;
+        }
+
+        .extra {
+          grid-area: extra;
+          padding-bottom: 16px !important;
+
+          div:last-child {
+            padding-bottom: 0px;
+          }
+        }
+
+        .weapons {
+          height: auto;
+          border-right: 0px solid var(--header-colour);
           padding-top: 16px;
+          padding-bottom: 16px;
           position: relative;
           display: flex;
           flex-direction: column;
           gap: 16px;
-          padding-bottom: 16px;
 
           .ranged {
             position: relative;
 
-            &::before {
-              content: "";
-              position: absolute;
-              left: 4px;
-              top: 0;
-              background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/svg/BallisticSkill.svg");
-              background-repeat: none;
-              filter: invert(87%) sepia(100%) saturate(0%) hue-rotate(303deg) brightness(104%) contrast(101%);
-              width: 24px;
-              height: 24px;
+            @media only screen and (max-width: 600px) {
+              &::before {
+                content: "";
+                position: absolute;
+                left: 4px;
+                top: 0;
+                background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/svg/BallisticSkill.svg");
+                background-repeat: none;
+                filter: invert(87%) sepia(100%) saturate(0%) hue-rotate(303deg) brightness(104%) contrast(101%);
+                width: 16px;
+                height: 16px;
+                margin-top: 2px;
+              }
+            }
+
+            @media only screen and (min-width: 600px) {
+              &::before {
+                content: "";
+                position: absolute;
+                left: 4px;
+                top: 0;
+                background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/svg/BallisticSkill.svg");
+                background-repeat: none;
+                filter: invert(87%) sepia(100%) saturate(0%) hue-rotate(303deg) brightness(104%) contrast(101%);
+                width: 24px;
+                height: 24px;
+              }
             }
 
             .heading {
               background-color: var(--header-colour);
-              padding-left: 32px;
+              padding-left: 0px;
               display: grid;
               grid-template-columns: 7fr 2fr repeat(5, 1fr);
               grid-template-rows: 1fr;
               grid-column-gap: 0px;
               grid-row-gap: 0px;
+              padding-right: 8px;
 
               .title {
-                font-family: var(--title-font-family);
                 text-transform: uppercase;
-                color: var(--header-text-colour);
+                color: white;
                 font-size: 1rem;
                 font-weight: 600;
+                font-family: var(--title-font-family);
                 letter-spacing: var(--title-letter-spacing);
                 z-index: 2;
+
+                &:first-child {
+                  margin-left: 24px;
+                }
               }
             }
-            .multi-line {
-              position: relative;
-            }
-            .multi-line::after {
-              content: "";
-              position: absolute;
-              top: 8px;
-              left: 8px;
-              width: 16px;
-              height: 8px;
-              background-color: var(--header-colour);
-              clip-path: polygon(0% 0%, 55% 0%, 100% 50%, 55% 100%, 0% 100%);
-              z-index: 1;
-            }
+
             .weapon {
-              padding-left: 32px;
+              padding-left: 8px;
               border-bottom: 1px dotted #636567;
+              padding-right: 8px;
 
               &:nth-of-type(even) {
                 background: var(--rows-colour);
               }
+
               &:nth-of-type(odd) {
                 background: var(--alt-rows-colour);
               }
+
               .line {
                 display: grid;
                 grid-template-columns: 7fr 2fr repeat(5, 1fr);
                 grid-template-rows: 1fr;
                 grid-column-gap: 0px;
                 grid-row-gap: 0px;
+
+                grid-template-areas:
+                  " column-1 column-2 column-3 column-4 column-5 column-6 column-7 "
+                  " column-8 column-8 column-8 column-8 column-8 column-8 column-8";
+
+                .value:nth-child(1) {
+                  grid-area: column-1;
+                }
+
+                .value:nth-child(2) {
+                  grid-area: column-2;
+                }
+
+                .value:nth-child(3) {
+                  grid-area: column-3;
+                }
+
+                .value:nth-child(4) {
+                  grid-area: column-4;
+                }
+
+                .value:nth-child(5) {
+                  grid-area: column-5;
+                }
+
+                .value:nth-child(6) {
+                  grid-area: column-6;
+                }
+
+                .value:nth-child(7) {
+                  grid-area: column-7;
+                }
+
+                .keyword:nth-child(8) {
+                  grid-area: column-8;
+                }
+
                 .value {
                   color: black;
                   font-size: 0.9rem;
@@ -1892,70 +3323,121 @@
               }
             }
           }
+
           .melee {
             position: relative;
 
-            &::before {
-              content: "";
-              position: absolute;
-              left: 4px;
-              top: 0;
-              background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/svg/Melee.svg");
-              background-repeat: none;
-              filter: invert(87%) sepia(100%) saturate(0%) hue-rotate(303deg) brightness(104%) contrast(101%);
-              width: 20px;
-              height: 20px;
-              margin-top: 2px;
+            @media only screen and (max-width: 600px) {
+              &::before {
+                content: "";
+                position: absolute;
+                left: 4px;
+                top: 0;
+                background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/svg/Melee.svg");
+                background-repeat: none;
+                filter: invert(87%) sepia(100%) saturate(0%) hue-rotate(303deg) brightness(104%) contrast(101%);
+                width: 16px;
+                height: 16px;
+                margin-top: 4px;
+              }
             }
-            .multi-line {
-              position: relative;
+
+            @media only screen and (min-width: 600px) {
+              &::before {
+                content: "";
+                position: absolute;
+                left: 4px;
+                top: 0;
+                background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/svg/Melee.svg");
+                background-repeat: none;
+                filter: invert(87%) sepia(100%) saturate(0%) hue-rotate(303deg) brightness(104%) contrast(101%);
+                width: 20px;
+                height: 20px;
+                margin-top: 3px;
+              }
             }
-            .multi-line::after {
-              content: "";
-              position: absolute;
-              top: 8px;
-              left: 8px;
-              width: 16px;
-              height: 8px;
-              background-color: var(--header-colour);
-              clip-path: polygon(0% 0%, 55% 0%, 100% 50%, 55% 100%, 0% 100%);
-              z-index: 1;
-            }
+
             .heading {
               background-color: var(--header-colour);
-              padding-left: 32px;
+              padding-left: 0px;
               display: grid;
               grid-template-columns: 7fr 2fr repeat(5, 1fr);
               grid-template-rows: 1fr;
               grid-column-gap: 0px;
               grid-row-gap: 0px;
+              padding-right: 8px;
 
               .title {
-                font-family: var(--title-font-family);
                 text-transform: uppercase;
-                color: var(--header-text-colour);
+                color: white;
                 font-size: 1rem;
                 font-weight: 600;
+                font-family: var(--title-font-family);
                 letter-spacing: var(--title-letter-spacing);
                 z-index: 2;
+                padding-top: 2px;
+
+                &:first-child {
+                  margin-left: 24px;
+                }
               }
             }
+
+            .special {
+              .ability {
+                padding-left: 8px !important;
+              }
+            }
+
             .weapon {
-              padding-left: 32px;
+              padding-left: 8px;
               border-bottom: 1px dotted #636567;
+              padding-right: 8px;
 
               &:nth-of-type(even) {
                 background: var(--rows-colour);
               }
+
               &:nth-of-type(odd) {
                 background: var(--alt-rows-colour);
               }
+
               .line {
                 display: grid;
-                grid-template-columns: 7fr 2fr repeat(5, 1fr);
-                grid-template-rows: 1fr;
-                grid-column-gap: 0px;
-                grid-row-gap: 0px;
+                grid-template-columns: 7fr 2fr 1fr 1fr 1fr 1fr 1fr;
+
+                grid-template-areas:
+                  " column-1 column-2 column-3 column-4 column-5 column-6 column-7 "
+                  " column-8 column-8 column-8 column-8 column-8 column-8 column-8";
+
+                .value:nth-child(1) {
+                  grid-area: column-1;
+                }
+
+                .value:nth-child(2) {
+                  grid-area: column-2;
+                }
+
+                .value:nth-child(3) {
+                  grid-area: column-3;
+                }
+
+                .value:nth-child(4) {
+                  grid-area: column-4;
+                }
+
+                .value:nth-child(5) {
+                  grid-area: column-5;
+                }
+
+                .value:nth-child(6) {
+                  grid-area: column-6;
+                }
+
+                .value:nth-child(7) {
+                  grid-area: column-7;
+                }
+
                 .value {
                   color: black;
                   font-size: 0.9rem;
@@ -1964,7 +3446,8 @@
                   z-index: 2;
 
                   .keyword {
-                    // white-space: nowrap;
+                    white-space: nowrap;
+                    grid-area: column-8;
                   }
                 }
               }
@@ -1972,95 +3455,8 @@
           }
         }
 
-        &.back {
-          .wargear_container {
-            height: auto !important;
-            padding-left: 0px;
-            padding-right: 0px;
-
-            .content {
-              grid-template-rows: auto !important;
-              grid-template-columns: 1fr !important;
-              grid-auto-flow: row !important;
-            }
-          }
-          .composition,
-          .loadout,
-          .transport,
-          .leader {
-            padding-left: 14px !important;
-          }
-        }
-        .wargear_container {
-          height: 500px;
-          border-right: 2px solid var(--header-colour);
-          padding: 16px;
-          position: relative;
-          display: flex;
-          flex-direction: column;
-
-          gap: 16px;
-
-          .wargear {
-            position: relative;
-
-            .heading {
-              background-color: var(--header-colour);
-              padding-left: 8px;
-              display: grid;
-              grid-template-columns: 1fr;
-              grid-template-rows: 1fr;
-              grid-column-gap: 0px;
-              grid-row-gap: 0px;
-              margin-bottom: 4px;
-
-              .title {
-                font-family: var(--title-font-family);
-                text-transform: uppercase;
-                color: var(--header-text-colour);
-                font-size: 1rem;
-                font-weight: 600;
-                letter-spacing: var(--title-letter-spacing);
-                z-index: 2;
-              }
-            }
-            .explanation {
-              margin-left: 16px;
-              padding-right: 16px;
-              &:before {
-                content: "*";
-              }
-              font-size: 0.7rem;
-              color: black;
-              font-weight: 400;
-              padding-left: 4px;
-            }
-            .content {
-              display: grid;
-              grid-template-rows: 1fr 1fr;
-              grid-auto-flow: column;
-              .item {
-                align-self: flex-start;
-                padding-left: 16px;
-                padding-right: 16px;
-                line-height: 1.1rem;
-                &:before {
-                  content: "■";
-                }
-                white-space: pre-wrap;
-                .description {
-                  font-size: 0.8rem;
-                  color: black;
-                  font-weight: 400;
-                  padding-left: 4px;
-                }
-              }
-            }
-          }
-        }
-
         .extra {
-          padding: 16px;
+          padding: 0px;
           height: 100%;
 
           display: flex;
@@ -2084,6 +3480,7 @@
               padding-left: 8px;
               padding-right: 32px;
             }
+
             .invul {
               z-index: 2;
               position: relative;
@@ -2104,7 +3501,7 @@
 
               .title {
                 text-transform: uppercase;
-                color: var(--header-text-colour);
+                color: white;
                 font-size: 1rem;
                 font-weight: 600;
                 font-family: var(--title-font-family);
@@ -2140,7 +3537,7 @@
                   text-transform: uppercase;
                   font-size: 1.3rem;
                   font-weight: 600;
-                  color: var(--stat-text-colour);
+                  color: var(--header-colour);
                   z-index: 2;
 
                   justify-content: center;
@@ -2157,6 +3554,7 @@
               }
             }
           }
+
           .abilities {
             .heading {
               background-color: var(--header-colour);
@@ -2164,7 +3562,7 @@
 
               .title {
                 text-transform: uppercase;
-                color: var(--header-text-colour);
+                color: white;
                 font-size: 1rem;
                 font-weight: 600;
                 font-family: var(--title-font-family);
@@ -2172,18 +3570,20 @@
                 z-index: 2;
               }
             }
+
             .ability {
               padding: 4px;
+              padding-left: 8px;
+              padding-right: 8px;
               border-bottom: 1px dotted #636567;
               line-height: 1rem;
 
               .title {
                 text-transform: uppercase;
-                font-size: 0.7rem;
+                font-size: 0.8rem;
                 color: black;
                 font-weight: 300;
-                font-family: var(--title-font-family);
-                letter-spacing: var(--title-letter-spacing);
+
                 &::after {
                   content: ":";
                 }
@@ -2191,147 +3591,26 @@
 
               .value {
                 text-transform: capitalize;
-                font-size: 0.7rem;
+                font-size: 0.8rem;
                 color: black;
                 font-weight: 600;
               }
-              .description {
-                font-size: 0.7rem;
-                color: black;
-                font-weight: 400;
-                padding-left: 4px;
-              }
-
-              .name {
-                text-transform: capitalize;
-                font-size: 0.7rem;
-                color: black;
-                font-weight: 600;
-                font-family: var(--title-font-family);
-                letter-spacing: var(--title-letter-spacing);
-                &::after {
-                  content: ":";
-                }
-              }
-            }
-          }
-          .composition_container {
-            .heading {
-              background-color: var(--header-colour);
-              padding-left: 8px;
-              margin-bottom: 4px;
-              .title {
-                text-transform: uppercase;
-                color: var(--header-text-colour);
-                font-size: 1rem;
-                font-weight: 600;
-                font-family: var(--title-font-family);
-                letter-spacing: var(--title-letter-spacing);
-                z-index: 2;
-              }
-            }
-            .composition {
-              padding: 2px;
-              line-height: 1rem;
 
               .description {
                 font-size: 0.8rem;
                 color: black;
-                font-weight: 600;
+                font-weight: 400;
                 padding-left: 4px;
-                &:before {
-                  content: "■ ";
-                }
               }
-            }
-            .leader {
-              padding: 2px;
-              line-height: 1rem;
 
-              .description {
-                font-size: 0.7rem;
-                color: black;
-                font-weight: 400;
-                white-space: pre-wrap;
-              }
-              .value {
-                font-size: 0.7rem;
-                color: black;
-                font-weight: 600;
-                white-space: pre-wrap;
-                margin-left: 4px;
-                @media screen {
-                  &::before {
-                    content: "[ ";
-                  }
-                  &::after {
-                    content: " ]";
-                  }
-                }
-                &:hover {
-                  text-decoration: underline;
-                }
-              }
-            }
-            .ledBy {
-              padding: 2px;
-              padding-left: 14px !important;
-              line-height: 1rem;
-
-              .description {
-                font-size: 0.7rem;
-                color: black;
-                font-weight: 400;
-                white-space: pre-wrap;
-              }
-              .value {
-                font-size: 0.7rem;
-                color: black;
-                font-weight: 600;
-                white-space: pre-wrap;
-                margin-left: 4px;
-                @media screen {
-                  &::before {
-                    content: "[ ";
-                  }
-                  &::after {
-                    content: " ]";
-                  }
-                }
-                &:hover {
-                  text-decoration: underline;
-                }
-              }
-            }
-            .transport {
-              padding: 2px;
-              line-height: 1rem;
-
-              .description {
-                font-size: 0.7rem;
-                color: black;
-                font-weight: 400;
-                white-space: pre-wrap;
-              }
-            }
-            .loadout {
-              padding-left: 4px;
-              padding-right: 4px;
-              line-height: 1.2rem;
-
-              .description {
-                font-size: 0.7rem;
-                color: black;
-                font-weight: 400;
-                text-transform: capitalize;
-              }
               .name {
-                font-size: 0.7rem;
+                text-transform: capitalize;
+                font-size: 0.8rem;
                 color: black;
                 font-weight: 600;
-                padding-right: 4px;
                 font-family: var(--title-font-family);
                 letter-spacing: var(--title-letter-spacing);
+
                 &::after {
                   content: ":";
                 }
@@ -2341,13 +3620,15 @@
 
           .damaged {
             .description {
-              font-size: 0.7rem;
+              font-size: 0.8rem;
               color: black;
               font-weight: 400;
               line-height: 1.1rem;
-              padding-left: 4px;
+              padding-left: 8px;
+              padding-right: 8px;
               padding-top: 4px;
             }
+
             .heading {
               background-color: var(--header-colour);
               padding-left: 8px;
@@ -2355,7 +3636,7 @@
 
               .title {
                 text-transform: uppercase;
-                color: var(--header-text-colour);
+                color: white;
                 font-size: 1rem;
                 font-weight: 600;
                 z-index: 2;
@@ -2380,31 +3661,31 @@
         }
       }
     }
+
     .special {
-      .description-container {
+      .description {
+        font-size: 0.8rem;
+        color: black;
+        font-weight: 400;
         line-height: 1.1rem;
-        padding-left: 4px;
+        padding-left: 16px;
         padding-top: 4px;
-        .description {
-          font-size: 0.7rem;
-          color: black;
-          font-weight: 400;
-        }
       }
+
       .heading {
         background-color: var(--header-colour);
         padding-left: 8px;
         position: relative;
-        line-height: 1.5rem;
 
         .title {
           text-transform: uppercase;
-          color: var(--header-text-colour);
+          color: white;
           font-size: 1rem;
           font-weight: 600;
           z-index: 2;
         }
       }
+
       .ability {
         padding: 4px;
         border-bottom: 1px dotted #636567;
@@ -2412,7 +3693,7 @@
 
         .title {
           text-transform: uppercase;
-          font-size: 0.7rem;
+          font-size: 0.8rem;
           color: black;
           font-weight: 300;
 
@@ -2423,108 +3704,148 @@
 
         .value {
           text-transform: capitalize;
-          font-size: 0.7rem;
+          font-size: 0.8rem;
           color: black;
           font-weight: 600;
         }
+
         .description {
-          font-size: 0.7rem;
+          font-size: 0.8rem;
           color: black;
           font-weight: 400;
-          padding-left: 4px;
+          padding-left: 8px;
+          padding-right: 8px;
         }
 
         .name {
           text-transform: capitalize;
-          font-size: 0.7rem;
+          font-size: 0.8rem;
           color: black;
           font-weight: 600;
           font-family: var(--title-font-family);
           letter-spacing: var(--title-letter-spacing);
+
           &::after {
             content: ":";
           }
         }
       }
     }
-    .footer {
-      height: 64px;
-      width: 1000px;
-      border: 2px solid var(--header-colour);
-      background-color: var(--text-background-colour);
-      position: absolute;
-      bottom: 32px;
 
-      display: grid;
-      grid-template-columns: 670px auto;
-      grid-template-rows: 1fr;
-      grid-column-gap: 0px;
-      grid-row-gap: 0px;
+    .footer {
+      height: auto;
+      width: 100%;
+      border: 0px solid var(--header-colour);
+      background-color: var(--text-background-colour);
+      position: initial;
+      grid-template-columns: 1fr;
 
       .keywords {
-        border-right: 2px solid var(--header-colour);
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        padding-left: 16px;
-        position: relative;
-        padding-right: 48px;
-        background-color: var(--keywords-background-colour);
+        width: 100%;
+        border-right: 0px solid var(--header-colour);
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 0px;
 
         font-family: var(--title-font-family);
         letter-spacing: var(--title-letter-spacing);
 
+        padding-right: 0px;
+
+        grid-template-areas:
+          "column-1"
+          "column-2";
+
+        padding-left: 0px;
+        background-color: var(--rows-colour);
+
         .title {
+          padding-left: 8px;
+          margin-top: 16px;
           text-transform: uppercase;
-          font-size: 1rem;
-          color: black;
-          font-weight: 400;
           padding-right: 4px;
+          grid-area: column-1;
+
+          text-transform: uppercase;
+          color: white;
+          font-size: 1rem;
+          font-weight: 600;
+          font-family: var(--title-font-family);
+          letter-spacing: var(--title-letter-spacing);
+          z-index: 2;
+          width: 100%;
+
+          background-color: var(--header-colour);
 
           &::after {
-            content: ":";
+            content: "";
           }
         }
 
         .value {
+          padding: 8px;
           text-transform: capitalize;
-          font-size: 1rem;
+          font-size: 0.7rem;
           color: black;
           font-weight: 600;
+          width: 100%;
+          grid-area: column-2;
         }
       }
+
       .factions {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        position: relative;
-        padding-left: 48px;
-        background-color: var(--background-colour);
-        font-family: var(--title-font-family);
-        letter-spacing: var(--title-letter-spacing);
+        width: 100%;
+        border-right: 0px solid var(--header-colour);
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 0px;
+
+        padding-right: 0px;
+
+        grid-template-areas:
+          "column-1"
+          "column-2";
+
+        padding-left: 0px;
+        background-color: var(--rows-colour);
+
         .title {
+          padding: 4px;
+          padding-left: 8px;
+          margin-top: 0px;
           text-transform: uppercase;
-          font-size: 1rem;
+          grid-area: column-1;
+
+          text-transform: uppercase;
           color: var(--faction-text-colour);
-          font-weight: 400;
-          padding-right: 4px;
-          line-height: 1.1rem;
+          font-size: 1rem;
+          font-weight: 600;
+          font-family: var(--title-font-family);
+          letter-spacing: var(--title-letter-spacing);
+          z-index: 2;
+          width: 100%;
+
+          background-color: var(--header-colour);
 
           &::after {
-            content: ":";
+            content: "";
           }
         }
 
         .value {
+          padding: 8px;
           text-transform: capitalize;
-          font-size: 1rem;
-          color: var(--faction-text-colour);
+          font-size: 0.7rem;
+          color: black;
           font-weight: 600;
-          line-height: 1.1rem;
+          width: 100%;
+          grid-area: column-2;
         }
       }
     }
+
     .faction {
+      display: none;
       height: 64px;
       width: 64px;
       border: 2px solid var(--header-colour);
@@ -2536,1163 +3857,135 @@
       overflow: hidden;
 
       each(@factions, {
-          .@{value} {
-            content: " ";
-            display: block;
-            width: 100%;
-            height: 100%;
-            scale: 0.8;
-            background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/dc/@{value}.svg");
-            background-repeat: no-repeat;
-            background-size: contain;
-            background-position: center;
-            filter: invert(0%) sepia(2%) saturate(0%) hue-rotate(253deg) brightness(100%) contrast(100%);
-            rotate: -45deg;
-          }
-        });
-      .AoI {
-        scale: 1.3;
-      }
-      .CHDW {
-        scale: 0.7;
-      }
-      .DRU {
-        scale: 1;
-      }
-      .GK {
-        scale: 1;
-      }
-      .ORK {
-        scale: 1;
-      }
-      .SM {
-        scale: 1.4;
-      }
-      .CHSW {
-        scale: 1;
-      }
-      .TYR {
-        scale: 1;
-      }
-      .LoV {
-        scale: 1;
-      }
-      .WE {
-        scale: 1;
-      }
-      .AE {
-        scale: 1;
-      }
-      .AM {
-        content: " ";
-        display: block;
-        width: 100%;
-        height: 100%;
-        scale: 1.3;
-        background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/dc/AM.svg");
-        background-repeat: no-repeat;
-        background-size: contain;
-        background-position: center;
-        filter: invert(0%) sepia(2%) saturate(0%) hue-rotate(253deg) brightness(100%) contrast(100%);
-        rotate: -45deg;
-      }
-      .basic {
-        content: " ";
-        display: block;
-        width: 100%;
-        height: 100%;
-        scale: 1;
-        background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/dc/logo_large.png");
-        background-repeat: no-repeat;
-        background-size: contain;
-        background-position: center;
-        filter: invert(0%) sepia(2%) saturate(0%) hue-rotate(253deg) brightness(100%) contrast(100%);
-        rotate: -45deg;
-      }
+        .@{value} {
+          content: " ";
+          display: block;
+          width: 100%;
+          height: 100%;
+          scale: 0.8;
+          background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/dc/@{value}.svg");
+          background-repeat: no-repeat;
+          background-size: contain;
+          background-position: center;
+          filter: invert(0%) sepia(2%) saturate(0%) hue-rotate(253deg) brightness(100%) contrast(100%);
+          rotate: -45deg;
+        }
+      });
+
+    .AM {
+      content: " ";
+      display: block;
+      width: 100%;
+      height: 100%;
+      scale: 1.8;
+      background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/dc/AM.svg");
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+      filter: invert(0%) sepia(2%) saturate(0%) hue-rotate(253deg) brightness(100%) contrast(100%);
+      rotate: -45deg;
+    }
+
+    .basic {
+      content: " ";
+      display: block;
+      width: 100%;
+      height: 100%;
+      scale: 1;
+      background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/dc/logo_large.png");
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+      filter: invert(0%) sepia(2%) saturate(0%) hue-rotate(253deg) brightness(100%) contrast(100%);
+      rotate: -45deg;
     }
   }
+}
+}
 
-  .viewer {
-    .unit {
-      height: auto;
-      width: 100vw;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      position: relative;
-      font-size: 1rem;
+.center {
+  text-align: center;
+}
 
-      .header {
-        width: 100%;
-        height: auto;
-        min-height: 110px;
-        background-color: var(--background-colour);
-        position: relative;
-        display: block;
+.rule {
+  cursor: pointer;
+  text-transform: capitalize;
+  color: black;
+  font-weight: 600;
 
-        &.back {
-          min-height: 65px;
-          &::after {
-            position: absolute;
-            content: "";
-            top: 8px;
-            left: 0px;
-            width: 100%;
-            height: 85px;
-            background-color: var(--banner-colour);
-          }
-        }
-        .header_container {
-          grid-area: c1;
-          display: flex;
-          align-items: flex-start;
-          justify-content: space-between;
-          padding-top: 12px;
-          padding-left: 8px;
+  .rule-button {
+    font-size: inherit;
+    height: 16px;
+    padding: 0px;
 
-          @media only screen and (max-width: 600px) {
-            .legends {
-              position: absolute;
-              right: 16px;
-              top: 12px;
-              font-size: 1rem;
-              z-index: 10;
-              color: var(--faction-text-colour);
-              font-weight: 600;
-              font-family: "EB Garamond", "serif";
-              &::before {
-                content: "Legends";
-              }
-            }
-          }
-          @media only screen and (min-width: 600px) {
-            .legends {
-              &::before {
-                content: "Warhammer Legends";
-              }
-              position: absolute;
-              top: 38px;
-              right: 110px;
-              z-index: 10;
-              font-size: 1.3rem;
-              font-weight: 600;
-              font-family: "EB Garamond", "serif";
-              color: var(--faction-text-colour);
-            }
-          }
-
-          .name_container {
-            flex-basis: 100%;
-            display: flex;
-            align-items: flex-end;
-            .name {
-              text-transform: uppercase;
-              font-size: 1.2rem;
-              font-weight: 800;
-              color: white;
-              z-index: 2;
-              line-height: 1.5rem;
-              font-family: var(--title-font-family);
-              letter-spacing: var(--title-letter-spacing);
-            }
-            .subname {
-              padding-left: 8px;
-              text-transform: uppercase;
-              font-style: italic;
-              color: white;
-              font-size: 1rem;
-              z-index: 2;
-              font-weight: 600;
-              font-family: var(--title-font-family);
-              letter-spacing: var(--title-letter-spacing);
-            }
-          }
-          .points_container {
-            padding-top: 0px;
-            padding-left: 8px;
-            display: flex;
-            align-items: flex-end;
-            justify-content: flex-start;
-            z-index: 2;
-            .points {
-              text-transform: uppercase;
-              font-size: 0.8rem;
-              font-weight: 600;
-              color: white;
-              z-index: 2;
-              line-height: 1rem;
-              font-family: var(--title-font-family);
-              letter-spacing: var(--title-letter-spacing);
-            }
-          }
-        }
-        .stats_container {
-          padding-left: 16px;
-          display: grid;
-          grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-          grid-gap: 2px;
-
-          .invul_container {
-            padding-left: 0px;
-            grid-column-start: column-3;
-            grid-column-end: column-5;
-            margin-left: -4px;
-          }
-
-          grid-template-areas:
-            "column-7 column-7 column-7 column-7 column-7 column-7"
-            "column-1 column-2 column-3 column-4 column-5 column-6";
-
-          .stat:nth-child(1) {
-            grid-area: column-1;
-          }
-          .stat:nth-child(2) {
-            grid-area: column-2;
-          }
-          .stat:nth-child(3) {
-            grid-area: column-3;
-          }
-          .stat:nth-child(4) {
-            grid-area: column-4;
-          }
-          .stat:nth-child(5) {
-            grid-area: column-5;
-          }
-          .stat:nth-child(6) {
-            grid-area: column-6;
-          }
-
-          .name {
-            text-transform: uppercase;
-            font-size: 1rem;
-            font-weight: 600;
-            color: white;
-            z-index: 2;
-            line-height: 1.5rem;
-            font-family: var(--title-font-family);
-            letter-spacing: var(--title-letter-spacing);
-            height: 1.2rem;
-            width: 100%;
-            grid-area: column-7;
-          }
-
-          .stat {
-            z-index: 2;
-            position: relative;
-
-            flex-direction: row;
-            justify-content: center;
-            .caption {
-              text-align: center;
-              font-size: 0.8rem;
-              color: var(--title-text-colour);
-              font-weight: 600;
-              width: 34px;
-              height: 12px;
-            }
-
-            .damageTable {
-              position: absolute;
-              bottom: -14px;
-              height: 24px;
-              width: 24px;
-              left: 10px;
-              border-radius: 32px;
-              background-color: var(--header-colour);
-
-              &::after {
-                content: " ";
-                position: absolute;
-                filter: invert(87%) sepia(100%) saturate(0%) hue-rotate(303deg) brightness(104%) contrast(101%);
-                background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/svg/Toughness.svg");
-                background-repeat: no-repeat;
-                background-size: contain;
-                background-position: center;
-                height: 100%;
-                width: 100%;
-                scale: 0.75;
-              }
-            }
-
-            .damageTable {
-              position: absolute;
-              bottom: -14px;
-              height: 24px;
-              width: 24px;
-              left: 10px;
-              border-radius: 32px;
-              background-color: var(--header-colour);
-
-              &::after {
-                content: " ";
-                position: absolute;
-                filter: invert(87%) sepia(100%) saturate(0%) hue-rotate(303deg) brightness(104%) contrast(101%);
-                background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/svg/Toughness.svg");
-                background-repeat: no-repeat;
-                background-size: contain;
-                background-position: center;
-                height: 100%;
-                width: 100%;
-                scale: 0.75;
-              }
-            }
-            @media only screen and (max-width: 600px) {
-              .damageTable {
-                left: 5px;
-              }
-            }
-            .value_container {
-              display: flex;
-              flex-direction: row;
-              justify-content: center;
-              align-items: center;
-              background: var(--header-colour);
-              height: 34px;
-              width: 34px;
-              z-index: 1;
-              clip-path: polygon(100% 0, 100% 90%, 90% 100%, 0 100%, 0 10%, 10% 0);
-
-              .value {
-                text-align: center;
-
-                height: 30px;
-                width: 30px;
-
-                text-transform: uppercase;
-                font-size: 1.1rem;
-                font-weight: 600;
-                color: var(--header-colour);
-                z-index: 2;
-                background-color: white;
-
-                justify-content: center;
-                align-items: center;
-                display: flex;
-
-                clip-path: polygon(100% 0, 100% 90%, 90% 100%, 0 100%, 0 10%, 10% 0);
-              }
-
-              &.wide {
-                width: 60px;
-
-                .value {
-                  width: 54px;
-                }
-              }
-            }
-          }
+    @media screen {
+      span {
+        &::before {
+          content: "[ ";
         }
 
         &::after {
-          position: absolute;
-          content: "";
-          top: 8px;
-          left: 0px;
-          width: 100%;
-          height: 90px;
-          background-color: var(--banner-colour);
-          clip-path: polygon(0% 0%, 0% 100%, 42% 100%, 52% 50%, 100% 50%, 100% 0%);
-        }
-      }
-      .data_container {
-        height: auto;
-        width: 100%;
-        background-color: var(--header-colour);
-        clip-path: initial;
-
-        .data {
-          top: 0;
-          margin-top: -4px;
-          height: auto;
-          width: 100%;
-          background-color: var(--text-background-colour);
-          clip-path: initial;
-
-          display: grid;
-          grid-template-rows: 1fr;
-          grid-template-columns: 1fr;
-          grid-column-gap: 0px;
-          grid-row-gap: 0px;
-
-          display: grid;
-          grid-template-areas:
-            " weapons "
-            " extra "
-            " multi-data ";
-
-          .weapons {
-            grid-area: weapons;
-          }
-          .multi-data {
-            grid-area: multi-data;
-            border-right: none;
-          }
-          .extra {
-            grid-area: extra;
-            padding-bottom: 16px !important;
-
-            div:last-child {
-              padding-bottom: 0px;
-            }
-          }
-
-          .weapons {
-            height: auto;
-            border-right: 0px solid var(--header-colour);
-            padding-top: 16px;
-            padding-bottom: 16px;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-
-            .ranged {
-              position: relative;
-
-              @media only screen and (max-width: 600px) {
-                &::before {
-                  content: "";
-                  position: absolute;
-                  left: 4px;
-                  top: 0;
-                  background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/svg/BallisticSkill.svg");
-                  background-repeat: none;
-                  filter: invert(87%) sepia(100%) saturate(0%) hue-rotate(303deg) brightness(104%) contrast(101%);
-                  width: 16px;
-                  height: 16px;
-                  margin-top: 2px;
-                }
-              }
-              @media only screen and (min-width: 600px) {
-                &::before {
-                  content: "";
-                  position: absolute;
-                  left: 4px;
-                  top: 0;
-                  background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/svg/BallisticSkill.svg");
-                  background-repeat: none;
-                  filter: invert(87%) sepia(100%) saturate(0%) hue-rotate(303deg) brightness(104%) contrast(101%);
-                  width: 24px;
-                  height: 24px;
-                }
-              }
-
-              .heading {
-                background-color: var(--header-colour);
-                padding-left: 0px;
-                display: grid;
-                grid-template-columns: 7fr 2fr repeat(5, 1fr);
-                grid-template-rows: 1fr;
-                grid-column-gap: 0px;
-                grid-row-gap: 0px;
-                padding-right: 8px;
-
-                .title {
-                  text-transform: uppercase;
-                  color: white;
-                  font-size: 1rem;
-                  font-weight: 600;
-                  font-family: var(--title-font-family);
-                  letter-spacing: var(--title-letter-spacing);
-                  z-index: 2;
-
-                  &:first-child {
-                    margin-left: 24px;
-                  }
-                }
-              }
-
-              .weapon {
-                padding-left: 8px;
-                border-bottom: 1px dotted #636567;
-                padding-right: 8px;
-                &:nth-of-type(even) {
-                  background: var(--rows-colour);
-                }
-                &:nth-of-type(odd) {
-                  background: var(--alt-rows-colour);
-                }
-                .line {
-                  display: grid;
-                  grid-template-columns: 7fr 2fr repeat(5, 1fr);
-                  grid-template-rows: 1fr;
-                  grid-column-gap: 0px;
-                  grid-row-gap: 0px;
-
-                  grid-template-areas:
-                    " column-1 column-2 column-3 column-4 column-5 column-6 column-7 "
-                    " column-8 column-8 column-8 column-8 column-8 column-8 column-8";
-
-                  .value:nth-child(1) {
-                    grid-area: column-1;
-                  }
-                  .value:nth-child(2) {
-                    grid-area: column-2;
-                  }
-                  .value:nth-child(3) {
-                    grid-area: column-3;
-                  }
-                  .value:nth-child(4) {
-                    grid-area: column-4;
-                  }
-                  .value:nth-child(5) {
-                    grid-area: column-5;
-                  }
-                  .value:nth-child(6) {
-                    grid-area: column-6;
-                  }
-                  .value:nth-child(7) {
-                    grid-area: column-7;
-                  }
-                  .keyword:nth-child(8) {
-                    grid-area: column-8;
-                  }
-
-                  .value {
-                    color: black;
-                    font-size: 0.9rem;
-                    font-weight: 400;
-                    letter-spacing: normal;
-                    z-index: 2;
-
-                    .name {
-                      white-space: pre-line;
-                    }
-
-                    .keyword {
-                      white-space: nowrap;
-                    }
-                  }
-                }
-              }
-            }
-            .melee {
-              position: relative;
-              @media only screen and (max-width: 600px) {
-                &::before {
-                  content: "";
-                  position: absolute;
-                  left: 4px;
-                  top: 0;
-                  background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/svg/Melee.svg");
-                  background-repeat: none;
-                  filter: invert(87%) sepia(100%) saturate(0%) hue-rotate(303deg) brightness(104%) contrast(101%);
-                  width: 16px;
-                  height: 16px;
-                  margin-top: 4px;
-                }
-              }
-              @media only screen and (min-width: 600px) {
-                &::before {
-                  content: "";
-                  position: absolute;
-                  left: 4px;
-                  top: 0;
-                  background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/svg/Melee.svg");
-                  background-repeat: none;
-                  filter: invert(87%) sepia(100%) saturate(0%) hue-rotate(303deg) brightness(104%) contrast(101%);
-                  width: 20px;
-                  height: 20px;
-                  margin-top: 3px;
-                }
-              }
-
-              .heading {
-                background-color: var(--header-colour);
-                padding-left: 0px;
-                display: grid;
-                grid-template-columns: 7fr 2fr repeat(5, 1fr);
-                grid-template-rows: 1fr;
-                grid-column-gap: 0px;
-                grid-row-gap: 0px;
-                padding-right: 8px;
-
-                .title {
-                  text-transform: uppercase;
-                  color: white;
-                  font-size: 1rem;
-                  font-weight: 600;
-                  font-family: var(--title-font-family);
-                  letter-spacing: var(--title-letter-spacing);
-                  z-index: 2;
-                  padding-top: 2px;
-
-                  &:first-child {
-                    margin-left: 24px;
-                  }
-                }
-              }
-              .special {
-                .ability {
-                  padding-left: 8px !important;
-                }
-              }
-              .weapon {
-                padding-left: 8px;
-                border-bottom: 1px dotted #636567;
-                padding-right: 8px;
-
-                &:nth-of-type(even) {
-                  background: var(--rows-colour);
-                }
-                &:nth-of-type(odd) {
-                  background: var(--alt-rows-colour);
-                }
-                .line {
-                  display: grid;
-                  grid-template-columns: 7fr 2fr 1fr 1fr 1fr 1fr 1fr;
-
-                  grid-template-areas:
-                    " column-1 column-2 column-3 column-4 column-5 column-6 column-7 "
-                    " column-8 column-8 column-8 column-8 column-8 column-8 column-8";
-
-                  .value:nth-child(1) {
-                    grid-area: column-1;
-                  }
-                  .value:nth-child(2) {
-                    grid-area: column-2;
-                  }
-                  .value:nth-child(3) {
-                    grid-area: column-3;
-                  }
-                  .value:nth-child(4) {
-                    grid-area: column-4;
-                  }
-                  .value:nth-child(5) {
-                    grid-area: column-5;
-                  }
-                  .value:nth-child(6) {
-                    grid-area: column-6;
-                  }
-                  .value:nth-child(7) {
-                    grid-area: column-7;
-                  }
-
-                  .value {
-                    color: black;
-                    font-size: 0.9rem;
-                    font-weight: 400;
-                    letter-spacing: normal;
-                    z-index: 2;
-
-                    .keyword {
-                      white-space: nowrap;
-                      grid-area: column-8;
-                    }
-                  }
-                }
-              }
-            }
-          }
-
-          .extra {
-            padding: 0px;
-            height: 100%;
-
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-
-            .invul_container {
-              z-index: 2;
-              position: relative;
-
-              display: flex;
-              flex-direction: column;
-
-              .info {
-                color: black;
-                font-size: 0.7rem;
-                font-weight: 400;
-                letter-spacing: normal;
-                font-style: italic;
-                margin-top: -12px;
-                padding-left: 8px;
-                padding-right: 32px;
-              }
-              .invul {
-                z-index: 2;
-                position: relative;
-
-                display: flex;
-                flex-direction: row;
-                justify-content: space-between;
-                align-items: center;
-
-                &::before {
-                  content: " ";
-                  position: absolute;
-                  width: 100%;
-                  height: 22px;
-                  background-color: var(--header-colour);
-                  top: calc(50% - 11px);
-                }
-
-                .title {
-                  text-transform: uppercase;
-                  color: white;
-                  font-size: 1rem;
-                  font-weight: 600;
-                  font-family: var(--title-font-family);
-                  letter-spacing: var(--title-letter-spacing);
-                  z-index: 2;
-
-                  padding-left: 8px;
-                }
-
-                .value_container {
-                  display: flex;
-                  flex-direction: row;
-                  justify-content: center;
-                  align-items: center;
-
-                  height: 50px;
-                  width: 50px;
-                  z-index: 1;
-
-                  mask: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/svg/invul_shield.svg");
-                  mask-repeat: no-repeat;
-                  mask-position: center;
-                  mask-size: contain;
-
-                  background-color: var(--header-colour);
-
-                  .value {
-                    text-align: center;
-
-                    height: 44px;
-                    width: 45px;
-
-                    text-transform: uppercase;
-                    font-size: 1.3rem;
-                    font-weight: 600;
-                    color: var(--header-colour);
-                    z-index: 2;
-
-                    justify-content: center;
-                    align-items: center;
-                    display: flex;
-
-                    background-color: white;
-
-                    mask: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/svg/invul_shield.svg");
-                    mask-repeat: no-repeat;
-                    mask-position: center;
-                    mask-size: contain;
-                  }
-                }
-              }
-            }
-            .abilities {
-              .heading {
-                background-color: var(--header-colour);
-                padding-left: 8px;
-
-                .title {
-                  text-transform: uppercase;
-                  color: white;
-                  font-size: 1rem;
-                  font-weight: 600;
-                  font-family: var(--title-font-family);
-                  letter-spacing: var(--title-letter-spacing);
-                  z-index: 2;
-                }
-              }
-              .ability {
-                padding: 4px;
-                padding-left: 8px;
-                padding-right: 8px;
-                border-bottom: 1px dotted #636567;
-                line-height: 1rem;
-
-                .title {
-                  text-transform: uppercase;
-                  font-size: 0.8rem;
-                  color: black;
-                  font-weight: 300;
-
-                  &::after {
-                    content: ":";
-                  }
-                }
-
-                .value {
-                  text-transform: capitalize;
-                  font-size: 0.8rem;
-                  color: black;
-                  font-weight: 600;
-                }
-                .description {
-                  font-size: 0.8rem;
-                  color: black;
-                  font-weight: 400;
-                  padding-left: 4px;
-                }
-
-                .name {
-                  text-transform: capitalize;
-                  font-size: 0.8rem;
-                  color: black;
-                  font-weight: 600;
-                  font-family: var(--title-font-family);
-                  letter-spacing: var(--title-letter-spacing);
-                  &::after {
-                    content: ":";
-                  }
-                }
-              }
-            }
-
-            .damaged {
-              .description {
-                font-size: 0.8rem;
-                color: black;
-                font-weight: 400;
-                line-height: 1.1rem;
-                padding-left: 8px;
-                padding-right: 8px;
-                padding-top: 4px;
-              }
-              .heading {
-                background-color: var(--header-colour);
-                padding-left: 8px;
-                position: relative;
-
-                .title {
-                  text-transform: uppercase;
-                  color: white;
-                  font-size: 1rem;
-                  font-weight: 600;
-                  z-index: 2;
-                  padding-left: 16px;
-
-                  &::before {
-                    content: "";
-                    position: absolute;
-                    left: 6px;
-                    top: 0;
-                    background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/svg/Toughness.svg");
-                    background-repeat: no-repeat;
-                    filter: invert(87%) sepia(100%) saturate(0%) hue-rotate(303deg) brightness(104%) contrast(101%);
-                    width: 20px;
-                    height: 20px;
-                    margin-top: 2px;
-                    scale: 0.8;
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-      .special {
-        .description {
-          font-size: 0.8rem;
-          color: black;
-          font-weight: 400;
-          line-height: 1.1rem;
-          padding-left: 16px;
-          padding-top: 4px;
-        }
-        .heading {
-          background-color: var(--header-colour);
-          padding-left: 8px;
-          position: relative;
-
-          .title {
-            text-transform: uppercase;
-            color: white;
-            font-size: 1rem;
-            font-weight: 600;
-            z-index: 2;
-          }
-        }
-        .ability {
-          padding: 4px;
-          border-bottom: 1px dotted #636567;
-          line-height: 1rem;
-
-          .title {
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            color: black;
-            font-weight: 300;
-
-            &::after {
-              content: ":";
-            }
-          }
-
-          .value {
-            text-transform: capitalize;
-            font-size: 0.8rem;
-            color: black;
-            font-weight: 600;
-          }
-          .description {
-            font-size: 0.8rem;
-            color: black;
-            font-weight: 400;
-            padding-left: 8px;
-            padding-right: 8px;
-          }
-
-          .name {
-            text-transform: capitalize;
-            font-size: 0.8rem;
-            color: black;
-            font-weight: 600;
-            font-family: var(--title-font-family);
-            letter-spacing: var(--title-letter-spacing);
-            &::after {
-              content: ":";
-            }
-          }
-        }
-      }
-      .footer {
-        height: auto;
-        width: 100%;
-        border: 0px solid var(--header-colour);
-        background-color: var(--text-background-colour);
-        position: initial;
-        grid-template-columns: 1fr;
-
-        .keywords {
-          width: 100%;
-          border-right: 0px solid var(--header-colour);
-          display: grid;
-          grid-template-columns: 1fr;
-          grid-gap: 0px;
-
-          font-family: var(--title-font-family);
-          letter-spacing: var(--title-letter-spacing);
-
-          padding-right: 0px;
-
-          grid-template-areas:
-            "column-1"
-            "column-2";
-
-          padding-left: 0px;
-          background-color: var(--rows-colour);
-
-          .title {
-            padding-left: 8px;
-            margin-top: 16px;
-            text-transform: uppercase;
-            padding-right: 4px;
-            grid-area: column-1;
-
-            text-transform: uppercase;
-            color: white;
-            font-size: 1rem;
-            font-weight: 600;
-            font-family: var(--title-font-family);
-            letter-spacing: var(--title-letter-spacing);
-            z-index: 2;
-            width: 100%;
-
-            background-color: var(--header-colour);
-
-            &::after {
-              content: "";
-            }
-          }
-
-          .value {
-            padding: 8px;
-            text-transform: capitalize;
-            font-size: 0.7rem;
-            color: black;
-            font-weight: 600;
-            width: 100%;
-            grid-area: column-2;
-          }
-        }
-        .factions {
-          width: 100%;
-          border-right: 0px solid var(--header-colour);
-          display: grid;
-          grid-template-columns: 1fr;
-          grid-gap: 0px;
-
-          padding-right: 0px;
-
-          grid-template-areas:
-            "column-1"
-            "column-2";
-
-          padding-left: 0px;
-          background-color: var(--rows-colour);
-
-          .title {
-            padding: 4px;
-            padding-left: 8px;
-            margin-top: 0px;
-            text-transform: uppercase;
-            grid-area: column-1;
-
-            text-transform: uppercase;
-            color: var(--faction-text-colour);
-            font-size: 1rem;
-            font-weight: 600;
-            font-family: var(--title-font-family);
-            letter-spacing: var(--title-letter-spacing);
-            z-index: 2;
-            width: 100%;
-
-            background-color: var(--header-colour);
-
-            &::after {
-              content: "";
-            }
-          }
-
-          .value {
-            padding: 8px;
-            text-transform: capitalize;
-            font-size: 0.7rem;
-            color: black;
-            font-weight: 600;
-            width: 100%;
-            grid-area: column-2;
-          }
-        }
-      }
-      .faction {
-        display: none;
-        height: 64px;
-        width: 64px;
-        border: 2px solid var(--header-colour);
-        background-color: var(--rows-colour);
-        position: absolute;
-        bottom: 32px;
-        left: 677px;
-        rotate: 45deg;
-        overflow: hidden;
-
-        each(@factions, {
-          .@{value} {
-            content: " ";
-            display: block;
-            width: 100%;
-            height: 100%;
-            scale: 0.8;
-            background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/dc/@{value}.svg");
-            background-repeat: no-repeat;
-            background-size: contain;
-            background-position: center;
-            filter: invert(0%) sepia(2%) saturate(0%) hue-rotate(253deg) brightness(100%) contrast(100%);
-            rotate: -45deg;
-          }
-        });
-
-        .AM {
-          content: " ";
-          display: block;
-          width: 100%;
-          height: 100%;
-          scale: 1.8;
-          background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/dc/AM.svg");
-          background-repeat: no-repeat;
-          background-size: contain;
-          background-position: center;
-          filter: invert(0%) sepia(2%) saturate(0%) hue-rotate(253deg) brightness(100%) contrast(100%);
-          rotate: -45deg;
-        }
-        .basic {
-          content: " ";
-          display: block;
-          width: 100%;
-          height: 100%;
-          scale: 1;
-          background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/dc/logo_large.png");
-          background-repeat: no-repeat;
-          background-size: contain;
-          background-position: center;
-          filter: invert(0%) sepia(2%) saturate(0%) hue-rotate(253deg) brightness(100%) contrast(100%);
-          rotate: -45deg;
+          content: " ]";
         }
       }
     }
   }
 
-  .center {
-    text-align: center;
+  &:hover {
+    text-decoration: underline;
   }
-  .rule {
-    cursor: pointer;
+
+  span {
     text-transform: capitalize;
     color: black;
     font-weight: 600;
-
-    .rule-button {
-      font-size: inherit;
-      height: 16px;
-      padding: 0px;
-
-      @media screen {
-        span {
-          &::before {
-            content: "[ ";
-          }
-          &::after {
-            content: " ]";
-          }
-        }
-      }
-    }
-    &:hover {
-      text-decoration: underline;
-    }
-    span {
-      text-transform: capitalize;
-      color: black;
-      font-weight: 600;
-    }
   }
+}
 
-  .keyword {
+.keyword {
+  text-transform: uppercase;
+  color: var(--weapon-keyword-colour);
+  font-size: 0.7rem;
+  font-weight: 600;
+  z-index: 2;
+  cursor: pointer;
+
+  padding-left: 2px;
+  padding-right: 2px;
+
+  .keyword-button {
     text-transform: uppercase;
     color: var(--weapon-keyword-colour);
     font-size: 0.7rem;
     font-weight: 600;
-    z-index: 2;
-    cursor: pointer;
+    height: 16px;
+    padding: 0px;
 
-    padding-left: 2px;
-    padding-right: 2px;
-
-    .keyword-button {
-      text-transform: uppercase;
-      color: var(--weapon-keyword-colour);
-      font-size: 0.7rem;
-      font-weight: 600;
-      height: 16px;
-      padding: 0px;
-
-      &::after {
-        content: ", ";
-      }
-    }
-    .keyword-button:first-child {
-      &::before {
-        content: "";
-      }
-    }
-    .keyword-button:last-child {
-      &::after {
-        content: "";
-      }
-    }
     &::after {
-      content: "]";
-    }
-    &::before {
-      content: "[";
+      content: ", ";
     }
   }
+
+  .keyword-button:first-child {
+    &::before {
+      content: "";
+    }
+  }
+
+  .keyword-button:last-child {
+    &::after {
+      content: "";
+    }
+  }
+
+  &::after {
+    content: "]";
+  }
+
+  &::before {
+    content: "[";
+  }
+}
 }
 
 .basic_unit {
@@ -3719,6 +4012,7 @@
       font-size: 12px;
       letter-spacing: 0px;
     }
+
     .frame {
       display: block;
       height: 100%;
@@ -3727,9 +4021,11 @@
       border-radius: 13.5px;
       background-color: #e2e2dd;
       overflow: hidden;
+
       .background {
         width: inherit;
       }
+
       each(@factions, {
         .@{value}::before {
           content: " ";
@@ -3748,271 +4044,287 @@
         }
       });
 
-      .AM::before {
-        content: " ";
-        display: block;
-        position: absolute;
-        left: 0;
-        top: 55%;
-        width: 100%;
-        transform: translateY(-75px);
-        height: 85px;
-        opacity: 0.1;
-        background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/dc/AM.svg");
-        background-repeat: no-repeat;
-        background-size: contain;
-        background-position: center;
-      }
-      .basic::before {
-        content: " ";
-        display: block;
-        position: absolute;
-        left: 0;
-        top: 50%;
-        width: 100%;
-        transform: translateY(-75px);
-        height: 150px;
-        opacity: 0.1;
-        background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/dc/logo_large.png");
-        background-repeat: no-repeat;
-        background-size: contain;
-        background-position: center;
-      }
-      .header {
-        display: block;
-        height: 45px;
-        margin: 0 8px;
+    .AM::before {
+      content: " ";
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 55%;
+      width: 100%;
+      transform: translateY(-75px);
+      height: 85px;
+      opacity: 0.1;
+      background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/dc/AM.svg");
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+    }
 
-        .name {
-          float: left;
-          width: calc(100% - 44px);
-          min-height: 35px;
-          padding-top: 8px;
-          line-height: 15px;
-          text-transform: uppercase;
-          vertical-align: middle;
-          font-family: "Heebo", sans-serif;
-          font-size: 16px;
-          font-weight: 700;
-          letter-spacing: -1px;
-          border-bottom: 2px solid #000;
-        }
+    .basic::before {
+      content: " ";
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 100%;
+      transform: translateY(-75px);
+      height: 150px;
+      opacity: 0.1;
+      background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/dc/logo_large.png");
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+    }
 
-        .role {
-          position: relative;
-          float: left;
-          width: 35px;
-          height: 35px;
-          padding-top: 8px;
-          margin-right: 8px;
+    .header {
+      display: block;
+      height: 45px;
+      margin: 0 8px;
 
-          div {
-            height: 35px;
-            width: 35px;
-            position: absolute;
-            bottom: 0;
-          }
-          .hq {
-            background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/svg/HQ.svg");
-          }
-
-          .troops {
-            background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/svg/Troops.svg");
-          }
-          .elites {
-            background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/svg/Elites.svg");
-          }
-
-          .fast-attack {
-            background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/svg/Fast-Attack.svg");
-          }
-
-          .dedicated-transport {
-            background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/svg/Dedicated-Transport.svg");
-          }
-
-          .flyer {
-            background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/svg/Flyer.svg");
-          }
-
-          .heavy-support {
-            background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/svg/Heavy-Support.svg");
-          }
-
-          .fortification {
-            background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/svg/Fortification.svg");
-          }
-
-          .lord-of-war {
-            background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/svg/Lord-of-War.svg");
-          }
-          .unknown {
-            background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/svg/Unknown.svg");
-          }
-        }
-      }
-      .description {
-        background: #dee3e0;
-        margin: 4px 5px;
-        padding: 0 4px;
+      .name {
+        float: left;
+        width: calc(100% - 44px);
+        min-height: 35px;
+        padding-top: 8px;
+        line-height: 15px;
+        text-transform: uppercase;
         vertical-align: middle;
         font-family: "Heebo", sans-serif;
-        font-size: 12px;
-        font-weight: 700px;
-        text-align: justify;
-        letter-spacing: 0px;
-        word-spacing: -1px;
-        line-height: 14px;
-
-        table {
-          width: 100%;
-        }
-
-        table th {
-          border: 1px solid #777273;
-          padding: 4px;
-          background-color: #b6beba;
-        }
-
-        table td {
-          border: 1px solid #777273;
-          padding: 4px;
-        }
-
-        p {
-          margin-bottom: 0;
-        }
-      }
-      .abilities {
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
-      .profile {
-        border-bottom: 2px solid #777273;
-        margin: 0 8px;
-        .weapon_name {
-          font-family: "Heebo", sans-serif;
-          font-size: 12px;
-          font-weight: 600;
-          margin-left: 4px;
-        }
-        .weapon {
-          &.nested {
-            padding-left: 8px;
-          }
-          &:nth-of-type(even) {
-            background: #dee3e0;
-          }
-
-          &:nth-of-type(even) + .weapon_desc {
-            background: #dee3e0;
-          }
-
-          &:nth-of-type(odd) + .weapon_desc {
-            background: #fff;
-          }
-
-          &:nth-of-type(odd) {
-            background: #fff;
-          }
-
-          .weapon_profile {
-            display: grid;
-            grid-template-columns: 4fr 2fr 2fr 1fr 1fr 1fr;
-            font-size: 11px;
-
-            .weapon-icon {
-              height: 11px;
-              width: 11px;
-              margin-right: 2px;
-              margin-top: -2px;
-              background-repeat: no-repeat;
-            }
-          }
-
-          .weapon_desc {
-            padding: 0 12px;
-            margin-bottom: 4px;
-            vertical-align: middle;
-            font-family: "Heebo", sans-serif;
-            font-size: 12px;
-            font-weight: 700px;
-            text-align: justify;
-            letter-spacing: 0px;
-            word-spacing: 0px;
-            line-height: 14px;
-
-            p {
-              margin-bottom: 0px;
-            }
-          }
-        }
-        .statline {
-          display: grid;
-          width: 9fr;
-          grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-          text-align: centre;
-          vertical-align: middle;
-          font-weight: 600;
-
-          &:nth-child(even) {
-            background: #dee3e0;
-          }
-
-          &:nth-child(odd) {
-            background: #fff;
-          }
-        }
-      }
-      .labels {
-        font-weight: 600;
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-
-        .label {
-          div {
-            background-position: center;
-          }
-        }
-      }
-      .weapons {
-        grid-template-columns: 4fr 2fr 2fr 1fr 1fr 1fr;
-        font-size: 12px;
-      }
-      .heading {
-        display: grid;
-        background: #b6beba;
-        margin: 4px 8px 0 8px;
-        grid-template-rows: 14px;
-        vertical-align: middle;
-        border-bottom: 2px solid #777273;
-
-        .icon {
-          display: block;
-          height: 11px;
-          width: 11px;
-          margin: 0 auto;
-          background-repeat: no-repeat;
-        }
-      }
-      .footer {
-        position: absolute;
-        text-transform: uppercase;
-        font-size: 10px;
+        font-size: 16px;
         font-weight: 700;
-        text-align: center;
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        max-height: 4.5em;
-        background: #e2e2dd;
-        z-index: 10;
-        bottom: 0;
-        transform: translateX(-50%) translateY(-10px);
-        left: 50%;
-        width: calc(100% - 32px);
+        letter-spacing: -1px;
+        border-bottom: 2px solid #000;
+      }
+
+      .role {
+        position: relative;
+        float: left;
+        width: 35px;
+        height: 35px;
+        padding-top: 8px;
+        margin-right: 8px;
+
+        div {
+          height: 35px;
+          width: 35px;
+          position: absolute;
+          bottom: 0;
+        }
+
+        .hq {
+          background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/svg/HQ.svg");
+        }
+
+        .troops {
+          background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/svg/Troops.svg");
+        }
+
+        .elites {
+          background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/svg/Elites.svg");
+        }
+
+        .fast-attack {
+          background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/svg/Fast-Attack.svg");
+        }
+
+        .dedicated-transport {
+          background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/svg/Dedicated-Transport.svg");
+        }
+
+        .flyer {
+          background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/svg/Flyer.svg");
+        }
+
+        .heavy-support {
+          background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/svg/Heavy-Support.svg");
+        }
+
+        .fortification {
+          background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/svg/Fortification.svg");
+        }
+
+        .lord-of-war {
+          background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/svg/Lord-of-War.svg");
+        }
+
+        .unknown {
+          background-image: url("https://raw.githubusercontent.com/ronplanken/40k-Data-Card/master/src/svg/Unknown.svg");
+        }
       }
     }
+
+    .description {
+      background: #dee3e0;
+      margin: 4px 5px;
+      padding: 0 4px;
+      vertical-align: middle;
+      font-family: "Heebo", sans-serif;
+      font-size: 12px;
+      font-weight: 700px;
+      text-align: justify;
+      letter-spacing: 0px;
+      word-spacing: -1px;
+      line-height: 14px;
+
+      table {
+        width: 100%;
+      }
+
+      table th {
+        border: 1px solid #777273;
+        padding: 4px;
+        background-color: #b6beba;
+      }
+
+      table td {
+        border: 1px solid #777273;
+        padding: 4px;
+      }
+
+      p {
+        margin-bottom: 0;
+      }
+    }
+
+    .abilities {
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .profile {
+      border-bottom: 2px solid #777273;
+      margin: 0 8px;
+
+      .weapon_name {
+        font-family: "Heebo", sans-serif;
+        font-size: 12px;
+        font-weight: 600;
+        margin-left: 4px;
+      }
+
+      .weapon {
+        &.nested {
+          padding-left: 8px;
+        }
+
+        &:nth-of-type(even) {
+          background: #dee3e0;
+        }
+
+        &:nth-of-type(even)+.weapon_desc {
+          background: #dee3e0;
+        }
+
+        &:nth-of-type(odd)+.weapon_desc {
+          background: #fff;
+        }
+
+        &:nth-of-type(odd) {
+          background: #fff;
+        }
+
+        .weapon_profile {
+          display: grid;
+          grid-template-columns: 4fr 2fr 2fr 1fr 1fr 1fr;
+          font-size: 11px;
+
+          .weapon-icon {
+            height: 11px;
+            width: 11px;
+            margin-right: 2px;
+            margin-top: -2px;
+            background-repeat: no-repeat;
+          }
+        }
+
+        .weapon_desc {
+          padding: 0 12px;
+          margin-bottom: 4px;
+          vertical-align: middle;
+          font-family: "Heebo", sans-serif;
+          font-size: 12px;
+          font-weight: 700px;
+          text-align: justify;
+          letter-spacing: 0px;
+          word-spacing: 0px;
+          line-height: 14px;
+
+          p {
+            margin-bottom: 0px;
+          }
+        }
+      }
+
+      .statline {
+        display: grid;
+        width: 9fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        text-align: centre;
+        vertical-align: middle;
+        font-weight: 600;
+
+        &:nth-child(even) {
+          background: #dee3e0;
+        }
+
+        &:nth-child(odd) {
+          background: #fff;
+        }
+      }
+    }
+
+    .labels {
+      font-weight: 600;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+
+      .label {
+        div {
+          background-position: center;
+        }
+      }
+    }
+
+    .weapons {
+      grid-template-columns: 4fr 2fr 2fr 1fr 1fr 1fr;
+      font-size: 12px;
+    }
+
+    .heading {
+      display: grid;
+      background: #b6beba;
+      margin: 4px 8px 0 8px;
+      grid-template-rows: 14px;
+      vertical-align: middle;
+      border-bottom: 2px solid #777273;
+
+      .icon {
+        display: block;
+        height: 11px;
+        width: 11px;
+        margin: 0 auto;
+        background-repeat: no-repeat;
+      }
+    }
+
+    .footer {
+      position: absolute;
+      text-transform: uppercase;
+      font-size: 10px;
+      font-weight: 700;
+      text-align: center;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-height: 4.5em;
+      background: #e2e2dd;
+      z-index: 10;
+      bottom: 0;
+      transform: translateX(-50%) translateY(-10px);
+      left: 50%;
+      width: calc(100% - 32px);
+    }
   }
+}
 }

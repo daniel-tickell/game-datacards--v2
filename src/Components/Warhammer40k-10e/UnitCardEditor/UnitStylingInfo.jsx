@@ -239,6 +239,109 @@ export function UnitStylingInfo() {
           />
         </div>
       </Form.Item>
+
+      <Form.Item label={"Stats Font Size"}>
+        <div style={{ paddingRight: "20px" }}>
+          <Slider
+            min={8}
+            max={24}
+            value={activeCard.statsFontSize || 14}
+            onChange={(value) => updateActiveCard({ ...activeCard, statsFontSize: value })}
+            marks={{
+              8: "Small",
+              14: "Normal",
+              24: "Large",
+            }}
+            tooltip={{ formatter: (value) => `${value}px` }}
+          />
+        </div>
+      </Form.Item>
+
+      <Form.Item label={"Weapons Font Size"}>
+        <div style={{ paddingRight: "20px" }}>
+          <Slider
+            min={8}
+            max={24}
+            value={activeCard.weaponsFontSize || 12}
+            onChange={(value) => updateActiveCard({ ...activeCard, weaponsFontSize: value })}
+            marks={{
+              8: "Small",
+              12: "Normal",
+              24: "Large",
+            }}
+            tooltip={{ formatter: (value) => `${value}px` }}
+          />
+        </div>
+      </Form.Item>
+
+      <Form.Item label={"Abilities Font Size"}>
+        <div style={{ paddingRight: "20px" }}>
+          <Slider
+            min={8}
+            max={24}
+            value={activeCard.abilitiesFontSize || 12}
+            onChange={(value) => updateActiveCard({ ...activeCard, abilitiesFontSize: value })}
+            marks={{
+              8: "Small",
+              12: "Normal",
+              24: "Large",
+            }}
+            tooltip={{ formatter: (value) => `${value}px` }}
+          />
+        </div>
+      </Form.Item>
+
+      <Form.Item label={"Keywords Font Size"}>
+        <div style={{ paddingRight: "20px" }}>
+          <Slider
+            min={8}
+            max={24}
+            value={activeCard.keywordsFontSize || 15}
+            onChange={(value) => updateActiveCard({ ...activeCard, keywordsFontSize: value })}
+            marks={{
+              8: "Small",
+              15: "Normal",
+              24: "Large",
+            }}
+            tooltip={{ formatter: (value) => `${value}px` }}
+          />
+        </div>
+      </Form.Item>
+
+      <Form.Item label={"Factions Font Size"}>
+        <div style={{ paddingRight: "20px" }}>
+          <Slider
+            min={8}
+            max={24}
+            value={activeCard.factionsFontSize || 18}
+            onChange={(value) => updateActiveCard({ ...activeCard, factionsFontSize: value })}
+            marks={{
+              8: "Small",
+              18: "Normal",
+              24: "Large",
+            }}
+            tooltip={{ formatter: (value) => `${value}px` }}
+          />
+        </div>
+      </Form.Item>
+
+      <Form.Item label={"Header Color"}>
+        <Input
+          type="color"
+          value={activeCard.headerColor || "#456664"}
+          onChange={(e) => updateActiveCard({ ...activeCard, headerColor: e.target.value })}
+          style={{ width: "100px" }}
+        />
+      </Form.Item>
+
+      <Form.Item label={"Banner Color"}>
+        <Input
+          type="color"
+          value={activeCard.bannerColor || "#103344"}
+          onChange={(e) => updateActiveCard({ ...activeCard, bannerColor: e.target.value })}
+          style={{ width: "100px" }}
+        />
+      </Form.Item>
     </Form>
   );
 }

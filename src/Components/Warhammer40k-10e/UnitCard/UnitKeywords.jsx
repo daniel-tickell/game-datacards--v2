@@ -1,6 +1,7 @@
-export const UnitKeywords = ({ keywords }) => {
+export const UnitKeywords = ({ keywords, fontSize }) => {
+  const keywordsFontSize = fontSize || 15;
   return (
-    <div className="keywords">
+    <div className="keywords" style={{ fontSize: `${keywordsFontSize}px` }}>
       <span className="title">keywords</span>
       <span className="value">
         {keywords?.map((keyword, i, { length }) => {

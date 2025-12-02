@@ -2,37 +2,48 @@ import { UnitAbility } from "./UnitAbility";
 import { UnitAbilityDescription, replaceKeywords } from "./UnitAbilityDescription";
 import { UnitInvul } from "./UnitInvul";
 
-export const UnitExtra = ({ unit }) => {
+export const UnitExtra = ({ unit, fontSize }) => {
+  const abilitiesFontSize = fontSize || 12;
+
   return (
     <div className="extra">
       {(unit?.showAbilities?.["core"] !== false ||
         unit?.showAbilities?.["faction"] !== false ||
         unit?.showAbilities?.["other"] !== false) && (
-        <div className="abilities">
-          <div className="heading">
-            <div className="title">Abilities</div>
+          <div className="abilities">
+            <div className="heading">
+              <div className="title">Abilities</div>
+            </div>
+            {unit?.showAbilities?.["core"] !== false && (
+              <UnitAbility
+                name={"core"}
+                value={unit.abilities?.core?.join(", ")}
+                style={{ fontSize: `${abilitiesFontSize}px` }}
+              />
+            )}
+            {unit?.showAbilities?.["faction"] !== false && (
+              <UnitAbility
+                name={"faction"}
+                value={unit.abilities?.faction?.join(", ")}
+                style={{ fontSize: `${abilitiesFontSize}px` }}
+              />
+            )}
+            {unit?.showAbilities?.["other"] !== false &&
+              unit.abilities?.other
+                ?.filter((ability) => ability.showAbility)
+                ?.map((ability, index) => {
+                  return (
+                    <UnitAbilityDescription
+                      name={ability.name}
+                      description={ability?.description}
+                      showDescription={ability?.showDescription}
+                      key={`ability-${index}`}
+                      style={{ fontSize: `${abilitiesFontSize}px` }}
+                    />
+                  );
+                })}
           </div>
-          {unit?.showAbilities?.["core"] !== false && (
-            <UnitAbility name={"core"} value={unit.abilities?.core?.join(", ")} />
-          )}
-          {unit?.showAbilities?.["faction"] !== false && (
-            <UnitAbility name={"faction"} value={unit.abilities?.faction?.join(", ")} />
-          )}
-          {unit?.showAbilities?.["other"] !== false &&
-            unit.abilities?.other
-              ?.filter((ability) => ability.showAbility)
-              ?.map((ability, index) => {
-                return (
-                  <UnitAbilityDescription
-                    name={ability.name}
-                    description={ability?.description}
-                    showDescription={ability?.showDescription}
-                    key={`ability-${index}`}
-                  />
-                );
-              })}
-        </div>
-      )}
+        )}
       {unit?.showAbilities?.["wargear"] !== false &&
         unit.abilities?.wargear?.filter((ability) => ability.showAbility)?.length > 0 && (
           <div className="abilities">
@@ -48,13 +59,14 @@ export const UnitExtra = ({ unit }) => {
                     description={ability.description}
                     showDescription={ability.showDescription}
                     key={`ability-${index}`}
+                    style={{ fontSize: `${abilitiesFontSize}px` }}
                   />
                 );
               })}
           </div>
         )}
       {unit.abilities?.damaged && unit.abilities?.damaged.showDamagedAbility && (
-        <div className="damaged">
+        <div className="damaged" style={{ fontSize: `${abilitiesFontSize}px` }}>
           <div className="heading">
             <div className="title">Damaged: {unit.abilities?.damaged?.range}</div>
           </div>
@@ -69,7 +81,7 @@ export const UnitExtra = ({ unit }) => {
             ?.filter((ability) => ability.showAbility)
             ?.map((ability, index) => {
               return (
-                <div className="special" key={`special-${ability.name}`}>
+                <div className="special" key={`special-${ability.name}`} style={{ fontSize: `${abilitiesFontSize}px` }}>
                   <div className="heading">
                     <div className="title">{ability.name}</div>
                   </div>
