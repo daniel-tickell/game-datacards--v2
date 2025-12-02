@@ -14,7 +14,7 @@ module.exports = {
   },
   plugins: ["react", "prettier"],
   rules: {
-    "prettier/prettier": ["error", { jsxBracketSameLine: true }],
+    "prettier/prettier": ["off"],
     "react/prop-types": ["off"],
   },
   settings: {
