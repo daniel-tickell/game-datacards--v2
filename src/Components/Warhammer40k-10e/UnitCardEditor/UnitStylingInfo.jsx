@@ -5,6 +5,7 @@ import { useCardStorage } from "../../../Hooks/useCardStorage";
 import { FactionSelect } from "../FactionSelect";
 import { useSettingsStorage } from "../../../Hooks/useSettingsStorage";
 import { useIndexedDBImages } from "../../../Hooks/useIndexedDBImages";
+import { useDataSourceStorage } from "../../../Hooks/useDataSourceStorage";
 
 const { Option } = Select;
 const { Text } = Typography;
@@ -13,6 +14,8 @@ export function UnitStylingInfo() {
   const { activeCard, updateActiveCard, saveActiveCard } = useCardStorage();
   const { settings, updateSettings } = useSettingsStorage();
   const { saveImage, deleteImage, getImageData, isReady } = useIndexedDBImages();
+  const { dataSource } = useDataSourceStorage();
+  const cardFaction = dataSource.data.find((faction) => faction.id === activeCard?.faction_id);
   const [localImageInfo, setLocalImageInfo] = useState(null);
   const [uploading, setUploading] = useState(false);
 
@@ -328,7 +331,7 @@ export function UnitStylingInfo() {
       <Form.Item label={"Header Color"}>
         <Input
           type="color"
-          value={activeCard.headerColor || "#456664"}
+          value={activeCard.headerColor || cardFaction?.colours?.header || "#456664"}
           onChange={(e) => updateActiveCard({ ...activeCard, headerColor: e.target.value })}
           style={{ width: "100px" }}
         />
@@ -337,10 +340,23 @@ export function UnitStylingInfo() {
       <Form.Item label={"Banner Color"}>
         <Input
           type="color"
-          value={activeCard.bannerColor || "#103344"}
+          value={activeCard.bannerColor || cardFaction?.colours?.banner || "#103344"}
           onChange={(e) => updateActiveCard({ ...activeCard, bannerColor: e.target.value })}
           style={{ width: "100px" }}
         />
+      </Form.Item>
+
+      <Form.Item>
+        <Button
+          onClick={() => {
+            updateActiveCard({
+              ...activeCard,
+              headerColor: undefined,
+              bannerColor: undefined,
+            });
+          }}>
+          Restore Default Colors
+        </Button>
       </Form.Item>
     </Form>
   );

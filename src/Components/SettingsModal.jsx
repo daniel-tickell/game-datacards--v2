@@ -1,12 +1,13 @@
 import { SettingOutlined } from "@ant-design/icons";
-import { Button, Card, Col, Collapse, Modal, Popconfirm, Row, Space, Switch, Tabs, Tooltip, Typography } from "antd";
+import { Button, Card, Col, Collapse, Modal, Popconfirm, Row, Select, Space, Switch, Tabs, Tooltip, Typography } from "antd";
 import React from "react";
 import { useDataSourceStorage } from "../Hooks/useDataSourceStorage";
-import { useSettingsStorage } from "../Hooks/useSettingsStorage";
+import { defaultSettings, useSettingsStorage } from "../Hooks/useSettingsStorage";
 import { AddCard } from "../Icons/AddCard";
 
 const { Panel } = Collapse;
 const { TabPane } = Tabs;
+const { Option } = Select;
 
 export const SettingsModal = () => {
   const [isModalVisible, setIsModalVisible] = React.useState(false);
@@ -53,6 +54,94 @@ export const SettingsModal = () => {
           {/* <TabPane tab='Preferences' key='1'>
             Content of Tab 1
           </TabPane> */}
+          <TabPane tab="Appearance" key="6">
+            <Row>
+              <Col>You can configure the appearance of your cards here.</Col>
+            </Row>
+            <Row style={{ paddingTop: "16px" }}>
+              <Col span={23}>
+                <Card
+                  type={"inner"}
+                  size={"small"}
+                  title={"Fonts"}
+                  extra={
+                    <Button
+                      size="small"
+                      onClick={() =>
+                        updateSettings({
+                          ...settings,
+                          fontSettings: defaultSettings.fontSettings,
+                        })
+                      }>
+                      Restore Defaults
+                    </Button>
+                  }
+                  bodyStyle={{ padding: "16px" }}
+                  style={{ marginBottom: "16px" }}>
+                  <Row gutter={[16, 16]}>
+                    <Col span={12}>
+                      <Typography.Text strong>Title Font</Typography.Text>
+                      <Select
+                        style={{ width: "100%" }}
+                        value={settings.fontSettings?.title || "ConduitITC"}
+                        onChange={(value) =>
+                          updateSettings({
+                            ...settings,
+                            fontSettings: { ...settings.fontSettings, title: value },
+                          })
+                        }>
+                        <Option value="ConduitITC">ConduitITC</Option>
+                        <Option value="PassionOne">PassionOne</Option>
+                        <Option value="Heebo">Heebo</Option>
+                        <Option value="Roboto">Roboto</Option>
+                        <Option value="Times New Roman">Times New Roman</Option>
+                      </Select>
+                    </Col>
+                    <Col span={12}>
+                      <Typography.Text strong>Body Font</Typography.Text>
+                      <Select
+                        style={{ width: "100%" }}
+                        value={settings.fontSettings?.body || "Heebo"}
+                        onChange={(value) =>
+                          updateSettings({
+                            ...settings,
+                            fontSettings: { ...settings.fontSettings, body: value },
+                          })
+                        }>
+                        <Option value="ConduitITC">ConduitITC</Option>
+                        <Option value="PassionOne">PassionOne</Option>
+                        <Option value="Heebo">Heebo</Option>
+                        <Option value="Roboto">Roboto</Option>
+                        <Option value="Times New Roman">Times New Roman</Option>
+                        <Option value="Arial">Arial</Option>
+                        <Option value="sans-serif">Sans Serif</Option>
+                      </Select>
+                    </Col>
+                    <Col span={12}>
+                      <Typography.Text strong>Stats Font</Typography.Text>
+                      <Select
+                        style={{ width: "100%" }}
+                        value={settings.fontSettings?.stats || "Heebo"}
+                        onChange={(value) =>
+                          updateSettings({
+                            ...settings,
+                            fontSettings: { ...settings.fontSettings, stats: value },
+                          })
+                        }>
+                        <Option value="ConduitITC">ConduitITC</Option>
+                        <Option value="PassionOne">PassionOne</Option>
+                        <Option value="Heebo">Heebo</Option>
+                        <Option value="Roboto">Roboto</Option>
+                        <Option value="Times New Roman">Times New Roman</Option>
+                        <Option value="Arial">Arial</Option>
+                        <Option value="sans-serif">Sans Serif</Option>
+                      </Select>
+                    </Col>
+                  </Row>
+                </Card>
+              </Col>
+            </Row>
+          </TabPane>
           <TabPane tab="Datasources" key="2">
             <Row style={{ paddingRight: "16px" }}>
               <Col>

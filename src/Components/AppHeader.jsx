@@ -37,7 +37,7 @@ export const AppHeader = ({ selectedTreeKey, setSelectedTreeKey }) => {
           <Col>
             <Space size={"large"}>
               {process.env.REACT_APP_IS_PRODUCTION === "false" ? (
-                <Badge.Ribbon color="red" text={process.env.REACT_APP_ENVIRONMENT}>
+                <Badge.Ribbon color="green" text="Dans">
                   <Image preview={false} src={logo} width={50} />
                 </Badge.Ribbon>
               ) : (

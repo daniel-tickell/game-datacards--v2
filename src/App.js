@@ -174,11 +174,11 @@ function App() {
           }
           filteredSheets = searchText
             ? filteredSheets.filter((sheet) => {
-                if (sheet.type === "category" || sheet.type === "header") {
-                  return true;
-                }
-                return sheet.name.toLowerCase().includes(searchText.toLowerCase());
-              })
+              if (sheet.type === "category" || sheet.type === "header") {
+                return true;
+              }
+              return sheet.name.toLowerCase().includes(searchText.toLowerCase());
+            })
             : filteredSheets;
 
           return filteredSheets;
@@ -218,8 +218,8 @@ function App() {
       } else {
         const basicStratagems = searchText
           ? selectedFaction.basicStratagems?.filter((stratagem) =>
-              stratagem.name.toLowerCase().includes(searchText.toLowerCase())
-            )
+            stratagem.name.toLowerCase().includes(searchText.toLowerCase())
+          )
           : selectedFaction.basicStratagems ?? [{ name: "Update your datasources" }];
 
         return [
@@ -237,8 +237,8 @@ function App() {
 
       const mainEnhancements = searchText
         ? filteredEnhancements?.filter((enhancement) =>
-            enhancement.name.toLowerCase().includes(searchText.toLowerCase())
-          )
+          enhancement.name.toLowerCase().includes(searchText.toLowerCase())
+        )
         : filteredEnhancements;
       return mainEnhancements;
     }
@@ -252,8 +252,8 @@ function App() {
         } else {
           const basicSecondaries = searchText
             ? selectedFaction.basicSecondaries?.filter((secondary) =>
-                secondary.name.toLowerCase().includes(searchText.toLowerCase())
-              )
+              secondary.name.toLowerCase().includes(searchText.toLowerCase())
+            )
             : selectedFaction.basicSecondaries ?? [{ name: "Update your datasources" }];
 
           return [
@@ -465,7 +465,7 @@ function App() {
                     renderItem={(card, index) => {
                       if (card.type === "header") {
                         return (
-                          <List.Item key={`list-header-${index}`} className={`list-header`} onClick={() => {}}>
+                          <List.Item key={`list-header-${index}`} className={`list-header`} onClick={() => { }}>
                             {card.name}
                           </List.Item>
                         );
@@ -634,6 +634,9 @@ function App() {
                 "--card-scaling-factor": settings.zoom / 100,
                 "--banner-colour": cardFaction?.colours?.banner,
                 "--header-colour": cardFaction?.colours?.header,
+                "--title-font-family": settings.fontSettings?.title || "ConduitITC",
+                "--body-font-family": settings.fontSettings?.body || "Heebo",
+                "--stats-font-family": settings.fontSettings?.stats || "Heebo",
               }}
               className={`data-${activeCard?.source}`}>
               <Row style={{ overflow: "hidden" }}>

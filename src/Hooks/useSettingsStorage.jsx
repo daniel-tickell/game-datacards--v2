@@ -3,7 +3,7 @@ import React from "react";
 
 const SettingsStorageContext = React.createContext(undefined);
 
-const defaultSettings = {
+export const defaultSettings = {
   version: process.env.REACT_APP_VERSION,
   selectedDataSource: undefined,
   selectedFactionIndex: 0,
@@ -21,6 +21,11 @@ const defaultSettings = {
     verticalAlignment: "flex-start",
   },
   showCardsAsDoubleSided: false,
+  fontSettings: {
+    title: "ConduitITC",
+    body: "Heebo",
+    stats: "Heebo",
+  },
 };
 
 export function useSettingsStorage() {
