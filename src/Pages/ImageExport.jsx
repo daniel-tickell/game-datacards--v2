@@ -26,6 +26,7 @@ import "../Images.css";
 import logo from "../Images/logo.png";
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
+import { jsPDF } from "jspdf";
 import JSZip from "jszip";
 import { useCardStorage } from "../Hooks/useCardStorage";
 import { useSettingsStorage } from "../Hooks/useSettingsStorage";
@@ -46,8 +47,116 @@ export const ImageExport = () => {
   const { settings, updateSettings } = useSettingsStorage();
   const [backgrounds, setBackgrounds] = useState(settings.printSettings?.backgrounds || "standard");
   const [pixelScaling, setPixelScaling] = useState(1.5);
+  const [exportFormat, setExportFormat] = useState("zip");
+
+  const exportToPdf = async () => {
+    const doc = new jsPDF({
+      orientation: "portrait",
+      unit: "in",
+      format: "letter",
+    });
+
+    const isJpeg = exportFormat === "pdf-jpeg";
+    const imageFormat = isJpeg ? "JPEG" : "PNG";
+
+    // Use lower scaling for JPEG to save size, high quality for PNG
+    // If user wants JPEG they likely prioritize size/speed
+    // But let's respect the slider for now, just change format
+    const currentPixelScaling = pixelScaling * 2;
+
+    const cardWidth = 6.5;
+    const cardHeight = 4.5;
+    const cardsPerPage = 2;
+
+    const pageWidth = doc.internal.pageSize.getWidth();
+    const pageHeight = doc.internal.pageSize.getHeight();
+
+    const x = (pageWidth - cardWidth) / 2; // Center horizontally
+    const y1 = (pageHeight - (cardHeight * 2)) / 3; // Even spacing vertical
+    const y2 = y1 * 2 + cardHeight;
+
+    const locs = [y1, y2];
+
+    overlayRef.current.style.display = "inline-flex";
+    await sleep(100);
+
+    const inputs = cardsFrontRef.current; // Array of front elements
+    const inputsBack = cardsBackRef.current; // Array of back elements
+
+    const cardCount = inputs.length;
+    // We need to process cards in pairs for pages
+    // Page 1: Front 1, Front 2
+    // Page 2: Back 1, Back 2 (if double sided)
+    // Repeat
+
+    // Strategy: Loop through cards in chunks of 2
+    for (let i = 0; i < cardCount; i += cardsPerPage) {
+      // Create Front Page
+      if (i > 0) doc.addPage();
+
+      const chunk = inputs.slice(i, i + cardsPerPage);
+
+      // Render Fronts
+      for (let j = 0; j < chunk.length; j++) {
+        if (!chunk[j]) continue;
+
+        // Optimize: Convert to JPEG if requested to save massive space
+        // html-to-image default is PNG.
+        const dataUrl = await toBlob(chunk[j], {
+          cacheBust: false,
+          pixelRatio: currentPixelScaling,
+          ...(isJpeg && { type: 'image/jpeg', quality: 0.85 })
+        })
+          .then(blob => {
+            return new Promise((resolve) => {
+              const reader = new FileReader();
+              // Release blob url if we created one? No, we have a Blob object.
+              reader.onloadend = () => resolve(reader.result);
+              reader.readAsDataURL(blob);
+            });
+          });
+
+        doc.addImage(dataUrl, imageFormat, x, locs[j], cardWidth, cardHeight, undefined, isJpeg ? "FAST" : undefined);
+        // dataUrl will be GC'd eventually, but we overwrite it next loop
+      }
+
+      // If Double Sided, Create Back Page
+      if (settings.showCardsAsDoubleSided !== true) {
+        doc.addPage();
+        const chunkBack = inputsBack.slice(i, i + cardsPerPage);
+        for (let j = 0; j < chunkBack.length; j++) {
+          if (!chunkBack[j]) continue;
+
+          const dataUrl = await toBlob(chunkBack[j], {
+            cacheBust: false,
+            pixelRatio: currentPixelScaling,
+            ...(isJpeg && { type: 'image/jpeg', quality: 0.85 })
+          })
+            .then(blob => {
+              return new Promise((resolve) => {
+                const reader = new FileReader();
+                reader.onloadend = () => resolve(reader.result);
+                reader.readAsDataURL(blob);
+              });
+            });
+          doc.addImage(dataUrl, imageFormat, x, locs[j], cardWidth, cardHeight, undefined, isJpeg ? "FAST" : undefined);
+        }
+      }
+
+      // Allow UI to update/GC to run slightly
+      await sleep(50);
+    }
+
+    doc.save(`datacards_${cardStorage.categories[CategoryId].name.toLowerCase()}.pdf`);
+    overlayRef.current.style.display = "none";
+  }
 
   const getPics = async () => {
+    if (exportFormat.startsWith("pdf")) {
+      await exportToPdf();
+      return;
+    }
+
     const zip = new JSZip();
     overlayRef.current.style.display = "inline-flex";
     await sleep(100);
@@ -61,9 +170,8 @@ export const ImageExport = () => {
       zip.file(
         `${cardStorage.categories[CategoryId].name}/${cardStorage.categories[CategoryId].cards[index].name
           .replaceAll(" ", "_")
-          .toLowerCase()}${
-          cardStorage.categories[CategoryId]?.cards[index]?.variant === "full" ||
-          settings.showCardsAsDoubleSided !== false
+          .toLowerCase()}${cardStorage.categories[CategoryId]?.cards[index]?.variant === "full" ||
+            settings.showCardsAsDoubleSided !== false
             ? ".png"
             : "-front.png"
         }`,
@@ -157,6 +265,20 @@ export const ImageExport = () => {
             <Form
               layout="vertical"
               style={{ padding: 0, maxHeight: "calc(100vh - 205px)", zIndex: 100, overflowY: "auto" }}>
+              <Form.Item label={"Export Format"} style={{ paddingLeft: 8, paddingRight: 8, paddingTop: 8 }}>
+                <Select
+                  defaultValue={"zip"}
+                  onChange={(val) => {
+                    setExportFormat(val);
+                  }}
+                  options={[
+                    { label: "Images (ZIP)", value: "zip" },
+                    { label: "PDF (JPEG - Recommended)", value: "pdf-jpeg" },
+                    { label: "PDF (PNG - High Quality)", value: "pdf-png" },
+                  ]}
+                  size={"small"}
+                />
+              </Form.Item>
               <Collapse>
                 <Panel header={"Other"} key={"other"}>
                   <Form.Item label={"Background"}>
@@ -176,6 +298,7 @@ export const ImageExport = () => {
                       size={"small"}
                     />
                   </Form.Item>
+
                   <Form.Item label={`Image pixel scaling (${pixelScaling})`}>
                     <Slider
                       min={0.5}

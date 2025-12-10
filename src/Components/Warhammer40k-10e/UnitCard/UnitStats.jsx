@@ -2,7 +2,7 @@ import { ReactFitty } from "react-fitty";
 import { UnitStat } from "./UnitStat";
 
 export const UnitStats = ({ stats, fontSize }) => {
-  const statsFontSize = fontSize || 14;
+  const statsFontSize = fontSize || 22;
   const statHeaders = [
     { text: "M", value: "m" },
     { text: "T", value: "t" },

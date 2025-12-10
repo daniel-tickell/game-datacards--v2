@@ -248,7 +248,7 @@ export function UnitStylingInfo() {
           <Slider
             min={8}
             max={24}
-            value={activeCard.statsFontSize || 14}
+            value={activeCard.statsFontSize || 22}
             onChange={(value) => updateActiveCard({ ...activeCard, statsFontSize: value })}
             marks={{
               8: "Small",
@@ -265,7 +265,7 @@ export function UnitStylingInfo() {
           <Slider
             min={8}
             max={24}
-            value={activeCard.weaponsFontSize || 12}
+            value={activeCard.weaponsFontSize || 14}
             onChange={(value) => updateActiveCard({ ...activeCard, weaponsFontSize: value })}
             marks={{
               8: "Small",
@@ -282,7 +282,7 @@ export function UnitStylingInfo() {
           <Slider
             min={8}
             max={24}
-            value={activeCard.abilitiesFontSize || 12}
+            value={activeCard.abilitiesFontSize || 15}
             onChange={(value) => updateActiveCard({ ...activeCard, abilitiesFontSize: value })}
             marks={{
               8: "Small",

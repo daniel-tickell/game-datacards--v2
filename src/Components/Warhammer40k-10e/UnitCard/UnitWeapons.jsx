@@ -3,7 +3,7 @@ import { UnitWeaponsType } from "./UnitWeaponsType";
 import { UnitWeapon } from "./UnitWeapon"; // Added import for UnitWeapon
 
 export const UnitWeapons = ({ unit, fontSize }) => {
-  const weaponsFontSize = fontSize || 12;
+  const weaponsFontSize = fontSize || 14;
 
   return (
     <div className="weapons">

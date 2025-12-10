@@ -50,7 +50,7 @@ export const Toolbar = ({ selectedTreeKey, setSelectedTreeKey }) => {
             icon={<PrinterOutlined />}
           />
         </Tooltip>
-        <Tooltip title={"Export category to images"} placement="bottomLeft">
+        <Tooltip title={"Export category to images/PDF"} placement="bottomLeft">
           <Button
             type={"text"}
             shape={"circle"}
