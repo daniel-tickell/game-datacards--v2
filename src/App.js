@@ -17,6 +17,7 @@ import { v4 as uuidv4 } from "uuid";
 import "./App.css";
 import { AppHeader } from "./Components/AppHeader";
 import { FactionSettingsModal } from "./Components/FactionSettingsModal";
+import { CategoryStyleEditor } from "./Components/CategoryStyleEditor";
 import { NecromundaCardDisplay } from "./Components/Necromunda/CardDisplay";
 import { NecromundaCardEditor } from "./Components/Necromunda/CardEditor";
 import { Toolbar } from "./Components/Toolbar";
@@ -63,6 +64,7 @@ function App() {
     setActiveCategory,
     updateActiveCard,
     saveActiveCard,
+    isEditingCategory,
   } = useCardStorage();
   const categoryMenu = (
     <Menu
@@ -753,14 +755,18 @@ function App() {
           </Panel>
           <PanelResizeHandle className="vertical-resizer" />
           <Panel defaultSize={20} order={3}>
-            {activeCard && (
+            {isEditingCategory && activeCategory ? (
+              <div style={{ overflowY: "auto", height: "calc(100vh - 64px)", background: "white" }}>
+                <CategoryStyleEditor />
+              </div>
+            ) : activeCard ? (
               <div style={{ overflowY: "auto", height: "calc(100vh - 64px)" }} className={`data-${activeCard?.source}`}>
                 {activeCard?.source === "40k" && <Warhammer40KCardEditor />}
                 {activeCard?.source === "40k-10e" && <Warhammer40K10eCardEditor />}
                 {activeCard?.source === "basic" && <Warhammer40KCardEditor />}
                 {activeCard?.source === "necromunda" && <NecromundaCardEditor />}
               </div>
-            )}
+            ) : null}
           </Panel>
         </PanelGroup>
       </Content>

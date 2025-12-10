@@ -23,6 +23,8 @@ export function TreeCategory({ category, selectedTreeIndex, setSelectedTreeIndex
     renameCategory,
     cardUpdated,
     updateCategory,
+    updateCategoryStyles,
+    setIsEditingCategory,
   } = useCardStorage();
 
   const inputRef = useRef(null);
@@ -44,6 +46,8 @@ export function TreeCategory({ category, selectedTreeIndex, setSelectedTreeIndex
     message.success("Category has been renamed.");
   };
 
+
+
   const pointsTotal = category.cards?.reduce((total, card) => {
     if (card?.source === "40k-10e" && card?.unitSize?.cost) {
       if (card.selectedEnhancement) {
@@ -62,6 +66,17 @@ export function TreeCategory({ category, selectedTreeIndex, setSelectedTreeIndex
           setIsModalVisible(true);
         }}>
         Rename
+      </Menu.Item>
+      <Menu.Item
+        key="3"
+        onClick={() => {
+          setActiveCategory(category);
+          if (category.cards && category.cards.length > 0) {
+            setActiveCard(category.cards[0]);
+          }
+          setIsEditingCategory(true);
+        }}>
+        Style Category
       </Menu.Item>
       <Menu.Item
         key="2"
@@ -95,6 +110,7 @@ export function TreeCategory({ category, selectedTreeIndex, setSelectedTreeIndex
       setSelectedTreeIndex(`cat-${category.uuid}`);
       setActiveCard(null);
       setActiveCategory(category);
+      setIsEditingCategory(false);
     }
   };
 
@@ -191,6 +207,8 @@ export function TreeCategory({ category, selectedTreeIndex, setSelectedTreeIndex
           }}
         />
       </Modal>
+
+
     </>
   );
 }

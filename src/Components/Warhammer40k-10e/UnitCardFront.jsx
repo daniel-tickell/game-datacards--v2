@@ -100,6 +100,8 @@ export const UnitCardFront = ({ unit, cardStyle, paddingTop = "32px", className 
             imageZIndex={unit.imageZIndex}
             imagePositionX={unit.imagePositionX}
             imagePositionY={unit.imagePositionY}
+            imageWidth={unit.imageWidth}
+            imageHeight={unit.imageHeight}
           />
           <UnitStats stats={unit.stats} fontSize={unit.statsFontSize} />
           <div className="stats_container" key={`stat-line-invul`}>

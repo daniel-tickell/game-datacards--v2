@@ -9,8 +9,8 @@ const StyledImage = styled.img`
   position: absolute;
   right: ${(props) => (props.imagepositionx ? `calc(0px - ${props.imagepositionx}px)` : "0")};
   top: ${(props) => (props.imagepositiony ? `calc(0px + ${props.imagepositiony}px)` : "0")};
-  width: 380px;
-  height: 196px;
+  width: ${(props) => (props.imagewidth ? `${props.imagewidth}px` : "380px")};
+  height: ${(props) => (props.imageheight ? `${props.imageheight}px` : "196px")};
   object-fit: contain;
   object-position: top right;
   z-index: ${(props) => (props.imagezindex === "onTop" ? 100 : "auto")};
@@ -27,6 +27,8 @@ export const UnitName = ({
   imageZIndex,
   imagePositionX,
   imagePositionY,
+  imageWidth,
+  imageHeight,
 }) => {
   const imageUrl = localImageUrl || externalImage;
 
@@ -48,6 +50,8 @@ export const UnitName = ({
           imagezindex={imageZIndex}
           imagepositionx={imagePositionX}
           imagepositiony={imagePositionY}
+          imagewidth={imageWidth}
+          imageheight={imageHeight}
           crossOrigin="anonymous"
           alt="Unit Image"
         />

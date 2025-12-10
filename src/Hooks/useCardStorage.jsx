@@ -32,6 +32,7 @@ export const CardStorageProviderComponent = (props) => {
   const [activeCard, setActiveCard] = React.useState(null);
   const [cardUpdated, setCardUpdated] = React.useState(false);
   const [activeCategory, setActiveCategory] = React.useState(null);
+  const [isEditingCategory, setIsEditingCategory] = React.useState(false);
 
   useEffect(() => {
     const version = process.env.REACT_APP_VERSION;
@@ -51,6 +52,7 @@ export const CardStorageProviderComponent = (props) => {
 
   const changeActiveCard = (card) => {
     setCardUpdated(false);
+    setIsEditingCategory(false);
     setActiveCard(card);
   };
 
@@ -206,6 +208,35 @@ export const CardStorageProviderComponent = (props) => {
     });
   };
 
+  const updateCategoryStyles = (category, styles) => {
+    setCardStorage((prevStorage) => {
+      const newStorage = clone(prevStorage);
+      const categoryIndex = newStorage.categories.findIndex((cat) => cat.uuid === category.uuid);
+
+      // Update category styles if we were to store them on the category itself (optional but good for persistence)
+      // For now, we mainly propagate to cards as per request
+
+      const newCards = newStorage.categories[categoryIndex].cards.map(card => ({
+        ...card,
+        bannerColor: styles.bannerColor || card.bannerColor,
+        headerColor: styles.headerColor || card.headerColor,
+        externalImage: styles.externalImage !== undefined ? styles.externalImage : card.externalImage,
+        imagePositionX: styles.imagePositionX !== undefined ? styles.imagePositionX : card.imagePositionX,
+        imagePositionY: styles.imagePositionY !== undefined ? styles.imagePositionY : card.imagePositionY,
+        imageWidth: styles.imageWidth !== undefined ? styles.imageWidth : card.imageWidth,
+        imageHeight: styles.imageHeight !== undefined ? styles.imageHeight : card.imageHeight,
+        imageZIndex: styles.imageZIndex !== undefined ? styles.imageZIndex : card.imageZIndex,
+      }));
+
+      newStorage.categories[categoryIndex].cards = newCards;
+
+      return {
+        ...newStorage,
+        categories: [...newStorage.categories],
+      };
+    });
+  };
+
   const context = {
     cardStorage,
     activeCard,
@@ -222,7 +253,10 @@ export const CardStorageProviderComponent = (props) => {
     removeCategory,
     addCategory,
     updateCategory,
+    updateCategoryStyles,
     saveCard,
+    isEditingCategory,
+    setIsEditingCategory,
   };
 
   return <CardStorageContext.Provider value={context}>{props.children}</CardStorageContext.Provider>;
