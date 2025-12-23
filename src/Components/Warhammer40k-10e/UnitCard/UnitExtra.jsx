@@ -71,7 +71,9 @@ export const UnitExtra = ({ unit, fontSize }) => {
             <div className="title">Damaged: {unit.abilities?.damaged?.range}</div>
           </div>
           {unit.abilities?.damaged.showDescription && (
-            <div className="description">{replaceKeywords(unit.abilities?.damaged?.description)}</div>
+            <div className="description" style={{ fontSize: `${abilitiesFontSize}px` }}>
+              {replaceKeywords(unit.abilities?.damaged?.description)}
+            </div>
           )}
         </div>
       )}

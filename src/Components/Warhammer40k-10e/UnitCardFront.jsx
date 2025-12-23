@@ -46,6 +46,19 @@ export const UnitCardFront = ({ unit, cardStyle, paddingTop = "32px", className 
         } catch (error) {
           console.error("[UnitCardFront] Failed to load local image:", error);
         }
+      } else if (unit?.hasCategoryLocalImage && unit?.categoryUuid && isReady) {
+        try {
+          console.log("[UnitCardFront] Loading category image for UUID:", unit.categoryUuid);
+          const url = await getImageUrl(unit.categoryUuid);
+
+          if (isMounted && url) {
+            objectUrl = url;
+            console.log("[UnitCardFront] Got category object URL:", objectUrl);
+            setLocalImageUrl(objectUrl);
+          }
+        } catch (error) {
+          console.error("[UnitCardFront] Failed to load category local image:", error);
+        }
       } else {
         console.log("[UnitCardFront] Skipping image load:", {
           hasLocalImage: unit?.hasLocalImage,

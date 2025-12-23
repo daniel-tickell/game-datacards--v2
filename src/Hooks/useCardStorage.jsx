@@ -226,6 +226,8 @@ export const CardStorageProviderComponent = (props) => {
         imageWidth: styles.imageWidth !== undefined ? styles.imageWidth : card.imageWidth,
         imageHeight: styles.imageHeight !== undefined ? styles.imageHeight : card.imageHeight,
         imageZIndex: styles.imageZIndex !== undefined ? styles.imageZIndex : card.imageZIndex,
+        categoryUuid: styles.categoryUuid || card.categoryUuid,
+        hasCategoryLocalImage: styles.hasCategoryLocalImage !== undefined ? styles.hasCategoryLocalImage : card.hasCategoryLocalImage,
       }));
 
       newStorage.categories[categoryIndex].cards = newCards;
