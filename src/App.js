@@ -44,7 +44,21 @@ function App() {
 
   const { settings, updateSettings } = useSettingsStorage();
   const [selectedContentType, setSelectedContentType] = useState("datasheets");
+  const [activeDetachment, setActiveDetachment] = useState(null);
   const [isLoading] = useState(false);
+
+  React.useEffect(() => {
+    if (selectedContentType === "stratagems" && selectedFaction?.stratagems) {
+      console.info("========================================");
+      console.info("App.js Debug Info:");
+      console.info("========================================");
+      console.info("Selected Faction:", selectedFaction.name);
+      console.info("Stratagems Count:", selectedFaction.stratagems.length);
+      console.info("Sample Stratagem:", selectedFaction.stratagems[0]);
+      console.info("Structure of first 5 stratagems:", selectedFaction.stratagems.slice(0, 5).map(s => ({ name: s.name, subfaction_id: s.subfaction_id, keys: Object.keys(s) })));
+      console.info("========================================");
+    }
+  }, [selectedContentType, selectedFaction]);
 
   const screens = useBreakpoint();
   const navigate = useNavigate();
@@ -209,7 +223,13 @@ function App() {
     }
     if (selectedContentType === "stratagems") {
       const filteredStratagems = selectedFaction?.stratagems.filter((stratagem) => {
-        return !settings?.ignoredSubFactions?.includes(stratagem.subfaction_id);
+        if (settings?.ignoredSubFactions?.includes(stratagem.subfaction_id)) {
+          return false;
+        }
+        if (activeDetachment && stratagem.detachment !== activeDetachment) {
+          return false;
+        }
+        return true;
       });
       const mainStratagems = searchText
         ? filteredStratagems?.filter((stratagem) => stratagem.name.toLowerCase().includes(searchText.toLowerCase()))
@@ -458,6 +478,35 @@ function App() {
                                     Psychic powers
                                   </Option>
                                 )}
+                              </Select>
+                            </Col>
+                          </Row>
+                        )}
+                        {selectedFaction && selectedContentType === "stratagems" && (
+                          <Row style={{ marginBottom: "4px" }}>
+                            <Col span={24}>
+                              <Select
+                                loading={isLoading}
+                                style={{ width: "100%" }}
+                                onChange={(value) => {
+                                  setActiveDetachment(value === "all" ? null : value);
+                                }}
+                                placeholder="Filter by Detachment"
+                                value={activeDetachment || "all"}>
+                                <Option value="all">All Detachments</Option>
+                                {[
+                                  ...new Set(
+                                    selectedFaction?.stratagems
+                                      ?.map((s) => s.detachment)
+                                      .filter((id) => id !== undefined && id !== null && id !== "")
+                                  ),
+                                ]
+                                  .sort()
+                                  .map((detachment) => (
+                                    <Option value={detachment} key={detachment}>
+                                      {detachment}
+                                    </Option>
+                                  ))}
                               </Select>
                             </Col>
                           </Row>

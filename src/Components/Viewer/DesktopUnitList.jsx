@@ -18,6 +18,7 @@ export const DesktopUnitList = () => {
   const { stratagem } = useParams();
 
   const [selectedContentType, setSelectedContentType] = useState(stratagem ? "stratagems" : "datasheets");
+  const [activeDetachment, setActiveDetachment] = useState(null);
 
   const navigate = useNavigate();
 
@@ -28,16 +29,27 @@ export const DesktopUnitList = () => {
   }
   if (selectedContentType === "stratagems") {
     const filteredStratagems = selectedFaction?.stratagems.filter((stratagem) => {
-      return !settings?.ignoredSubFactions?.includes(stratagem.subfaction_id);
+      // First filter by ignored subfactions (existing logic - using subfaction_id if that's what's in settings, or detachment?)
+      // Assuming ignoredSubFactions still refers to IDs from settings which might track detachments or actual subfactions.
+      // Keeping it as is for that check, but updating the new check.
+      if (settings?.ignoredSubFactions?.includes(stratagem.subfaction_id)) {
+        return false;
+      }
+      // Then filter by active detachment if selected
+      if (activeDetachment && stratagem.detachment !== activeDetachment) {
+        return false;
+      }
+      return true;
     });
+
     const mainStratagems = searchText
       ? filteredStratagems?.filter((stratagem) => stratagem.name.toLowerCase().includes(searchText.toLowerCase()))
       : filteredStratagems;
 
     const basicStratagems = searchText
       ? selectedFaction.basicStratagems?.filter((stratagem) =>
-          stratagem.name.toLowerCase().includes(searchText.toLowerCase())
-        )
+        stratagem.name.toLowerCase().includes(searchText.toLowerCase())
+      )
       : selectedFaction.basicStratagems;
 
     unitList = [
@@ -49,6 +61,17 @@ export const DesktopUnitList = () => {
       ...mainStratagems,
     ];
   }
+
+  // Calculate unique detachments for the dropdown
+  const uniqueDetachments = [
+    ...new Set(
+      selectedFaction?.stratagems
+        ?.map((s) => s.detachment)
+        .filter((id) => id !== undefined && id !== null && id !== "")
+    ),
+  ].sort();
+
+
   return (
     <List
       bordered
@@ -128,12 +151,33 @@ export const DesktopUnitList = () => {
               </Col>
             </Row>
           )}
+          {selectedFaction && selectedContentType === "stratagems" && uniqueDetachments.length > 0 && (
+            <Row style={{ marginBottom: "4px" }}>
+              <Col span={24}>
+                <Select
+                  style={{ width: "100%" }}
+                  onChange={(value) => {
+                    setActiveDetachment(value === "all" ? null : value);
+                  }}
+                  placeholder="Filter by Detachment"
+                  value={activeDetachment || "all"}
+                >
+                  <Option value="all">All Detachments</Option>
+                  {uniqueDetachments.map((detachment) => (
+                    <Option value={detachment} key={detachment}>
+                      {detachment}
+                    </Option>
+                  ))}
+                </Select>
+              </Col>
+            </Row>
+          )}
         </>
       }
       renderItem={(card, index) => {
         if (card.type === "header") {
           return (
-            <List.Item key={`list-header-${index}`} className={`list-header`} onClick={() => {}}>
+            <List.Item key={`list-header-${index}`} className={`list-header`} onClick={() => { }}>
               {card.name}
             </List.Item>
           );
