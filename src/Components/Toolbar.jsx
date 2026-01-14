@@ -1,6 +1,6 @@
-import { FileImageOutlined, FolderAddOutlined, PrinterOutlined, SaveOutlined } from "@ant-design/icons";
+import { FileImageOutlined, FolderAddOutlined, PrinterOutlined, SaveOutlined, FileTextOutlined, ThunderboltOutlined } from "@ant-design/icons";
 import { Button, Col, Row, Tooltip, message } from "antd";
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCardStorage } from "../Hooks/useCardStorage";
 import { useFirebase } from "../Hooks/useFirebase";
@@ -10,6 +10,8 @@ import { useSettingsStorage } from "../Hooks/useSettingsStorage";
 import { ListCards } from "../Icons/ListCards";
 import { Exporter } from "./Importer/Exporter";
 import { Importer } from "./Importer/Importer";
+import { TextRosterImporter } from "./Importer/TextRosterImporter";
+import { StratagemCreator } from "./Importer/StratagemCreator";
 
 const parser = new Parser({ mergeAttrs: true, explicitArray: false });
 
@@ -17,6 +19,8 @@ const parseString = parser.parseString;
 
 export const Toolbar = ({ selectedTreeKey, setSelectedTreeKey }) => {
   const { settings } = useSettingsStorage();
+  const [showTextImporter, setShowTextImporter] = useState(false);
+  const [showStratagemCreator, setShowStratagemCreator] = useState(false);
 
   const navigate = useNavigate();
 
@@ -65,6 +69,26 @@ export const Toolbar = ({ selectedTreeKey, setSelectedTreeKey }) => {
         </Tooltip>
         <Exporter />
         <Importer />
+        <Tooltip title={"Import Text Roster"} placement="bottomLeft">
+          <Button
+            type={"text"}
+            shape={"circle"}
+            icon={<FileTextOutlined />}
+            onClick={() => {
+              setShowTextImporter(true);
+            }}
+          />
+        </Tooltip>
+        <Tooltip title={"Create Stratagems"} placement="bottomLeft">
+          <Button
+            type={"text"}
+            shape={"circle"}
+            icon={<ThunderboltOutlined />}
+            onClick={() => {
+              setShowStratagemCreator(true);
+            }}
+          />
+        </Tooltip>
         <Tooltip title={"Add new category"} placement="bottomLeft">
           <Button
             type={"text"}
@@ -85,6 +109,8 @@ export const Toolbar = ({ selectedTreeKey, setSelectedTreeKey }) => {
             }}
           />
         </Tooltip>
+        <TextRosterImporter visible={showTextImporter} setVisible={setShowTextImporter} />
+        <StratagemCreator visible={showStratagemCreator} setVisible={setShowStratagemCreator} />
       </Col>
       <Col
         style={{

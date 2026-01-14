@@ -35,6 +35,7 @@ export const StratagemCard = ({
             other: stratagem.turn === "opponents",
             either: stratagem.turn === "either",
             own: stratagem.turn === "your",
+            dark: stratagem?.styling?.invertColor,
           },
           stratagem.faction_id
         )}>

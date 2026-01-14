@@ -13,7 +13,7 @@ export const Exporter = () => {
   const { importCategory } = useCardStorage();
   const { logScreenView } = useFirebase();
 
-  const { activeCategory } = useCardStorage();
+  const { activeCategory, cardStorage } = useCardStorage();
 
   return (
     <>
@@ -94,16 +94,14 @@ export const Exporter = () => {
                   listText += "\n\nCHARACTERS";
 
                   sortedCards.characters.forEach((val) => {
-                    listText += `\n\n${val.name} ${val.unitSize?.models > 1 ? val.unitSize?.models + "x" : ""} (${
-                      Number(val?.unitSize?.cost) + (Number(val.selectedEnhancement?.cost) || 0) || "?"
-                    } pts)`;
+                    listText += `\n\n${val.name} ${val.unitSize?.models > 1 ? val.unitSize?.models + "x" : ""} (${Number(val?.unitSize?.cost) + (Number(val.selectedEnhancement?.cost) || 0) || "?"
+                      } pts)`;
                     if (val.isWarlord) {
                       listText += `\n   ${val.isWarlord ? "• Warlord" : ""}`;
                     }
                     if (val.selectedEnhancement) {
-                      listText += `\n   • Enhancements: ${capitalizeSentence(val.selectedEnhancement?.name)} (+${
-                        val.selectedEnhancement?.cost
-                      } pts)`;
+                      listText += `\n   • Enhancements: ${capitalizeSentence(val.selectedEnhancement?.name)} (+${val.selectedEnhancement?.cost
+                        } pts)`;
                     }
                   });
                 }
@@ -111,16 +109,14 @@ export const Exporter = () => {
                   listText += "\n\nBATTLELINE";
 
                   sortedCards.battleline.forEach((val) => {
-                    listText += `\n\n${val.name} ${val.unitSize?.models > 1 ? val.unitSize?.models + "x" : ""} (${
-                      Number(val?.unitSize?.cost) + (Number(val.selectedEnhancement?.cost) || 0) || "?"
-                    } pts)`;
+                    listText += `\n\n${val.name} ${val.unitSize?.models > 1 ? val.unitSize?.models + "x" : ""} (${Number(val?.unitSize?.cost) + (Number(val.selectedEnhancement?.cost) || 0) || "?"
+                      } pts)`;
                     if (val.isWarlord) {
                       listText += `\n   ${val.isWarlord ? "• Warlord" : ""}`;
                     }
                     if (val.selectedEnhancement) {
-                      listText += `\n   • Enhancements: ${capitalizeSentence(val.selectedEnhancement?.name)} (+${
-                        val.selectedEnhancement?.cost
-                      } pts)`;
+                      listText += `\n   • Enhancements: ${capitalizeSentence(val.selectedEnhancement?.name)} (+${val.selectedEnhancement?.cost
+                        } pts)`;
                     }
                   });
                 }
@@ -128,16 +124,14 @@ export const Exporter = () => {
                   listText += "\n\nOTHER";
 
                   sortedCards.other.forEach((val) => {
-                    listText += `\n\n${val.name} ${val.unitSize?.models > 1 ? val.unitSize?.models + "x" : ""} (${
-                      Number(val?.unitSize?.cost) + (Number(val.selectedEnhancement?.cost) || 0) || "?"
-                    } pts)`;
+                    listText += `\n\n${val.name} ${val.unitSize?.models > 1 ? val.unitSize?.models + "x" : ""} (${Number(val?.unitSize?.cost) + (Number(val.selectedEnhancement?.cost) || 0) || "?"
+                      } pts)`;
                     if (val.isWarlord) {
                       listText += `\n   ${val.isWarlord ? "• Warlord" : ""}`;
                     }
                     if (val.selectedEnhancement) {
-                      listText += `\n   • Enhancements: ${capitalizeSentence(val.selectedEnhancement?.name)} (+${
-                        val.selectedEnhancement?.cost
-                      } pts)`;
+                      listText += `\n   • Enhancements: ${capitalizeSentence(val.selectedEnhancement?.name)} (+${val.selectedEnhancement?.cost
+                        } pts)`;
                     }
                   });
                 }
@@ -146,6 +140,41 @@ export const Exporter = () => {
                 message.success("List copied to clipboard.");
               }}>
               Copy to clipboard
+            </Button>
+          </Tabs.TabPane>
+          <Tabs.TabPane tab={"Backup"} key={"backup"} style={{ minHeight: 250 }}>
+            <p>Export all your local categories to a single JSON file. This can be used to backup your data.</p>
+            <Button
+              onClick={() => {
+                const exportCategories = cardStorage.categories.map((category) => ({
+                  ...category,
+                  closed: false,
+                  uuid: uuidv4(),
+                  cards: category.cards?.map((card) => {
+                    return { ...card, uuid: uuidv4() };
+                  }),
+                }));
+
+                const exportData = {
+                  categories: exportCategories,
+                  createdAt: new Date().toISOString(),
+                  version: process.env.REACT_APP_VERSION,
+                  website: "https://game-datacards.eu",
+                };
+
+                const url = window.URL.createObjectURL(
+                  new Blob([JSON.stringify(exportData, null, 2)], {
+                    type: "application/json",
+                  })
+                );
+                const link = document.createElement("a");
+                link.href = url;
+                link.setAttribute("download", `backup-${new Date().toISOString()}.json`);
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+              }}>
+              Export All Categories
             </Button>
           </Tabs.TabPane>
         </Tabs>

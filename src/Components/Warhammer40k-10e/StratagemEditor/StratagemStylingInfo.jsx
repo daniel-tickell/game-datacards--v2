@@ -1,4 +1,4 @@
-import { Card, Form, Input, Select, Slider } from "antd";
+import { Card, Form, Input, Select, Slider, Switch } from "antd";
 import React from "react";
 import { useCardStorage } from "../../../Hooks/useCardStorage";
 import { FactionSelect } from "../FactionSelect";
@@ -48,6 +48,12 @@ export function StratagemStylingInfo() {
             marks={{ 1: "1" }}
             onChange={(val) => updateActiveCard({ ...activeCard, styling: { ...activeCard.styling, lineHeight: val } })}
             value={activeCard.styling?.lineHeight || "1"}></Slider>
+        </Form.Item>
+        <Form.Item label={"Dark Mode"}>
+          <Switch
+            checked={activeCard.styling?.invertColor}
+            onChange={(val) => updateActiveCard({ ...activeCard, styling: { ...activeCard.styling, invertColor: val } })}
+          />
         </Form.Item>
       </Card>
     </Form>
