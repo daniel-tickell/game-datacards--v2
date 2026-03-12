@@ -19,7 +19,7 @@ export const Shared = () => {
   const { Id } = useParams();
   const navigate = useNavigate();
 
-  const { getCategory, likeCategory, logScreenView } = useFirebase();
+  const { getCategory, likeCategory } = useFirebase();
 
   const [historyStorage, setHistoryStorage] = useState({ liked: [] });
 
@@ -123,7 +123,6 @@ export const Shared = () => {
                   size="large"
                   icon={<ForkOutlined />}
                   onClick={() => {
-                    logScreenView("Clone cards");
                     const cloneCategory = {
                       ...sharedStorage.category,
                       name: `Imported ${sharedStorage.category.name}`,

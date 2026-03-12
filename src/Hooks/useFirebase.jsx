@@ -1,4 +1,3 @@
-import { getAnalytics, logEvent, setUserProperties } from "firebase/analytics";
 import { initializeApp, registerVersion } from "firebase/app";
 import { addDoc, collection, doc, getDoc, getFirestore, increment, updateDoc } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
@@ -27,14 +26,8 @@ export const FirebaseProviderComponent = (props) => {
   const [currentDoc, setCurrentDoc] = useState();
 
   const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-  setUserProperties(analytics, { app_version: process.env.REACT_APP_VERSION });
 
   const db = getFirestore(app);
-
-  useEffect(() => {
-    logLocalEvent();
-  }, []);
 
   const shareCategory = (category) => {
     const cleanCards = category.cards.map((card) => {
@@ -68,19 +61,6 @@ export const FirebaseProviderComponent = (props) => {
     return addDoc(collection(db, "shares"), newDoc);
   };
 
-  const logScreenView = (screen, extras) => {
-    logEvent(analytics, "screen_view", {
-      firebase_screen: screen,
-      ...extras,
-    });
-  };
-
-  const logLocalEvent = (event, extras) => {
-    logEvent(analytics, event, {
-      ...extras,
-    });
-  };
-
   const getCategory = async (Id) => {
     if (!Id) {
       return null;
@@ -110,8 +90,6 @@ export const FirebaseProviderComponent = (props) => {
     shareCategory,
     getCategory,
     likeCategory,
-    logLocalEvent,
-    logScreenView,
   };
 
   return <FirebaseContext.Provider value={context}>{props.children}</FirebaseContext.Provider>;

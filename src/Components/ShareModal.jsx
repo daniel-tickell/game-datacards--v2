@@ -9,7 +9,7 @@ export const ShareModal = () => {
   const [shareId, setShareId] = React.useState();
   const [isGenerating, setIsGenerating] = React.useState(false);
 
-  const { shareCategory, logScreenView } = useFirebase();
+  const { shareCategory } = useFirebase();
   const { activeCategory } = useCardStorage();
 
   return (
@@ -106,7 +106,6 @@ export const ShareModal = () => {
           icon={<ShareAltOutlined />}
           size={"large"}
           onClick={() => {
-            logScreenView("Share category");
             setIsModalVisible(true);
           }}
           className={"button-bar"}>

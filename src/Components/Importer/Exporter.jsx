@@ -1,17 +1,20 @@
 import { DownloadOutlined } from "@ant-design/icons";
-import { Button, Modal, Tabs, Tooltip, message } from "antd";
+import { Button, Modal, Tabs, Tooltip, message, InputNumber } from "antd";
 import React from "react";
 import { useCardStorage } from "../../Hooks/useCardStorage";
 import { useFirebase } from "../../Hooks/useFirebase";
 import { v4 as uuidv4 } from "uuid";
 import { capitalizeSentence } from "../../Helpers/external.helpers";
+import { generateHtmlExport } from "../../Helpers/HtmlExportTemplate";
 
 export const Exporter = () => {
   const [isModalVisible, setIsModalVisible] = React.useState(false);
   const [uploadFile, setUploadFile] = React.useState(null);
   const [fileList, setFileList] = React.useState([]);
-  const { importCategory } = useCardStorage();
-  const { logScreenView } = useFirebase();
+  const [htmlTitleColor, setHtmlTitleColor] = React.useState("#456664");
+  const [htmlFontSize, setHtmlFontSize] = React.useState(16);
+  const { importModalVisible, setImportModalVisible, error, loadingState, onCloseUploadModal } =
+    useCardStorage();
 
   const { activeCategory, cardStorage } = useCardStorage();
 
@@ -142,6 +145,44 @@ export const Exporter = () => {
               Copy to clipboard
             </Button>
           </Tabs.TabPane>
+          <Tabs.TabPane tab={"HTML"} key={"html"} style={{ minHeight: 250 }}>
+            <p>
+              Export your current selected category to an HTML file to print or share. You can customize the title bar color and base font size.
+            </p>
+            <div style={{ marginBottom: 15 }}>
+              <label style={{ marginRight: 10 }}>Title Bar Color:</label>
+              <input
+                type="color"
+                value={htmlTitleColor}
+                onChange={(e) => setHtmlTitleColor(e.target.value)}
+                style={{ verticalAlign: "middle" }}
+              />
+            </div>
+            <div style={{ marginBottom: 15 }}>
+              <label style={{ marginRight: 10 }}>Base Font Size (px):</label>
+              <InputNumber
+                min={10}
+                max={30}
+                value={htmlFontSize}
+                onChange={(val) => setHtmlFontSize(val || 16)}
+              />
+            </div>
+            <Button
+              onClick={() => {
+                const htmlContent = generateHtmlExport(activeCategory, htmlTitleColor, htmlFontSize);
+                const url = window.URL.createObjectURL(
+                  new Blob([htmlContent], { type: "text/html" })
+                );
+                const link = document.createElement("a");
+                link.href = url;
+                link.setAttribute("download", `${activeCategory.name || "export"}-${new Date().toISOString()}.html`);
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+              }}>
+              Export to HTML
+            </Button>
+          </Tabs.TabPane>
           <Tabs.TabPane tab={"Backup"} key={"backup"} style={{ minHeight: 250 }}>
             <p>Export all your local categories to a single JSON file. This can be used to backup your data.</p>
             <Button
@@ -185,7 +226,6 @@ export const Exporter = () => {
           shape={"circle"}
           icon={<DownloadOutlined />}
           onClick={() => {
-            logScreenView("Export Category");
             setIsModalVisible(true);
           }}
         />

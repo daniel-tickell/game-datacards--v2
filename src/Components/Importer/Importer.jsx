@@ -11,7 +11,7 @@ export const Importer = () => {
   const [uploadFile, setUploadFile] = React.useState(null);
   const [fileList, setFileList] = React.useState([]);
   const { importCategory } = useCardStorage();
-  const { logScreenView } = useFirebase();
+  const firebase = useFirebase();
 
   return (
     <>
@@ -176,7 +176,6 @@ export const Importer = () => {
           shape={"circle"}
           icon={<UploadOutlined />}
           onClick={() => {
-            logScreenView("Import Category");
             setIsModalVisible(true);
           }}
         />

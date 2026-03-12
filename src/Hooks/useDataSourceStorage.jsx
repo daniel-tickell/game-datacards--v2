@@ -27,8 +27,6 @@ var dataStore = localForage.createInstance({
 export const DataSourceStorageProviderComponent = (props) => {
   const { settings, updateSettings } = useSettingsStorage();
 
-  const { logLocalEvent } = useFirebase();
-
   const [dataSource, setDataSource] = React.useState(getBasicData());
   const [selectedFaction, setSelectedFaction] = React.useState(null);
   const [selectedSubFactions, setSelectedSubFactions] = React.useState([]);
@@ -39,7 +37,6 @@ export const DataSourceStorageProviderComponent = (props) => {
       if (!dataStore) {
         return;
       }
-      logLocalEvent("select_datasource", { dataSource: settings.selectedDataSource });
       if (settings.selectedDataSource === "40k") {
         const storedData = await dataStore.getItem("40k");
         if (storedData) {
@@ -136,7 +133,6 @@ export const DataSourceStorageProviderComponent = (props) => {
   }, [dataSource, selectedFaction]);
 
   const updateSelectedFaction = (faction) => {
-    logLocalEvent("select_faction", { faction: faction?.name, dataSource: settings.selectedDataSource });
     setSelectedFaction(faction);
     updateSettings({
       ...settings,

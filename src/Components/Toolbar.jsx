@@ -1,4 +1,4 @@
-import { FileImageOutlined, FolderAddOutlined, PrinterOutlined, SaveOutlined, FileTextOutlined, ThunderboltOutlined } from "@ant-design/icons";
+import { FileImageOutlined, FolderAddOutlined, PrinterOutlined, SaveOutlined, FileTextOutlined, ThunderboltOutlined, TableOutlined } from "@ant-design/icons";
 import { Button, Col, Row, Tooltip, message } from "antd";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -12,6 +12,7 @@ import { Exporter } from "./Importer/Exporter";
 import { Importer } from "./Importer/Importer";
 import { TextRosterImporter } from "./Importer/TextRosterImporter";
 import { StratagemCreator } from "./Importer/StratagemCreator";
+import { UnitSummaryTable } from "./UnitSummaryTable";
 
 const parser = new Parser({ mergeAttrs: true, explicitArray: false });
 
@@ -21,10 +22,9 @@ export const Toolbar = ({ selectedTreeKey, setSelectedTreeKey }) => {
   const { settings } = useSettingsStorage();
   const [showTextImporter, setShowTextImporter] = useState(false);
   const [showStratagemCreator, setShowStratagemCreator] = useState(false);
+  const [showSummaryTable, setShowSummaryTable] = useState(false);
 
   const navigate = useNavigate();
-
-  const { logScreenView } = useFirebase();
 
   const { cardStorage, activeCategory, saveActiveCard, cardUpdated, addCategory } = useCardStorage();
 
@@ -44,7 +44,6 @@ export const Toolbar = ({ selectedTreeKey, setSelectedTreeKey }) => {
             disabled={!(activeCategory && activeCategory.cards.length > 0)}
             onClick={() => {
               const categoryIndex = cardStorage?.categories?.findIndex((cat) => cat.uuid === activeCategory.uuid);
-              logScreenView("Print");
               if (settings.legacyPrinting) {
                 navigate(`/legacy-print/${categoryIndex}`);
               } else {
@@ -61,7 +60,6 @@ export const Toolbar = ({ selectedTreeKey, setSelectedTreeKey }) => {
             disabled={!(activeCategory && activeCategory.cards.length > 0)}
             onClick={() => {
               const categoryIndex = cardStorage?.categories?.findIndex((cat) => cat.uuid === activeCategory.uuid);
-              logScreenView("Export");
               navigate(`/image-export/${categoryIndex}`);
             }}
             icon={<FileImageOutlined />}
@@ -111,6 +109,17 @@ export const Toolbar = ({ selectedTreeKey, setSelectedTreeKey }) => {
         </Tooltip>
         <TextRosterImporter visible={showTextImporter} setVisible={setShowTextImporter} />
         <StratagemCreator visible={showStratagemCreator} setVisible={setShowStratagemCreator} />
+        <Tooltip title={"Unit Summary Table"} placement="bottomLeft">
+          <Button
+            type={"text"}
+            shape={"circle"}
+            icon={<TableOutlined />}
+            onClick={() => {
+              setShowSummaryTable(true);
+            }}
+          />
+        </Tooltip>
+        <UnitSummaryTable visible={showSummaryTable} setVisible={setShowSummaryTable} />
       </Col>
       <Col
         style={{
