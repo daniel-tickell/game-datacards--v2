@@ -3,6 +3,8 @@ import { UnitKeywords } from "./UnitCard/UnitKeywords";
 import { UnitLoadout } from "./UnitCard/UnitLoadout";
 import { UnitName } from "./UnitCard/UnitName";
 import { UnitWargear } from "./UnitCard/UnitWargear";
+import { UnitWeapons } from "./UnitCard/UnitWeapons";
+import { UnitExtra } from "./UnitCard/UnitExtra";
 import { useDataSourceStorage } from "../../Hooks/useDataSourceStorage";
 
 export const UnitCardBack = ({ unit, cardStyle, paddingTop = "32px", className }) => {
@@ -31,6 +33,8 @@ export const UnitCardBack = ({ unit, cardStyle, paddingTop = "32px", className }
         </div>
         <div className="data_container ">
           <div className="data back">
+            <UnitWeapons unit={unit} fontSize={unit.weaponsFontSize} side="back" />
+            <UnitExtra unit={unit} fontSize={unit.abilitiesFontSize} side="back" />
             <UnitWargear unit={unit} />
             <UnitLoadout unit={unit} />
           </div>

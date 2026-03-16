@@ -22,6 +22,24 @@ export function UnitBasicAbility({ type }) {
         bodyStyle={{ padding: 0 }}
         extra={
           <Space>
+            <Select
+              size="small"
+              value={activeCard.abilityPositions?.[type] || "front"}
+              style={{ width: 80 }}
+              onChange={(value) => {
+                updateActiveCard(() => {
+                  return {
+                    ...activeCard,
+                    abilityPositions: {
+                      ...activeCard.abilityPositions,
+                      [type]: value,
+                    },
+                  };
+                });
+              }}>
+              <Select.Option value="front">Front</Select.Option>
+              <Select.Option value="back">Back</Select.Option>
+            </Select>
             <Switch
               checked={activeCard.showAbilities?.[type] !== false}
               onChange={(value) => {

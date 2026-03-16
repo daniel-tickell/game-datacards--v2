@@ -18,6 +18,24 @@ export function UnitDamageTable() {
         bodyStyle={{ padding: ability.showDamagedAbility ? 8 : 0 }}
         extra={
           <Space>
+            <Select
+              size="small"
+              value={activeCard.abilityPositions?.damaged || "front"}
+              style={{ width: 80 }}
+              onChange={(value) => {
+                updateActiveCard(() => {
+                  return {
+                    ...activeCard,
+                    abilityPositions: {
+                      ...activeCard.abilityPositions,
+                      damaged: value,
+                    },
+                  };
+                });
+              }}>
+              <Select.Option value="front">Front</Select.Option>
+              <Select.Option value="back">Back</Select.Option>
+            </Select>
             <Switch
               checked={ability.showDamagedAbility}
               onChange={(value) => {

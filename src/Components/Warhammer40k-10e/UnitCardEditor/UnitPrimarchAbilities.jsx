@@ -12,6 +12,34 @@ export function UnitPrimarchAbilities() {
 
   return (
     <>
+      <Card
+        type={"inner"}
+        size={"small"}
+        title={`Primarch section visibility`}
+        style={{ marginBottom: "16px" }}
+        bodyStyle={{ padding: 0 }}
+        extra={
+          <Space>
+            <Select
+              size="small"
+              value={activeCard.abilityPositions?.primarch || "front"}
+              style={{ width: 80 }}
+              onChange={(value) => {
+                updateActiveCard(() => {
+                  return {
+                    ...activeCard,
+                    abilityPositions: {
+                      ...activeCard.abilityPositions,
+                      primarch: value,
+                    },
+                  };
+                });
+              }}>
+              <Select.Option value="front">Front</Select.Option>
+              <Select.Option value="back">Back</Select.Option>
+            </Select>
+          </Space>
+        }></Card>
       <DragDropContext
         onDragEnd={(result) => {
           if (!result.destination) {

@@ -2,49 +2,54 @@ import { UnitAbility } from "./UnitAbility";
 import { UnitAbilityDescription, replaceKeywords } from "./UnitAbilityDescription";
 import { UnitInvul } from "./UnitInvul";
 
-export const UnitExtra = ({ unit, fontSize }) => {
+export const UnitExtra = ({ unit, fontSize, side = "front" }) => {
   const abilitiesFontSize = fontSize || 12;
+
+  const showCore = unit?.showAbilities?.["core"] !== false && (unit.abilityPositions?.core || "front") === side;
+  const showFaction = unit?.showAbilities?.["faction"] !== false && (unit.abilityPositions?.faction || "front") === side;
+  const showOther = unit?.showAbilities?.["other"] !== false && (unit.abilityPositions?.other || "front") === side;
+  const showWargear = unit?.showAbilities?.["wargear"] !== false && (unit.abilityPositions?.wargear || "front") === side;
+  const showDamaged = unit.abilities?.damaged && unit.abilities?.damaged.showDamagedAbility && (unit.abilityPositions?.damaged || "front") === side;
+  const showSpecial = unit?.showAbilities?.["special"] !== false && unit.abilities?.special && (unit.abilityPositions?.special || "front") === side;
 
   return (
     <div className="extra">
-      {(unit?.showAbilities?.["core"] !== false ||
-        unit?.showAbilities?.["faction"] !== false ||
-        unit?.showAbilities?.["other"] !== false) && (
-          <div className="abilities">
-            <div className="heading">
-              <div className="title">Abilities</div>
-            </div>
-            {unit?.showAbilities?.["core"] !== false && (
-              <UnitAbility
-                name={"core"}
-                value={unit.abilities?.core?.join(", ")}
-                style={{ fontSize: `${abilitiesFontSize}px` }}
-              />
-            )}
-            {unit?.showAbilities?.["faction"] !== false && (
-              <UnitAbility
-                name={"faction"}
-                value={unit.abilities?.faction?.join(", ")}
-                style={{ fontSize: `${abilitiesFontSize}px` }}
-              />
-            )}
-            {unit?.showAbilities?.["other"] !== false &&
-              unit.abilities?.other
-                ?.filter((ability) => ability.showAbility)
-                ?.map((ability, index) => {
-                  return (
-                    <UnitAbilityDescription
-                      name={ability.name}
-                      description={ability?.description}
-                      showDescription={ability?.showDescription}
-                      key={`ability-${index}`}
-                      style={{ fontSize: `${abilitiesFontSize}px` }}
-                    />
-                  );
-                })}
+      {(showCore || showFaction || showOther) && (
+        <div className="abilities">
+          <div className="heading">
+            <div className="title">Abilities</div>
           </div>
-        )}
-      {unit?.showAbilities?.["wargear"] !== false &&
+          {showCore && (
+            <UnitAbility
+              name={"core"}
+              value={unit.abilities?.core?.join(", ")}
+              style={{ fontSize: `${abilitiesFontSize}px` }}
+            />
+          )}
+          {showFaction && (
+            <UnitAbility
+              name={"faction"}
+              value={unit.abilities?.faction?.join(", ")}
+              style={{ fontSize: `${abilitiesFontSize}px` }}
+            />
+          )}
+          {showOther &&
+            unit.abilities?.other
+              ?.filter((ability) => ability.showAbility)
+              ?.map((ability, index) => {
+                return (
+                  <UnitAbilityDescription
+                    name={ability.name}
+                    description={ability?.description}
+                    showDescription={ability?.showDescription}
+                    key={`ability-${index}`}
+                    style={{ fontSize: `${abilitiesFontSize}px` }}
+                  />
+                );
+              })}
+        </div>
+      )}
+      {showWargear &&
         unit.abilities?.wargear?.filter((ability) => ability.showAbility)?.length > 0 && (
           <div className="abilities">
             <div className="heading">
@@ -65,7 +70,7 @@ export const UnitExtra = ({ unit, fontSize }) => {
               })}
           </div>
         )}
-      {unit.abilities?.damaged && unit.abilities?.damaged.showDamagedAbility && (
+      {showDamaged && (
         <div className="damaged" style={{ fontSize: `${abilitiesFontSize}px` }}>
           <div className="heading">
             <div className="title">Damaged: {unit.abilities?.damaged?.range}</div>
@@ -77,7 +82,7 @@ export const UnitExtra = ({ unit, fontSize }) => {
           )}
         </div>
       )}
-      {unit?.showAbilities?.["special"] !== false && unit.abilities?.special && (
+      {showSpecial && (
         <>
           {unit.abilities?.special
             ?.filter((ability) => ability.showAbility)

@@ -125,8 +125,8 @@ export const UnitCardFront = ({ unit, cardStyle, paddingTop = "32px", className 
         </div>
         <div className="data_container">
           <div className="data">
-            <UnitWeapons unit={unit} fontSize={unit.weaponsFontSize} />
-            <UnitExtra unit={unit} fontSize={unit.abilitiesFontSize} />
+            <UnitWeapons unit={unit} fontSize={unit.weaponsFontSize} side="front" />
+            <UnitExtra unit={unit} fontSize={unit.abilitiesFontSize} side="front" />
           </div>
         </div>
         <div className="footer">
